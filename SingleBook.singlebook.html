@@ -1,0 +1,3052 @@
+<!-- https://nathanvy.com/singlebook -->
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="singlebook 0.1.1">
+    <meta name="color-scheme" content="light">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; media-src data: blob:; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+    <title>SingleBook — singlebook</title>
+    <!-- the below comment and its matching twin further down delineate the book data boundaries -->
+    <!-- these delimiters are used by the python script that generates example books and can be safely removed if you don't care about retaining that functionality -->
+    <!-- singlebook-data:start -->
+    <script id="singlebook-data" type="application/singlebook+json">
+{
+  "format": "singlebook",
+  "version": 1,
+  "id": "6fd4b031-80c3-4fb7-a581-d6fad4ae66e5",
+  "book": {
+    "title": "SingleBook",
+    "subtitle": "The file is the software.",
+    "author": "",
+    "language": "en",
+    "description": "A single html file that contains the book and its own editor.  Works offline, opens anywhere, zero dependencies.",
+    "coverAsset": "",
+    "coverAlt": "",
+    "coverDecorative": false,
+    "theme": "paper",
+    "accent": "#9b3a32",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-28T21:56:00.162Z"
+  },
+  "pages": [
+    {
+      "id": "page-welcome",
+      "type": "text",
+      "title": "Welcome to SingleBook",
+      "markdown": "SingleBook is a complete ebook **and** its editor in one readable, portable HTML file. It needs no account, server, build step, or internet connection.\n\nThis copy is both a manual and a working showcase. You can read it from beginning to end, or jump straight to:\n\n- [Start a book](#page/page-start)\n- [Text Pages](#page/page-text-showcase)\n- [Section Pages](#page/page-section-showcase)\n- [Picture Pages](#page/page-picture-showcase)\n- [Saving differences between browsers](#page/page-saving)\n\nChoose **Edit** in the header whenever you are ready to inspect the controls or make this copy your own. Everything you change remains in memory until you save."
+    },
+    {
+      "id": "page-essentials",
+      "type": "section",
+      "title": "Part I · The essentials",
+      "subtitle": "Start, read, edit, save"
+    },
+    {
+      "id": "page-start",
+      "type": "text",
+      "title": "Start a book",
+      "markdown": "SingleBook does not require installation.  It's just a file that you can share, edit, copy, and do pretty much whatever you please with.\n\n1. Copy `SingleBook.singlebook.html`.\n2. Rename the copy to something like `my-novel.singlebook.html`.\n3. Open the copy in a modern browser with JavaScript enabled.\n4. Choose **Edit**, replace this demo content, and choose **Save**.\n\nThe `.singlebook.html` ending is merely a convention, not a special file format.\n\n## Pro tip:\n> Keep an untouched copy of the original file nearby. It is both a clean template and an easy way to recover the reader/editor shell.\n"
+    },
+    {
+      "id": "page-reading",
+      "type": "text",
+      "title": "Reading a SingleBook",
+      "markdown": "Every book opens in reader mode. The **Cover** introduces the book, while **Contents** lists every page and identifies its type. Those two pages receive special processing.  Previous, next, and Contents links appear below each page.\n\nWhen focus is not inside a button, link, or form control, you can use the **Left Arrow** and **Right Arrow** keys to move through pages. The left arrow from the first page returns to the cover.\n\nEach page also has a stable address ending in `#page/page-id`. Bookmark it, copy it, or use it for a link elsewhere in the same book. Reordering a page does not change that address.\n\nTry a real internal link: [return to the welcome page](#page/page-welcome)."
+    },
+    {
+      "id": "page-editing",
+      "type": "text",
+      "title": "Editing a SingleBook",
+      "markdown": "Choose **Edit** to open the page rail and editor. Select a page in the rail, move it with the arrow buttons, or use **+ Add page** to create a text, section, or picture page. **Book settings** controls the cover, metadata, language, and accent color.\n\nText pages offer **Write** and **Preview** tabs plus a small formatting toolbar. Native browser undo and redo work while you are typing. Titles, settings, order, and page content update the in-memory book immediately.\n\nThe status in the header distinguishes a clean book from **Unsaved changes**. Choose **Reader** at any time to see the selected page in its final reading layout; switching modes does not save the file.\n\nDeleting a page asks for confirmation. If it is the only page, SingleBook keeps its stable ID and turns it into a blank text page instead."
+    },
+    {
+      "id": "page-saving",
+      "type": "text",
+      "title": "Saving your book",
+      "markdown": "The action is always **Save**. You can also press **Command-S** on macOS or **Ctrl-S** elsewhere; SingleBook prevents the browser’s normal Save Page dialog.\n\nIn Chrome, Edge, and other browsers that expose direct file access, the first save asks where to put the `.singlebook.html` file. Later saves in that browser session update the approved file directly.\n\nIn Firefox, Safari, and other browsers without direct file access, Save downloads a new complete copy. **The file currently open does not change.** This is a limitation of those browsers.  Open the newest download before you continue editing, and replace or archive the older copy deliberately. \n\nBefore writing, SingleBook warns about meaningful images without descriptions. It then serializes the complete app and book, removes unused embedded images, and checks that the document data survives a round trip. A saved copy still contains the reader, editor, and current book."
+    },
+    {
+      "id": "page-types",
+      "type": "section",
+      "title": "Part II · Page types",
+      "subtitle": ""
+    },
+    {
+      "id": "page-text-showcase",
+      "type": "text",
+      "title": "The text page",
+      "markdown": "A text page is a regular page: a title followed by long-form writing in SingleBook’s supported subset of Markdown. This page is a text page. \n\n## Typography in practice\n\nUse **bold** for strong emphasis, _italics_ for a change of voice, ~~strikethrough~~ for a visible correction, and `inline code` for literal names or short commands.\n\nSinglebook supports block quotes:\n\n> Do or do not.  There is no try.  - Gandalf\n\nLists can be unordered:\n\n- one self-contained file\n- a reader and editor\n  - with an immediate preview\n- no required network\n\nOr ordered:\n\n1. write\n2. preview\n3. save\n\n---\n\nHeadings, prose, quotes, lists, code, links, and inline images all belong comfortably on a text page. [The full Markdown reference is later in this guide.](#page/page-markdown)"
+    },
+    {
+      "id": "page-section-showcase",
+      "type": "section",
+      "title": "Section Page",
+      "subtitle": "This is a section page: title, optional subtitle, and nothing else.  Use it to break up the text."
+    },
+    {
+      "id": "page-picture-showcase",
+      "type": "picture",
+      "title": "Picture pages",
+      "asset": "asset-showcase-book",
+      "alt": "Shitty chatgpt image.",
+      "caption": "Picture pages contain a single image, such as this shitty chatgpt placeholder. If the image is reused elsewhere it is not duplicated, to save page weight.",
+      "decorative": false,
+      "fit": "contain"
+    },
+    {
+      "id": "page-writing",
+      "type": "section",
+      "title": "Part III · Writing tools",
+      "subtitle": "Markdown, links, and images"
+    },
+    {
+      "id": "page-markdown",
+      "type": "text",
+      "title": "The Markdown reference",
+      "markdown": "SingleBook intentionally supports a small subset of Markdown. A page title is separate from its Markdown body. Inside the body, use headings from `#` through `####`.\n\n## Inline formatting\n\n```markdown\n**bold**  _italic_  ~~strikethrough~~  `inline code`\n[link label](https://example.com)\n```\n\nA backslash escapes the next formatting character. Two spaces before a newline make a hard line break; otherwise adjacent lines in a paragraph flow together.\n\n## Blocks\n\n```markdown\n## Heading\n\n> Quoted text\n\n- bullet\n  - indented bullet\n\n1. numbered item\n2. another item\n\n---\n```\n\nTriple-backtick fences make code blocks; add a short language label after the opening fence when useful. SingleBook preserves that label for semantics but does not add syntax highlighting.\n\nBlank lines separate paragraphs. Tables, task lists, footnotes, raw HTML, and arbitrary embedded media are outside the supported subset. Unsupported markup remains ordinary text whenever possible but might have unintended layout effects."
+    },
+    {
+      "id": "page-links",
+      "type": "text",
+      "title": "Links and navigation",
+      "markdown": "The link tool accepts three kinds of destination:\n\n- `https://` or `http://` web addresses\n- `mailto:` email addresses\n- `#page/…` links to pages in this book\n\nWeb and email links open outside the book with some protections against the new page controlling this one. \n\nFor an internal link, use the stable ID visible at the end of the destination page’s address. This page is `#page/page-links`. Renaming or moving it keeps that link valid. Deleting it does not.\n\nExample: [jump to the picture-page showcase](#page/page-picture-showcase)."
+    },
+    {
+      "id": "page-images",
+      "type": "text",
+      "title": "Images",
+      "markdown": "SingleBook accepts PNG, JPEG, GIF, WebP, and AVIF images. It rejects SVG and remote image URLs. Imported images are stored as data inside the book, so every copy remains portable and offline. Very large files make every saved copy larger; images above 10 MB trigger an extra confirmation.\n\n\"Picture Page\" type pages are intended for one dominant image.  The book cover can also have an image.  For an illustration inside the prose you can use the markdown inline image feature:\n\n![That same Crappy ChatGPT image of a book](asset:asset-showcase-book)"
+    },
+    {
+      "id": "page-portable",
+      "type": "section",
+      "title": "Part IV · Keeping and sharing",
+      "subtitle": "Portable by design"
+    },
+    {
+      "id": "page-offline",
+      "type": "text",
+      "title": "Offline by design",
+      "markdown": "A SingleBook has no external scripts, styles, fonts, frames, images, analytics, or network client. Its Content Security Policy blocks network connections and treats the file as a closed package. Once you have the file, reading and editing do not depend on a service staying online, so in theory a SimpleBook book should remain readable for as long as browsers support HTML.\n\nImages must be supported raster formats, stored as data in the document.\n\nSingleBook explicitly does not support encryption or DRM. Anyone with the file can read its source and use the included editor.  Singlebook offers no Sharing feature.  It's just a file, so you can email it, print it, etc."
+    },
+    {
+      "id": "page-makers",
+      "type": "section",
+      "title": "Part V · Under the cover",
+      "subtitle": "For hackers and maintainers"
+    },
+    {
+      "id": "page-inside",
+      "type": "text",
+      "title": "What lives in this file",
+      "markdown": "The source is deliberately readable. Near the top, one JSON block stores the book metadata, ordered pages, and embedded assets. The rest of the document contains the styles and unminified JavaScript for the reader, editor, validation, and saving workflow.\n\nThe document declares a format name and version so future editors can recognize compatibility. Every page has a stable ID. Assets have IDs too, letting the cover, picture pages, and text pages reuse the same embedded image.\n\nWhen saving, SingleBook starts from a clean clone of its own document rather than copying the live interface. Temporary dialogs, notices, and editor state are not written into the book. The current document data is serialized back into its single designated block."
+    },
+    {
+      "id": "page-hacking",
+      "type": "text",
+      "title": "Hacking on SingleBook",
+      "markdown": "The repository's `SingleBook.singlebook.html` is the canonical source: feel free to edit it directly, add features or custom page types, etc. There is no generated version, dependency manager, framework, or build pipeline.  \n\nIf you are not a hacker type, ask your friendly local AI model for advice getting started."
+    }
+  ],
+  "assets": {
+    "asset-showcase-book": {
+      "name": "singlebook-showcase.webp",
+      "mime": "image/webp",
+      "data": "data:image/webp;base64,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"
+    }
+  }
+}
+  </script>
+    <!-- singlebook-data:end -->
+    <style>
+        :root {
+            color-scheme: light;
+            --paper: #f8f4ea;
+            --paper-raised: #fffdf7;
+            --paper-deep: #eee7d8;
+            --ink: #24221e;
+            --ink-soft: #666158;
+            --ink-faint: #8b857a;
+            --accent: #9b3a32;
+            --accent-ink: #ffffff;
+            --border: #d8d0c1;
+            --border-strong: #b8ad9c;
+            --danger: #9a2721;
+            --success: #346744;
+            --focus: #1769aa;
+            --shadow: 0 18px 60px rgba(42, 34, 22, 0.12);
+            --shadow-small: 0 5px 18px rgba(42, 34, 22, 0.1);
+            --radius: 0.75rem;
+            --radius-small: 0.45rem;
+            --measure: 68ch;
+            --serif: ui-serif, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+            --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        }
+    
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+    
+        html {
+            min-height: 100%;
+            background: var(--paper);
+            scroll-behavior: smooth;
+        }
+    
+        body {
+            min-height: 100vh;
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(255, 255, 255, 0.72), transparent 30rem),
+                var(--paper);
+            font-family: var(--sans);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+    
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+    
+        button,
+        .button {
+            min-height: 2.75rem;
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-small);
+            padding: 0.58rem 0.9rem;
+            color: var(--ink);
+            background: var(--paper-raised);
+            font-weight: 650;
+            line-height: 1.15;
+            cursor: pointer;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset;
+        }
+    
+        button:hover,
+        .button:hover {
+            border-color: var(--ink-soft);
+        }
+    
+        button:active,
+        .button:active {
+            transform: translateY(1px);
+        }
+    
+        button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            transform: none;
+        }
+    
+        button.primary {
+            color: var(--accent-ink);
+            border-color: var(--accent);
+            background: var(--accent);
+        }
+    
+        button.quiet {
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+        }
+    
+        button.danger {
+            color: var(--danger);
+        }
+    
+        button.danger.primary {
+            color: #fff;
+            background: var(--danger);
+            border-color: var(--danger);
+        }
+    
+        a {
+            color: var(--accent);
+            text-underline-offset: 0.14em;
+        }
+    
+        a:hover {
+            text-decoration-thickness: 2px;
+        }
+    
+        :focus-visible {
+            outline: 3px solid var(--focus);
+            outline-offset: 3px;
+        }
+
+        .reader-main h1[tabindex="-1"]:focus-visible {
+            outline: none;
+        }
+    
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+    
+        .skip-link {
+            position: fixed;
+            z-index: 1000;
+            top: 0.75rem;
+            left: 0.75rem;
+            padding: 0.7rem 1rem;
+            color: #fff;
+            background: var(--ink);
+            border-radius: var(--radius-small);
+            transform: translateY(-180%);
+        }
+    
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+    
+        #singlebook-splash {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 2rem;
+            color: var(--ink-soft);
+            font: 600 0.95rem/1.4 var(--sans);
+            letter-spacing: 0.04em;
+        }
+    
+        .app-header {
+            position: sticky;
+            z-index: 20;
+            top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            min-height: 4rem;
+            padding: 0.55rem clamp(0.75rem, 2.5vw, 2rem);
+            border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+            background: color-mix(in srgb, var(--paper) 92%, transparent);
+            backdrop-filter: blur(16px);
+        }
+    
+        .app-title {
+            min-width: 0;
+            margin-right: auto;
+            overflow: hidden;
+            color: var(--ink);
+            font-weight: 780;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+    
+        .save-button {
+            display: inline-flex;
+            align-items: center;
+            gap: .42rem;
+        }
+    
+        .save-icon {
+            width: 1.05rem;
+            height: 1.05rem;
+            flex: none;
+        }
+    
+        .save-status {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2rem;
+            max-width: 21rem;
+            padding: 0.3rem 0.6rem;
+            overflow: hidden;
+            color: var(--ink-soft);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        .save-status[data-tone="dirty"] {
+            color: #775312;
+            background: #f5e8bd;
+        }
+    
+        .save-status[data-tone="saved"] {
+            color: var(--success);
+            background: #e5f0e5;
+        }
+    
+        .save-status[data-tone="error"] {
+            color: var(--danger);
+            background: #f6dfdc;
+        }
+    
+        .save-capability-banner {
+            position: fixed;
+            z-index: 60;
+            top: calc(4.75rem + env(safe-area-inset-top, 0px));
+            left: 50%;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            width: max-content;
+            max-width: min(38rem, calc(100vw - 2rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+            padding: .7rem .8rem .7rem 1rem;
+            color: var(--paper-raised);
+            border-radius: var(--radius);
+            background: var(--ink);
+            box-shadow: 0 10px 32px rgba(20, 18, 15, .28);
+            font-size: .85rem;
+            line-height: 1.4;
+            transform: translateX(-50%);
+        }
+    
+        .save-capability-banner span {
+            min-width: 0;
+        }
+    
+        .save-capability-banner button {
+            flex: none;
+            min-height: 2.35rem;
+            padding: .42rem .72rem;
+        }
+    
+        .reader-main {
+            min-height: calc(100vh - 4rem);
+        }
+    
+        .reader-surface {
+            width: min(calc(100% - 2rem), 58rem);
+            margin: 0 auto;
+            padding: clamp(2.5rem, 8vw, 7rem) 0 6rem;
+        }
+    
+        .book-cover {
+            min-height: calc(100vh - 9rem);
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            align-content: center;
+            justify-items: start;
+            gap: 1.2rem;
+            width: min(calc(100% - 2rem), 70rem);
+            margin: 0 auto;
+            padding: 3rem 0 5rem;
+        }
+    
+        .book-cover.has-art {
+            grid-template-columns: minmax(16rem, .82fr) minmax(0, 1.18fr);
+            align-items: center;
+            column-gap: clamp(2rem, 7vw, 7rem);
+        }
+    
+        .cover-art {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: calc(var(--radius) * 1.2);
+            box-shadow: var(--shadow);
+            background: var(--paper-deep);
+        }
+    
+        .cover-copy {
+            max-width: 42rem;
+        }
+    
+        .cover-kicker {
+            margin: 0 0 0.8rem;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+    
+        .cover-title {
+            max-width: 14ch;
+            margin: 0;
+            font: 720 clamp(3.1rem, 9vw, 7.4rem)/0.94 var(--serif);
+            letter-spacing: -0.045em;
+            text-wrap: balance;
+        }
+    
+        .cover-subtitle {
+            max-width: 34ch;
+            margin: 1.15rem 0 0;
+            color: var(--ink-soft);
+            font: 400 clamp(1.2rem, 2.5vw, 1.7rem)/1.35 var(--serif);
+        }
+    
+        .cover-author {
+            margin: 1.5rem 0 0;
+            font-weight: 740;
+        }
+    
+        .cover-description {
+            max-width: 48ch;
+            margin: 1.4rem 0 0;
+            color: var(--ink-soft);
+        }
+    
+        .cover-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 2rem;
+        }
+    
+        .contents-heading,
+        .page-title {
+            margin: 0 0 2rem;
+            font: 720 clamp(2.25rem, 6vw, 4.7rem)/1.02 var(--serif);
+            letter-spacing: -0.035em;
+            text-wrap: balance;
+        }
+    
+        .contents-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: 1px solid var(--border);
+        }
+    
+        .contents-item {
+            border-bottom: 1px solid var(--border);
+        }
+    
+        .contents-link {
+            display: grid;
+            grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+            gap: 0.75rem;
+            align-items: baseline;
+            padding: 1.1rem 0.2rem;
+            color: var(--ink);
+            text-decoration: none;
+        }
+    
+        .contents-link:hover .contents-name {
+            color: var(--accent);
+        }
+    
+        .contents-number {
+            color: var(--ink-faint);
+            font-variant-numeric: tabular-nums;
+        }
+    
+        .contents-name {
+            font: 650 clamp(1.05rem, 2vw, 1.25rem)/1.3 var(--serif);
+        }
+    
+        .contents-kind {
+            color: var(--ink-faint);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+    
+        .contents-item.section {
+            border-bottom: 0;
+        }
+    
+        .contents-item.section .contents-link {
+            grid-template-columns: 1fr;
+            padding-top: 2.5rem;
+            padding-bottom: .65rem;
+        }
+    
+        .contents-item.section .contents-name {
+            color: var(--accent);
+            font: 800 0.83rem/1.3 var(--sans);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+    
+        .contents-item.section .contents-number,
+        .contents-item.section .contents-kind {
+            display: none;
+        }
+    
+        .book-page {
+            max-width: var(--measure);
+            margin: 0 auto;
+        }
+    
+        .book-page.prose {
+            font: 400 clamp(1.08rem, 1.7vw, 1.25rem)/1.72 var(--serif);
+        }
+    
+        .book-page.prose>*:first-child {
+            margin-top: 0;
+        }
+    
+        .book-page.prose h2,
+        .book-page.prose h3,
+        .book-page.prose h4,
+        .book-page.prose h5 {
+            margin: 2.2em 0 .6em;
+            line-height: 1.15;
+            text-wrap: balance;
+        }
+    
+        .book-page.prose h2 {
+            font-size: 1.9em;
+        }
+    
+        .book-page.prose h3 {
+            font-size: 1.5em;
+        }
+    
+        .book-page.prose h4 {
+            font-size: 1.25em;
+        }
+    
+        .book-page.prose p,
+        .book-page.prose ul,
+        .book-page.prose ol,
+        .book-page.prose blockquote,
+        .book-page.prose pre {
+            margin: 0 0 1.25em;
+        }
+    
+        .book-page.prose li+li {
+            margin-top: .35em;
+        }
+    
+        .book-page.prose blockquote {
+            margin-left: 0;
+            padding: .25rem 0 .25rem 1.25rem;
+            color: var(--ink-soft);
+            border-left: .22rem solid var(--accent);
+            font-style: italic;
+        }
+    
+        .book-page.prose code {
+            padding: .08em .28em;
+            border-radius: .25em;
+            background: var(--paper-deep);
+            font: .88em/1.4 var(--mono);
+            overflow-wrap: anywhere;
+        }
+    
+        .book-page.prose pre {
+            overflow: auto;
+            padding: 1rem 1.15rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-small);
+            background: #25231f;
+            color: #f7f2e8;
+        }
+    
+        .book-page.prose pre code {
+            padding: 0;
+            color: inherit;
+            background: transparent;
+        }
+    
+        .book-page.prose hr {
+            width: 7rem;
+            margin: 3rem auto;
+            border: 0;
+            border-top: .22rem solid var(--accent);
+        }
+    
+        .book-page.prose img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            border-radius: var(--radius-small);
+        }
+    
+        .book-page.prose a {
+            overflow-wrap: anywhere;
+        }
+    
+        .section-page {
+            min-height: 60vh;
+            display: grid;
+            align-content: center;
+            max-width: 64rem;
+            margin: 0 auto;
+            padding-left: clamp(1rem, 6vw, 5rem);
+            border-left: clamp(.35rem, 1vw, .75rem) solid var(--accent);
+        }
+    
+        .section-page h1 {
+            max-width: 14ch;
+            margin: 0;
+            font: 760 clamp(3rem, 10vw, 8rem)/.94 var(--serif);
+            letter-spacing: -.045em;
+            text-wrap: balance;
+        }
+    
+        .section-page p {
+            max-width: 35ch;
+            margin: 1.4rem 0 0;
+            color: var(--ink-soft);
+            font: 400 clamp(1.2rem, 2.7vw, 1.8rem)/1.35 var(--serif);
+        }
+    
+        .picture-page {
+            max-width: 76rem;
+            margin: 0 auto;
+        }
+    
+        .picture-page h1 {
+            max-width: 20ch;
+        }
+    
+        .picture-page figure {
+            margin: 0;
+        }
+    
+        .picture-page img {
+            display: block;
+            width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: var(--radius);
+            background: var(--paper-deep);
+            box-shadow: var(--shadow-small);
+        }
+    
+        .picture-page img[data-fit="cover"] {
+            aspect-ratio: 16/10;
+            object-fit: cover;
+        }
+    
+        .picture-page figcaption {
+            max-width: var(--measure);
+            margin: .85rem auto 0;
+            color: var(--ink-soft);
+            font: .95rem/1.5 var(--sans);
+        }
+    
+        .missing-asset {
+            display: grid;
+            min-height: 14rem;
+            place-items: center;
+            padding: 2rem;
+            color: var(--danger);
+            border: 2px dashed currentColor;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+    
+        .page-navigation {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+            width: min(calc(100% - 2rem), 58rem);
+            margin: 2rem auto 0;
+            padding: 2rem 0 5rem;
+            border-top: 1px solid var(--border);
+        }
+    
+        .page-navigation .previous {
+            justify-self: start;
+        }
+    
+        .page-navigation .contents {
+            justify-self: center;
+        }
+    
+        .page-navigation .next {
+            justify-self: end;
+            text-align: right;
+        }
+    
+        .page-navigation a {
+            display: inline-flex;
+            min-height: 2.75rem;
+            align-items: center;
+            color: var(--ink);
+            font-weight: 700;
+            text-decoration: none;
+        }
+    
+        .page-navigation a:hover {
+            color: var(--accent);
+        }
+    
+        .editor-app {
+            height: 100vh;
+            overflow: hidden;
+            background: #f3efe7;
+        }
+    
+        .editor-header {
+            position: relative;
+            background: var(--paper-raised);
+            backdrop-filter: none;
+        }
+    
+        .editor-body {
+            height: calc(100vh - 4rem);
+            display: grid;
+            grid-template-columns: minmax(15.5rem, 20rem) minmax(0, 1fr);
+        }
+    
+        .page-rail {
+            overflow: auto;
+            padding: .85rem;
+            border-right: 1px solid var(--border);
+            background: #ebe5da;
+        }
+    
+        .rail-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .5rem;
+            margin: 0 0 .7rem;
+            padding: 0 .3rem;
+        }
+    
+        .rail-heading h2 {
+            margin: 0;
+            font-size: .83rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+    
+        .rail-list {
+            display: grid;
+            gap: .35rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    
+        .rail-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: .25rem;
+            align-items: stretch;
+        }
+    
+        .rail-select {
+            min-width: 0;
+            display: grid;
+            grid-template-columns: 1.6rem minmax(0, 1fr);
+            align-items: center;
+            gap: .45rem;
+            text-align: left;
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+            font-weight: 600;
+        }
+    
+        .rail-row.selected .rail-select {
+            border-color: var(--border-strong);
+            background: var(--paper-raised);
+            box-shadow: var(--shadow-small);
+        }
+    
+        .rail-type {
+            color: var(--ink-faint);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+        }
+    
+        .rail-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        .rail-move {
+            display: flex;
+            gap: .1rem;
+        }
+    
+        .rail-move button {
+            width: 2rem;
+            min-height: 2.5rem;
+            padding: 0;
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+        }
+    
+        .add-page-button {
+            width: 100%;
+            margin-top: .7rem;
+            border-style: dashed;
+            background: rgba(255, 255, 255, .35);
+        }
+    
+        .editor-main {
+            min-width: 0;
+            overflow: auto;
+            padding: clamp(1rem, 3vw, 2.5rem);
+        }
+    
+        .editor-panel {
+            width: min(100%, 78rem);
+            margin: 0 auto;
+        }
+    
+        .editor-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+    
+        .editor-panel-header h1 {
+            margin: 0;
+            font: 730 clamp(1.8rem, 4vw, 3rem)/1.1 var(--serif);
+        }
+    
+        .page-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+    
+        .form-stack {
+            display: grid;
+            gap: 1.1rem;
+        }
+    
+        .field {
+            display: grid;
+            gap: .35rem;
+        }
+    
+        .field>label,
+        .field-label {
+            color: var(--ink-soft);
+            font-size: .82rem;
+            font-weight: 760;
+            letter-spacing: .03em;
+        }
+    
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-small);
+            padding: .7rem .78rem;
+            color: var(--ink);
+            background: var(--paper-raised);
+            box-shadow: 0 1px 2px rgba(42, 34, 22, .04) inset;
+        }
+    
+        .field textarea {
+            min-height: 7rem;
+            resize: vertical;
+        }
+    
+        .field input[type="color"] {
+            width: 5rem;
+            min-height: 3rem;
+            padding: .25rem;
+        }
+    
+        .field-hint {
+            margin: 0;
+            color: var(--ink-faint);
+            font-size: .82rem;
+        }
+    
+        .field-error {
+            margin: 0;
+            color: var(--danger);
+            font-size: .82rem;
+            font-weight: 650;
+        }
+    
+        .writing-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(19rem, .85fr);
+            gap: 1rem;
+            align-items: stretch;
+        }
+    
+        .writing-pane,
+        .preview-pane,
+        .settings-card {
+            min-width: 0;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--paper-raised);
+            box-shadow: var(--shadow-small);
+        }
+    
+        .writing-pane {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+    
+        .markdown-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .15rem;
+            padding: .45rem;
+            border-bottom: 1px solid var(--border);
+            background: #f5f0e7;
+        }
+    
+        .markdown-toolbar button {
+            min-width: 2.5rem;
+            min-height: 2.35rem;
+            padding: .35rem .5rem;
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+        }
+    
+        .markdown-toolbar button:hover {
+            background: var(--paper-raised);
+            border-color: var(--border);
+        }
+    
+        .markdown-editor {
+            flex: 1;
+            width: 100%;
+            min-height: 58vh;
+            resize: vertical;
+            border: 0;
+            padding: 1.25rem;
+            color: var(--ink);
+            background: transparent;
+            font: 1rem/1.65 var(--mono);
+            tab-size: 2;
+        }
+    
+        .markdown-editor:focus {
+            outline: 0;
+            box-shadow: inset 0 0 0 3px var(--focus);
+        }
+    
+        .preview-pane {
+            overflow: auto;
+            padding: clamp(1.2rem, 3vw, 2.2rem);
+        }
+    
+        .preview-label {
+            margin: 0 0 1rem;
+            color: var(--ink-faint);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+    
+        .preview-pane .book-page {
+            font-size: .95rem;
+        }
+    
+        .editor-tabs {
+            display: none;
+        }
+    
+        .settings-card {
+            padding: clamp(1rem, 3vw, 2rem);
+        }
+    
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+    
+        .settings-grid .wide {
+            grid-column: 1 / -1;
+        }
+    
+        .asset-card {
+            display: grid;
+            grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr);
+            gap: 1rem;
+            align-items: start;
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: #f7f3eb;
+        }
+    
+        .asset-card img {
+            display: block;
+            width: 100%;
+            max-height: 18rem;
+            object-fit: contain;
+            border-radius: var(--radius-small);
+            background: var(--paper-deep);
+        }
+    
+        .asset-meta {
+            color: var(--ink-soft);
+            font-size: .85rem;
+            overflow-wrap: anywhere;
+        }
+    
+        .inline-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            align-items: center;
+        }
+    
+        dialog {
+            width: min(calc(100% - 2rem), 34rem);
+            padding: 0;
+            color: var(--ink);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius);
+            background: var(--paper-raised);
+            box-shadow: var(--shadow);
+        }
+    
+        dialog::backdrop {
+            background: rgba(28, 25, 21, .56);
+            backdrop-filter: blur(2px);
+        }
+    
+        .dialog-body {
+            padding: 1.35rem;
+        }
+    
+        .dialog-body h2 {
+            margin: 0 0 .65rem;
+            font: 720 1.65rem/1.15 var(--serif);
+        }
+    
+        .dialog-body p {
+            color: var(--ink-soft);
+        }
+    
+        .dialog-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: .55rem;
+            padding: 1rem 1.35rem;
+            border-top: 1px solid var(--border);
+            background: #f4efe7;
+        }
+    
+        .page-type-choices {
+            display: grid;
+            gap: .55rem;
+            margin-top: 1rem;
+        }
+    
+        .page-type-choice {
+            display: grid;
+            gap: .18rem;
+            width: 100%;
+            padding: .85rem 1rem;
+            text-align: left;
+        }
+    
+        .page-type-choice small {
+            color: var(--ink-soft);
+            font-weight: 400;
+        }
+    
+        .fatal-screen {
+            width: min(calc(100% - 2rem), 58rem);
+            margin: 0 auto;
+            padding: 5rem 0;
+        }
+    
+        .fatal-screen h1 {
+            font: 720 clamp(2rem, 5vw, 4rem)/1 var(--serif);
+        }
+    
+        .fatal-details {
+            padding: 1rem;
+            color: var(--danger);
+            border: 1px solid currentColor;
+            border-radius: var(--radius-small);
+            background: #fff7f5;
+            font-family: var(--mono);
+            overflow-wrap: anywhere;
+        }
+    
+        .raw-json {
+            width: 100%;
+            min-height: 18rem;
+            margin-top: 1rem;
+            font: .82rem/1.45 var(--mono);
+        }
+    
+        .mobile-only {
+            display: none;
+        }
+    
+        @media (max-width: 820px) {
+            .app-header {
+                flex-wrap: wrap;
+            }
+    
+            .save-status {
+                order: 3;
+                width: 100%;
+                max-width: none;
+            }
+    
+            .save-capability-banner {
+                top: calc(6.95rem + env(safe-area-inset-top, 0px));
+            }
+    
+            .book-cover.has-art {
+                grid-template-columns: 1fr;
+                padding-top: 2rem;
+            }
+    
+            .cover-art {
+                width: min(80vw, 24rem);
+            }
+    
+            .cover-title {
+                font-size: clamp(3rem, 15vw, 5.5rem);
+            }
+    
+            .editor-body {
+                grid-template-columns: 1fr;
+                height: calc(100vh - 6.2rem);
+            }
+    
+            .page-rail {
+                display: none;
+                position: fixed;
+                z-index: 30;
+                inset: 6rem 0 0;
+                border-right: 0;
+            }
+    
+            .page-rail.open {
+                display: block;
+            }
+    
+            .mobile-only {
+                display: inline-flex;
+            }
+    
+            .writing-layout {
+                grid-template-columns: 1fr;
+            }
+    
+            .editor-tabs {
+                display: flex;
+                gap: .25rem;
+                margin-bottom: .6rem;
+            }
+    
+            .writing-layout[data-tab="write"] .preview-pane {
+                display: none;
+            }
+    
+            .writing-layout[data-tab="preview"] .writing-pane {
+                display: none;
+            }
+    
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+    
+            .settings-grid .wide {
+                grid-column: auto;
+            }
+    
+            .asset-card {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        @media (max-width: 540px) {
+            .header-actions {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: .1rem;
+            }
+    
+            .app-title {
+                width: 100%;
+                flex-basis: 100%;
+            }
+    
+            .save-capability-banner {
+                top: calc(9.25rem + env(safe-area-inset-top, 0px));
+                width: calc(100vw - 1rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+                max-width: none;
+                align-items: flex-start;
+            }
+    
+            .reader-surface {
+                width: min(calc(100% - 1.35rem), 58rem);
+                padding-top: 2.5rem;
+            }
+    
+            .book-cover {
+                width: min(calc(100% - 1.35rem), 70rem);
+            }
+    
+            .page-navigation {
+                grid-template-columns: 1fr 1fr;
+                width: min(calc(100% - 1.35rem), 58rem);
+            }
+    
+            .page-navigation .contents {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                justify-self: center;
+            }
+    
+            .editor-main {
+                padding: .75rem;
+            }
+    
+            .editor-panel-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    
+        @media (prefers-reduced-motion: reduce) {
+    
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .001ms !important;
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    
+        @media (forced-colors: active) {
+    
+            button,
+            input,
+            textarea,
+            select,
+            dialog,
+            .writing-pane,
+            .preview-pane,
+            .settings-card,
+            .save-capability-banner {
+                border: 1px solid CanvasText;
+            }
+    
+            :focus-visible {
+                outline-color: Highlight;
+            }
+        }
+    
+        @media print {
+    
+            .app-header,
+            .page-navigation,
+            .skip-link,
+            .save-capability-banner,
+            #singlebook-live-status {
+                display: none !important;
+            }
+    
+            html,
+            body {
+                background: #fff;
+            }
+    
+            .reader-surface {
+                width: auto;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .book-page {
+                max-width: none;
+            }
+    
+            a {
+                color: inherit;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#singlebook-app">Skip to book</a>
+    <div id="singlebook-splash" role="status">Opening book...</div>
+    <main id="singlebook-app" tabindex="-1"></main>
+    <div id="singlebook-live-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+    <noscript>
+        &amp;lt;p&amp;gt;This book contains its own reader and requires JavaScript enabled to open.&amp;lt;/p&amp;gt;
+    </noscript>
+    <script>
+        (() => {
+            'use strict'
+            // the live DOM is disposable ui
+            // the clone is the application shell that gets written back to disk
+            const pristineDocument = document.cloneNode(true)
+
+            const FORMAT = 'singlebook'
+            const FORMAT_VERSION = 1
+            const APP_VERSION = '0.1.1'
+            const DATA_BLOCK_ID = 'singlebook-data'
+            const SAVE_NOTICE_KEY = 'singlebook-save-notice'
+            const ALLOWED_IMAGE_TYPES = new Set([
+                'image/png', 'image/jpeg', 'image/gif', 'image/webp', 'image/avif'
+            ])
+
+            // html gets parsed/rendered first so if we use a literal script tag it will fuck everything up
+            const SCRIPT_CLOSE = '</scr' + 'ipt>'
+
+            const app = document.getElementById('singlebook-app')
+            const splash = document.getElementById('singlebook-splash')
+            const liveStatus = document.getElementById('singlebook-live-status')
+            let rawEmbeddedText = ''
+            let state = null
+            let saveNoticeAcknowledged = false
+
+            function isPlainObject(value) {
+              if (!value || Object.prototype.toString.call(value) !== '[object Object]'){
+                return false
+              }
+              const proto = Object.getPrototypeOf(value)
+              return proto === Object.prototype || proto === null
+            }
+
+            function deepClone(value) {
+              if (typeof structuredClone === 'function'){
+                return structuredClone(value)
+              }
+              return JSON.parse(JSON.stringify(value))
+            }
+
+            function createId(prefix) {
+              if (crypto.randomUUID){
+                return `${prefix}-${crypto.randomUUID()}`
+              }
+              const bytes = new Uint8Array(16)
+              crypto.getRandomValues(bytes)
+              return `${prefix}-${Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('')}`
+            }
+
+            function nowISO() { return new Date().toISOString() }
+
+            function canWriteInPlace() {
+                return typeof window.showSaveFilePicker === 'function'
+            }
+
+            function isMacOS() {
+                const platform = String(navigator.userAgentData?.platform || navigator.platform || '')
+                const userAgent = String(navigator.userAgent || '')
+                if (/iPhone|iPad|iPod/i.test(userAgent)) return false
+                if (!/^Mac/i.test(platform)) return false
+                return !(platform === 'MacIntel' && Number(navigator.maxTouchPoints) > 1)
+            }
+
+            function saveShortcutLabel() {
+                return isMacOS() ? '⌘S' : 'Ctrl+S'
+            }
+
+            function hasAcknowledgedSaveNotice() {
+                if (saveNoticeAcknowledged) return true
+                try {
+                    return localStorage.getItem(SAVE_NOTICE_KEY) === 'seen'
+                } catch (_) {
+                    return false
+                }
+            }
+
+            function acknowledgeSaveNotice() {
+                saveNoticeAcknowledged = true
+                try { localStorage.setItem(SAVE_NOTICE_KEY, 'seen') } catch (_) {}
+            }
+
+            function saveTooltip() {
+                const shortcut = saveShortcutLabel()
+                if (!canWriteInPlace()) {
+                    return `Save.  This browser can't edit files in place so ${shortcut} will download an updated copy.`
+                }
+                if (state?.persistence.fileHandle) return `Save (${shortcut})`
+                return `Save (${shortcut}) — choose a file.`
+            }
+
+            function isHexColor(value) {
+                return typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value)
+            }
+
+            function isLanguageTag(value) {
+                return typeof value === 'string' && /^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(value)
+            }
+
+            function isSafeAsset(asset) {
+                return isPlainObject(asset) &&
+                    typeof asset.name === 'string' &&
+                    ALLOWED_IMAGE_TYPES.has(asset.mime) &&
+                    typeof asset.data === 'string' &&
+                    asset.data.toLowerCase().startsWith(`data:${asset.mime.toLowerCase()};base64,`)
+            }
+
+            function safeFileBase(title) {
+                const base = String(title || '')
+                    .normalize('NFKC')
+                    .replace(/[\\/:*?"<>|\u0000-\u001f]+/g, ' ')
+                    .replace(/\s+/g, '_')
+                    .replace(/^[_ .-]+|[_ .-]+$/g, '')
+                    .slice(0, 100)
+                return base || 'Untitled'
+            }
+
+            function suggestedFileName(doc) {
+                return `${safeFileBase(doc.book.title)}.singlebook.html`
+            }
+
+            function openedFileName() {
+                try {
+                    const last = decodeURIComponent(new URL(location.href).pathname.split('/').pop() || '')
+                    return /\.singlebook\.html$/i.test(last) ? last : null
+                } catch (_) {
+                    return null
+                }
+            }
+
+            function formatBytes(bytes) {
+                if (!Number.isFinite(bytes) || bytes < 0) return 'unknown size'
+                if (bytes < 1024) return `${bytes} B`
+                if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
+                return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
+            }
+
+            function isTextEntryTarget(target) {
+                return target instanceof Element && !!target.closest('input, textarea, select, button, a, dialog, [contenteditable="true"]')
+            }
+
+            function isAllowedLink(value) {
+                if (typeof value !== 'string' || value.length > 2048) return null
+                if (/^#page\/[A-Za-z0-9._~%-]+$/.test(value)) return { href: value, external: false }
+                if (/^mailto:[^\s<>]+$/i.test(value)) return { href: value, external: true }
+                try {
+                    const url = new URL(value)
+                    if (url.protocol === 'http:' || url.protocol === 'https:') {
+                        return { href: url.href, external: true }
+                    }
+                } catch (_) {}
+                return null
+            }
+
+            function appendChildren(parent, children) {
+                for (const child of children.flat(Infinity)) {
+                    if (child === null || child === undefined || child === false) continue
+                    parent.append(child instanceof Node ? child : document.createTextNode(String(child)))
+                }
+                return parent
+            }
+
+            function element(tag, attributes = {}, ...children) {
+                const node = document.createElement(tag)
+                for (const [name, value] of Object.entries(attributes || {})) {
+                    if (value === null || value === undefined || value === false) continue
+                    if (name === 'className') node.className = value
+                    else if (name === 'text') node.textContent = value
+                    else if (name === 'htmlFor') node.htmlFor = value
+                    else if (name === 'dataset') Object.assign(node.dataset, value)
+                    else if (name === 'style' && isPlainObject(value)) Object.assign(node.style, value)
+                    else if (name.startsWith('on') && typeof value === 'function') node.addEventListener(name.slice(2).toLowerCase(), value)
+                    else if (name in node && !name.startsWith('aria-') && !name.startsWith('data-')) node[name] = value
+                    else node.setAttribute(name, value === true ? '' : String(value))
+                }
+                return appendChildren(node, children)
+            }
+
+            function saveIcon() {
+                const namespace = 'http://www.w3.org/2000/svg'
+                const svg = document.createElementNS(namespace, 'svg')
+                svg.setAttribute('class', 'save-icon')
+                svg.setAttribute('viewBox', '0 0 24 24')
+                svg.setAttribute('fill', 'none')
+                svg.setAttribute('stroke', 'currentColor')
+                svg.setAttribute('stroke-width', '1.8')
+                svg.setAttribute('stroke-linecap', 'round')
+                svg.setAttribute('stroke-linejoin', 'round')
+                svg.setAttribute('focusable', 'false')
+                svg.setAttribute('aria-hidden', 'true')
+                for (const data of ['M4 3h11l5 5v13H4z', 'M7 3v6h9V4', 'M8 14h8v7H8z']) {
+                    const path = document.createElementNS(namespace, 'path')
+                    path.setAttribute('d', data)
+                    svg.append(path)
+                }
+                return svg
+            }
+
+            function replaceContents(node, ...children) {
+                node.replaceChildren()
+                appendChildren(node, children)
+                return node
+            }
+
+            function focusMain() {
+                requestAnimationFrame(() => {
+                    const target = app.querySelector('h1, [data-main-heading]') || app
+                    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1')
+                    target.focus({ preventScroll: true })
+                })
+            }
+
+            function announce(message, tone = 'neutral', speak = true) {
+                if (speak && liveStatus) {
+                    liveStatus.textContent = ''
+                    requestAnimationFrame(() => { liveStatus.textContent = message })
+                }
+                const status = document.getElementById('save-status')
+                if (status) {
+                    status.textContent = message
+                    status.dataset.tone = tone
+                    status.title = message
+                }
+            }
+
+            function copyText(text) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text).catch(() => fallbackCopy(text))
+                }
+                return Promise.resolve(fallbackCopy(text))
+            }
+
+            function fallbackCopy(text) {
+                const area = element('textarea', { value: text, className: 'visually-hidden', 'data-singlebook-transient': 'true' })
+                document.body.append(area)
+                area.select()
+                try { document.execCommand('copy') } finally { area.remove() }
+            }
+
+            function readEmbeddedDocument() {
+                const block = document.getElementById(DATA_BLOCK_ID)
+                if (!block) throw new Error('The document data block is missing.')
+                rawEmbeddedText = (block.textContent || '').trim()
+                if (!rawEmbeddedText) throw new Error('The document data block is empty.')
+                try {
+                    return JSON.parse(rawEmbeddedText)
+                } catch (error) {
+                    throw new Error(`The document JSON could not be read: ${error.message}`)
+                }
+            }
+
+            function stringOr(value, fallback = '') {
+                return typeof value === 'string' ? value : fallback
+            }
+
+            function normalizeDocument(input) {
+                if (!isPlainObject(input)) throw new Error('The document root must be a JSON object.')
+                if (input.format !== FORMAT) throw new Error(`This file is not a ${FORMAT} document.`)
+                if (!Number.isInteger(input.version)) throw new Error('The document version is missing or invalid.')
+                if (input.version > FORMAT_VERSION) {
+                    throw new Error(`This book uses format version ${input.version}, but this editor supports version ${FORMAT_VERSION}. Open it with a newer singlebook editor.`)
+                }
+
+                const doc = deepClone(input)
+                const warnings = []
+                doc.id = stringOr(doc.id) || createId('book')
+                doc.book = isPlainObject(doc.book) ? doc.book : {}
+                const book = doc.book
+                book.title = stringOr(book.title, 'Untitled book')
+                book.subtitle = stringOr(book.subtitle)
+                book.author = stringOr(book.author)
+                book.language = isLanguageTag(book.language) ? book.language : 'en'
+                book.description = stringOr(book.description)
+                book.coverAsset = stringOr(book.coverAsset)
+                book.coverAlt = stringOr(book.coverAlt)
+                book.coverDecorative = book.coverDecorative === true
+                book.theme = book.theme === 'paper' ? 'paper' : 'paper'
+                book.accent = isHexColor(book.accent) ? book.accent : '#9b3a32'
+                book.createdAt = stringOr(book.createdAt) || nowISO()
+                book.updatedAt = stringOr(book.updatedAt) || book.createdAt
+
+                if (!Array.isArray(doc.pages)) throw new Error('The document pages must be an array.')
+                const ids = new Set()
+                doc.pages = doc.pages.map((source, index) => {
+                    if (!isPlainObject(source)) throw new Error(`Page ${index + 1} must be an object.`)
+                    const page = deepClone(source)
+                    if (typeof page.id !== 'string' || !page.id) throw new Error(`Page ${index + 1} has no stable ID.`)
+                    if (ids.has(page.id)) throw new Error(`Two pages use the ID “${page.id}”.`)
+                    ids.add(page.id)
+                    if (!['text', 'section', 'picture'].includes(page.type)) {
+                        throw new Error(`Page “${page.id}” has unsupported type “${String(page.type)}”.`)
+                    }
+                    page.title = stringOr(page.title, 'Untitled page')
+                    if (page.type === 'text') page.markdown = stringOr(page.markdown)
+                    if (page.type === 'section') page.subtitle = stringOr(page.subtitle)
+                    if (page.type === 'picture') {
+                        page.asset = stringOr(page.asset)
+                        page.alt = stringOr(page.alt)
+                        page.caption = stringOr(page.caption)
+                        page.decorative = page.decorative === true
+                        page.fit = page.fit === 'cover' ? 'cover' : 'contain'
+                    }
+                    return page
+                })
+
+                if (doc.pages.length === 0) {
+                    doc.pages.push({ id: createId('page'), type: 'text', title: 'Untitled page', markdown: '' })
+                    warnings.push('The book contained no pages, so a blank text page was added in memory.')
+                }
+
+                doc.assets = isPlainObject(doc.assets) ? doc.assets : {}
+                for (const [id, asset] of Object.entries(doc.assets)) {
+                    if (!isSafeAsset(asset)) warnings.push(`Asset “${id}” is invalid and will not be displayed.`)
+                }
+                if (book.coverAsset && !isSafeAsset(doc.assets[book.coverAsset])) {
+                    warnings.push('The cover references a missing or invalid image.')
+                }
+                return { document: doc, warnings }
+            }
+
+            function currentPage() {
+                return state.document.pages.find(page => page.id === state.ui.selectedPageId) || null
+            }
+
+            function pageIndex(pageId) {
+                return state.document.pages.findIndex(page => page.id === pageId)
+            }
+
+            function markChanged() {
+                state.document.book.updatedAt = nowISO()
+                state.persistence.revision += 1
+                state.persistence.error = ''
+                state.persistence.message = ''
+                state.persistence.messageTone = ''
+                refreshSaveStatus(false)
+            }
+
+            function changeBook(patch) {
+                Object.assign(state.document.book, patch)
+                markChanged()
+            }
+
+            function editPage(pageId, patch) {
+                const page = state.document.pages.find(candidate => candidate.id === pageId)
+                if (!page) return false
+                Object.assign(page, patch)
+                markChanged()
+                return true
+            }
+
+            function addPage(type, afterPageId) {
+                let page
+                if (type === 'section') page = { id: createId('page'), type, title: 'New section', subtitle: '' }
+                else if (type === 'picture') page = { id: createId('page'), type, title: 'New picture', asset: '', alt: '', caption: '', decorative: false, fit: 'contain' }
+                else page = { id: createId('page'), type: 'text', title: 'Untitled page', markdown: '' }
+                const after = pageIndex(afterPageId)
+                const insertAt = after >= 0 ? after + 1 : state.document.pages.length
+                state.document.pages.splice(insertAt, 0, page)
+                state.ui.selectedPageId = page.id
+                markChanged()
+                return page
+            }
+
+            function movePage(pageId, direction) {
+                const from = pageIndex(pageId)
+                const to = from + direction
+                if (from < 0 || to < 0 || to >= state.document.pages.length) return false
+                const [page] = state.document.pages.splice(from, 1)
+                state.document.pages.splice(to, 0, page)
+                markChanged()
+                return true
+            }
+
+            function deletePage(pageId) {
+                const index = pageIndex(pageId)
+                if (index < 0) return false
+                if (state.document.pages.length === 1) {
+                    const only = state.document.pages[0]
+                    state.document.pages[0] = { id: only.id, type: 'text', title: 'Untitled page', markdown: '' }
+                    state.ui.selectedPageId = only.id
+                } else {
+                    state.document.pages.splice(index, 1)
+                    state.ui.selectedPageId = state.document.pages[Math.min(index, state.document.pages.length - 1)].id
+                }
+                markChanged()
+                return true
+            }
+
+            function applyTheme() {
+                const accent = isHexColor(state.document.book.accent) ? state.document.book.accent : '#9b3a32'
+                document.documentElement.style.setProperty('--accent', accent)
+                document.documentElement.lang = state.document.book.language
+                document.title = `${state.document.book.title || 'Untitled'} — singlebook`
+            }
+
+            function isDirty() {
+                const persistence = state.persistence
+                // Persisted means written to an approved file or emitted as an updated download.
+                return persistence.revision !== persistence.persistedRevision
+            }
+
+            function refreshSaveControls() {
+                if (!state) return
+                for (const button of document.querySelectorAll('[data-save-action]')) {
+                    button.title = saveTooltip()
+                    button.disabled = state.persistence.saving
+                    if (state.persistence.saving) button.setAttribute('aria-busy', 'true')
+                    else button.removeAttribute('aria-busy')
+                }
+            }
+
+            function refreshSaveStatus(speak = false) {
+                if (!state) return
+                const persistence = state.persistence
+                refreshSaveControls()
+                if (persistence.saving) return announce('Saving…', 'dirty', speak)
+                if (persistence.error) return announce(persistence.error, 'error', speak)
+                if (persistence.message) return announce(persistence.message, persistence.messageTone || 'neutral', speak)
+                if (isDirty()) return announce('Unsaved changes', 'dirty', speak)
+                announce('No unsaved changes', 'neutral', speak)
+            }
+
+            // 04. Markdown tokenizer and renderer
+            function isBlockStart(line) {
+                return /^```/.test(line) || /^#{1,4}\s+/.test(line) || /^\s{0,3}(?:[-*_]\s*){3,}$/.test(line) || /^>\s?/.test(line) || /^\s{0,4}(?:[-+*]|\d+[.)])\s+/.test(line)
+            }
+
+            function appendInline(parent, source, doc) {
+                let index = 0
+                let buffer = ''
+                const flush = () => {
+                    if (buffer) parent.append(document.createTextNode(buffer))
+                    buffer = ''
+                }
+                const addFormatted = (tag, content) => {
+                    flush()
+                    const child = element(tag)
+                    appendInline(child, content, doc)
+                    parent.append(child)
+                }
+
+                while (index < source.length) {
+                    const char = source[index]
+                    if (char === '\\' && index + 1 < source.length) {
+                        buffer += source[index + 1]
+                        index += 2
+                        continue
+                    }
+
+                    if (char === '`') {
+                        const close = source.indexOf('`', index + 1)
+                        if (close > index + 1) {
+                            flush()
+                            parent.append(element('code', { text: source.slice(index + 1, close) }))
+                            index = close + 1
+                            continue
+                        }
+                    }
+
+                    if (source.startsWith('![', index)) {
+                        const altEnd = source.indexOf('](', index + 2)
+                        const end = altEnd >= 0 ? source.indexOf(')', altEnd + 2) : -1
+                        if (altEnd >= 0 && end >= 0) {
+                            const alt = source.slice(index + 2, altEnd)
+                            const target = source.slice(altEnd + 2, end)
+                            const match = /^asset:([A-Za-z0-9._~-]+)$/.exec(target)
+                            if (match) {
+                                flush()
+                                const asset = doc.assets[match[1]]
+                                if (isSafeAsset(asset)) {
+                                    parent.append(element('img', { src: asset.data, alt, loading: 'lazy' }))
+                                } else {
+                                    parent.append(element('span', { className: 'missing-asset', text: `Missing image: ${alt || match[1]}` }))
+                                }
+                                index = end + 1
+                                continue
+                            }
+                        }
+                    }
+
+                    if (char === '[') {
+                        const labelEnd = source.indexOf('](', index + 1)
+                        const end = labelEnd >= 0 ? source.indexOf(')', labelEnd + 2) : -1
+                        if (labelEnd >= 0 && end >= 0) {
+                            const label = source.slice(index + 1, labelEnd)
+                            const target = source.slice(labelEnd + 2, end)
+                            const allowed = isAllowedLink(target)
+                            if (allowed) {
+                                flush()
+                                const link = element('a', { href: allowed.href })
+                                if (allowed.external) {
+                                    link.target = '_blank'
+                                    link.rel = 'noopener noreferrer'
+                                }
+                                appendInline(link, label, doc)
+                                parent.append(link)
+                                index = end + 1
+                                continue
+                            }
+                        }
+                    }
+
+                    const strong = source.startsWith('**', index) ? '**' : source.startsWith('__', index) ? '__' : null
+                    if (strong) {
+                        const close = source.indexOf(strong, index + 2)
+                        if (close > index + 2) {
+                            addFormatted('strong', source.slice(index + 2, close))
+                            index = close + 2
+                            continue
+                        }
+                    }
+
+                    if (source.startsWith('~~', index)) {
+                        const close = source.indexOf('~~', index + 2)
+                        if (close > index + 2) {
+                            addFormatted('s', source.slice(index + 2, close))
+                            index = close + 2
+                            continue
+                        }
+                    }
+
+                    if (char === '*' || char === '_') {
+                        const close = source.indexOf(char, index + 1)
+                        if (close > index + 1) {
+                            addFormatted('em', source.slice(index + 1, close))
+                            index = close + 1
+                            continue
+                        }
+                    }
+
+                    if (char === '\n') {
+                        const hardBreak = index >= 2 && source.slice(index - 2, index) === '  '
+                        if (hardBreak) {
+                            buffer = buffer.replace(/ {2}$/, '')
+                            flush()
+                            parent.append(element('br'))
+                        } else {
+                            buffer += ' '
+                        }
+                        index += 1
+                        continue
+                    }
+
+                    buffer += char
+                    index += 1
+                }
+                flush()
+                return parent
+            }
+
+            function renderMarkdown(markdown, doc) {
+                const fragment = document.createDocumentFragment()
+                const lines = String(markdown || '').replace(/\r\n?/g, '\n').split('\n')
+                let index = 0
+
+                while (index < lines.length) {
+                    const line = lines[index]
+                    if (!line.trim()) {
+                        index += 1
+                        continue
+                    }
+
+                    const fence = /^```([A-Za-z0-9_-]{0,30})\s*$/.exec(line)
+                    if (fence) {
+                        index += 1
+                        const code = []
+                        while (index < lines.length && !/^```\s*$/.test(lines[index])) {
+                            code.push(lines[index])
+                            index += 1
+                        }
+                        if (index < lines.length) index += 1
+                        const codeNode = element('code', { text: code.join('\n') })
+                        if (fence[1]) codeNode.className = `language-${fence[1]}`
+                        fragment.append(element('pre', {}, codeNode))
+                        continue
+                    }
+
+                    const heading = /^(#{1,4})\s+(.+)$/.exec(line)
+                    if (heading) {
+                        const node = element(`h${Math.min(heading[1].length + 1, 5)}`)
+                        appendInline(node, heading[2], doc)
+                        fragment.append(node)
+                        index += 1
+                        continue
+                    }
+
+                    if (/^\s{0,3}(?:[-*_]\s*){3,}$/.test(line)) {
+                        fragment.append(element('hr'))
+                        index += 1
+                        continue
+                    }
+
+                    if (/^>\s?/.test(line)) {
+                        const quoteLines = []
+                        while (index < lines.length && /^>\s?/.test(lines[index])) {
+                            quoteLines.push(lines[index].replace(/^>\s?/, ''))
+                            index += 1
+                        }
+                        const quote = element('blockquote')
+                        quote.append(renderMarkdown(quoteLines.join('\n'), doc))
+                        fragment.append(quote)
+                        continue
+                    }
+
+                    const firstList = /^(\s{0,4})([-+*]|\d+[.)])\s+(.+)$/.exec(line)
+                    if (firstList) {
+                        const ordered = /^\d/.test(firstList[2])
+                        const list = element(ordered ? 'ol' : 'ul')
+                        let lastItem = null
+                        while (index < lines.length) {
+                            const itemMatch = /^(\s{0,4})([-+*]|\d+[.)])\s+(.+)$/.exec(lines[index])
+                            if (!itemMatch) break
+                            const itemOrdered = /^\d/.test(itemMatch[2])
+                            const nested = itemMatch[1].length >= 2
+                            if (!nested && itemOrdered !== ordered) break
+                            const item = element('li')
+                            appendInline(item, itemMatch[3], doc)
+                            if (nested && lastItem) {
+                                let nestedList = lastItem.lastElementChild
+                                const nestedTag = itemOrdered ? 'OL' : 'UL'
+                                if (!nestedList || nestedList.tagName !== nestedTag) {
+                                    nestedList = element(itemOrdered ? 'ol' : 'ul')
+                                    lastItem.append(nestedList)
+                                }
+                                nestedList.append(item)
+                            } else {
+                                list.append(item)
+                                lastItem = item
+                            }
+                            index += 1
+                        }
+                        fragment.append(list)
+                        continue
+                    }
+
+                    const paragraphLines = [line]
+                    index += 1
+                    while (index < lines.length && lines[index].trim() && !isBlockStart(lines[index])) {
+                        paragraphLines.push(lines[index])
+                        index += 1
+                    }
+                    const paragraph = element('p')
+                    appendInline(paragraph, paragraphLines.join('\n'), doc)
+                    fragment.append(paragraph)
+                }
+                return fragment
+            }
+
+            function assetFor(id, doc = state.document) {
+                const asset = id ? doc.assets[id] : null
+                return isSafeAsset(asset) ? asset : null
+            }
+
+            function renderMissingAsset(label) {
+                return element('div', { className: 'missing-asset', text: label || 'This image is missing.' })
+            }
+
+            function renderCover(doc) {
+                const book = doc.book
+                const asset = assetFor(book.coverAsset, doc)
+                const cover = element('section', { className: `book-cover${asset ? ' has-art' : ''}`, 'aria-labelledby': 'cover-title' })
+                if (asset) cover.append(element('img', {
+                    className: 'cover-art', src: asset.data,
+                    alt: book.coverDecorative ? '' : book.coverAlt,
+                    'aria-hidden': book.coverDecorative ? 'true' : null
+                }))
+                const copy = element('div', { className: 'cover-copy' })
+                copy.append(element('h1', { className: 'cover-title', id: 'cover-title', text: book.title || 'Untitled book' }))
+                if (book.subtitle) copy.append(element('p', { className: 'cover-subtitle', text: book.subtitle }))
+                if (book.author) copy.append(element('p', { className: 'cover-author', text: `By ${book.author}` }))
+                if (book.description) copy.append(element('p', { className: 'cover-description', text: book.description }))
+                const first = doc.pages[0]
+                const actions = element('div', { className: 'cover-actions' })
+                if (first) actions.append(element('button', { className: 'primary', text: 'Start reading', onclick: () => navigate(`#page/${encodeURIComponent(first.id)}`) }))
+                actions.append(element('button', { text: 'Contents', onclick: () => navigate('#contents') }))
+                copy.append(actions)
+                cover.append(copy)
+                return cover
+            }
+
+            function renderContents(doc) {
+                const section = element('section', { className: 'reader-surface', 'aria-labelledby': 'contents-title' })
+                section.append(element('h1', { id: 'contents-title', className: 'contents-heading', text: 'Contents' }))
+                const list = element('ol', { className: 'contents-list' })
+                let number = 0
+                for (const page of doc.pages) {
+                    if (page.type !== 'section') number += 1
+                    const item = element('li', { className: `contents-item ${page.type}` })
+                    const link = element('a', { className: 'contents-link', href: `#page/${encodeURIComponent(page.id)}` })
+                    link.append(
+                        element('span', { className: 'contents-number', text: page.type === 'section' ? '' : String(number).padStart(2, '0') }),
+                        element('span', { className: 'contents-name', text: page.title || 'Untitled page' }),
+                        element('span', { className: 'contents-kind', text: page.type })
+                    )
+                    item.append(link)
+                    list.append(item)
+                }
+                section.append(list)
+                return section
+            }
+
+            function renderPageContent(page, doc, options = {}) {
+                if (page.type === 'section') {
+                    const section = element('article', { className: 'section-page', dataset: { pageId: page.id } })
+                    section.append(element(options.preview ? 'h2' : 'h1', { text: page.title || 'Untitled section' }))
+                    if (page.subtitle) section.append(element('p', { text: page.subtitle }))
+                    return section
+                }
+
+                if (page.type === 'picture') {
+                    const article = element('article', { className: 'picture-page', dataset: { pageId: page.id } })
+                    article.append(element(options.preview ? 'h2' : 'h1', { className: 'page-title', text: page.title || 'Untitled picture' }))
+                    const asset = assetFor(page.asset, doc)
+                    if (!asset) {
+                        article.append(renderMissingAsset(page.asset ? `Missing image: ${page.asset}` : 'Choose an image in Edit mode.'))
+                    } else {
+                        const figure = element('figure')
+                        figure.append(element('img', {
+                            src: asset.data,
+                            alt: page.decorative ? '' : page.alt,
+                            'aria-hidden': page.decorative ? 'true' : null,
+                            dataset: { fit: page.fit || 'contain' }
+                        }))
+                        if (page.caption) figure.append(element('figcaption', { text: page.caption }))
+                        article.append(figure)
+                    }
+                    return article
+                }
+
+                const article = element('article', { className: 'book-page prose', dataset: { pageId: page.id } })
+                article.append(element(options.preview ? 'h2' : 'h1', { className: 'page-title', text: page.title || 'Untitled page' }))
+                article.append(renderMarkdown(page.markdown, doc))
+                return article
+            }
+
+            function readerHeader() {
+                const title = element('div', { className: 'app-title', text: state.document.book.title || 'Untitled book' })
+                const actions = element('div', { className: 'header-actions' })
+                actions.append(
+                    element('button', { className: 'quiet', text: 'Cover', onclick: () => navigate('#cover') }),
+                    element('button', { className: 'quiet', text: 'Contents', onclick: () => navigate('#contents') }),
+                    saveButton(),
+                    element('button', { className: 'primary', text: 'Edit', onclick: enterEditMode, 'aria-label': 'Edit this copy of the book' })
+                )
+                return element('header', { className: 'app-header' }, title, saveStatusElement(), actions)
+            }
+
+            function pageNavigation(page) {
+                const index = pageIndex(page.id)
+                const previous = index > 0 ? state.document.pages[index - 1] : null
+                const next = index < state.document.pages.length - 1 ? state.document.pages[index + 1] : null
+                const nav = element('nav', { className: 'page-navigation', 'aria-label': 'Page navigation' })
+                nav.append(
+                    previous ? element('a', { className: 'previous', href: `#page/${encodeURIComponent(previous.id)}`, text: `← ${previous.title}` }) : element('span'),
+                    element('a', { className: 'contents', href: '#contents', text: 'Contents' }),
+                    next ? element('a', { className: 'next', href: `#page/${encodeURIComponent(next.id)}`, text: `${next.title} →` }) : element('a', { className: 'next', href: '#cover', text: 'Return to cover ↑' })
+                )
+                return nav
+            }
+
+            function parseRoute() {
+                const hash = location.hash || '#cover'
+                if (hash === '#cover') return { kind: 'cover' }
+                if (hash === '#contents') return { kind: 'contents' }
+                if (hash.startsWith('#page/')) {
+                    try { return { kind: 'page', id: decodeURIComponent(hash.slice(6)) } }
+                    catch (_) { return { kind: 'contents', invalid: true } }
+                }
+                return { kind: 'contents', invalid: true }
+            }
+
+            function navigate(hash) {
+                if (location.hash === hash) {
+                    if (state.ui.mode === 'reader') renderReader()
+                } else {
+                    location.hash = hash
+                }
+            }
+
+            function renderReader() {
+                state.ui.mode = 'reader'
+                const route = parseRoute()
+                const main = element('div', { className: 'reader-main' })
+                if (route.kind === 'cover') {
+                    main.append(renderCover(state.document))
+                } else if (route.kind === 'contents') {
+                    main.append(renderContents(state.document))
+                    if (route.invalid) requestAnimationFrame(() => announce('That page was not found. Showing Contents.', 'error'))
+                } else {
+                    const page = state.document.pages.find(candidate => candidate.id === route.id)
+                    if (!page) {
+                        main.append(renderContents(state.document))
+                        requestAnimationFrame(() => announce('That page was not found. Showing Contents.', 'error'))
+                    } else {
+                        const surface = element('div', { className: 'reader-surface' })
+                        surface.append(renderPageContent(page, state.document))
+                        main.append(surface, pageNavigation(page))
+                        state.ui.selectedPageId = page.id
+                    }
+                }
+                replaceContents(app, readerHeader(), main)
+                requestAnimationFrame(() => refreshSaveStatus(false))
+            }
+
+            function navigateRelative(direction) {
+                const route = parseRoute()
+                if (route.kind !== 'page') {
+                    if (direction > 0 && state.document.pages[0]) navigate(`#page/${encodeURIComponent(state.document.pages[0].id)}`)
+                    return
+                }
+                const index = pageIndex(route.id)
+                const target = state.document.pages[index + direction]
+                if (target) {
+                    navigate(`#page/${encodeURIComponent(target.id)}`)
+                    return
+                }
+                if (direction < 0 && index === 0) navigate('#cover')
+            }
+
+            function closeAndRemoveDialog(dialog, returnFocus) {
+                if (dialog.open) dialog.close()
+                dialog.remove()
+                if (returnFocus && returnFocus.isConnected) returnFocus.focus()
+            }
+
+            function confirmAction({ title, message, confirmLabel = 'Confirm', danger = false, opener, onConfirm }) {
+                const dialog = element('dialog', { 'data-singlebook-transient': 'true', 'aria-labelledby': createId('dialog-title') })
+                const headingId = dialog.getAttribute('aria-labelledby')
+                const body = element('div', { className: 'dialog-body' },
+                    element('h2', { id: headingId, text: title }),
+                    element('p', { text: message })
+                )
+                const cancel = element('button', { text: 'Cancel' })
+                const confirm = element('button', { className: danger ? 'danger primary' : 'primary', text: confirmLabel })
+                const actions = element('div', { className: 'dialog-actions' }, cancel, confirm)
+                dialog.append(body, actions)
+                document.body.append(dialog)
+                cancel.addEventListener('click', () => closeAndRemoveDialog(dialog, opener))
+                confirm.addEventListener('click', () => {
+                    closeAndRemoveDialog(dialog, null)
+                    onConfirm()
+                })
+                dialog.addEventListener('cancel', event => {
+                    event.preventDefault()
+                    closeAndRemoveDialog(dialog, opener)
+                })
+                dialog.showModal()
+                cancel.focus()
+            }
+
+            function showAddPageDialog(opener) {
+                const dialog = element('dialog', { 'data-singlebook-transient': 'true' })
+                const headingId = createId('dialog-title')
+                dialog.setAttribute('aria-labelledby', headingId)
+                const choices = element('div', { className: 'page-type-choices' })
+                const definitions = [
+                    ['text', 'Text page', 'Long-form writing in the supported Markdown subset.'],
+                    ['section', 'Section page', 'A visual divider for a part, chapter, or short statement.'],
+                    ['picture', 'Picture page', 'One large embedded image with alt text and an optional caption.']
+                ]
+                for (const [type, label, description] of definitions) {
+                    const choice = element('button', { className: 'page-type-choice' },
+                        element('span', { text: label }), element('small', { text: description })
+                    )
+                    choice.addEventListener('click', () => {
+                        const page = addPage(type, state.ui.selectedPageId)
+                        closeAndRemoveDialog(dialog, null)
+                        renderEditor()
+                        requestAnimationFrame(() => document.querySelector(`[data-editor-title="${CSS.escape(page.id)}"]`)?.focus())
+                        announce(`${label} added.`, 'saved')
+                    })
+                    choices.append(choice)
+                }
+                const cancel = element('button', { text: 'Cancel' })
+                cancel.addEventListener('click', () => closeAndRemoveDialog(dialog, opener))
+                dialog.append(
+                    element('div', { className: 'dialog-body' }, element('h2', { id: headingId, text: 'Add a page' }), choices),
+                    element('div', { className: 'dialog-actions' }, cancel)
+                )
+                dialog.addEventListener('cancel', event => {
+                    event.preventDefault()
+                    closeAndRemoveDialog(dialog, opener)
+                })
+                document.body.append(dialog)
+                dialog.showModal()
+                choices.querySelector('button')?.focus()
+            }
+
+            function saveStatusElement() {
+                return element('span', { id: 'save-status', className: 'save-status', text: 'No unsaved changes', 'aria-live': 'off' })
+            }
+
+            function saveButton(options = {}) {
+                const button = element('button', {
+                    type: 'button',
+                    className: `save-button${options.primary ? ' primary' : ''}`,
+                    title: saveTooltip(),
+                    'data-save-action': 'true',
+                    onclick: saveDocument
+                })
+                button.append(saveIcon(), element('span', { text: 'Save' }))
+                return button
+            }
+
+            function noticeIfCannotWriteInPlace() {
+                if (canWriteInPlace() || hasAcknowledgedSaveNotice()) return
+                if (document.getElementById('singlebook-save-notice')) return
+                const banner = element('div', {
+                    id: 'singlebook-save-notice',
+                    className: 'save-capability-banner',
+                    role: 'status',
+                    'aria-live': 'polite',
+                    'aria-atomic': 'true',
+                    'data-singlebook-transient': 'true'
+                })
+                const message = element('span', {
+                    text: `This browser can’t rewrite files in place. ${saveShortcutLabel()} will download an updated copy instead — the file you have open will not be changed.`
+                })
+                const dismiss = element('button', {
+                    type: 'button',
+                    className: 'primary',
+                    text: 'Got it',
+                    onclick: () => {
+                        acknowledgeSaveNotice()
+                        banner.remove()
+                    }
+                })
+                banner.append(message, dismiss)
+                document.body.append(banner)
+            }
+
+            function editorHeader() {
+                const menu = element('button', {
+                    className: 'quiet mobile-only', text: 'Pages',
+                    'aria-expanded': state.ui.railOpen ? 'true' : 'false',
+                    onclick: () => {
+                        state.ui.railOpen = !state.ui.railOpen
+                        document.querySelector('.page-rail')?.classList.toggle('open', state.ui.railOpen)
+                        menu.setAttribute('aria-expanded', state.ui.railOpen ? 'true' : 'false')
+                    }
+                })
+                const title = element('div', { className: 'app-title', text: state.document.book.title || 'Untitled book' })
+                const settings = element('button', {
+                    text: 'Book settings', onclick: () => {
+                        state.ui.selectedPageId = null
+                        state.ui.railOpen = false
+                        renderEditor()
+                    }
+                })
+                const reader = element('button', { text: 'Reader', onclick: leaveEditMode })
+                const actions = element('div', { className: 'header-actions' }, reader, settings, saveButton({ primary: true }))
+                return element('header', { className: 'app-header editor-header' }, menu, title, saveStatusElement(), actions)
+            }
+
+            function railType(page) {
+                return page.type === 'section' ? '§' : page.type === 'picture' ? '▧' : '¶'
+            }
+
+            function renderPageRail() {
+                const rail = element('aside', { className: `page-rail${state.ui.railOpen ? ' open' : ''}`, 'aria-label': 'Book pages' })
+                const heading = element('div', { className: 'rail-heading' }, element('h2', { text: 'Pages' }))
+                rail.append(heading)
+                const list = element('ol', { className: 'rail-list' })
+
+                const coverRow = element('li', { className: `rail-row${state.ui.selectedPageId === null ? ' selected' : ''}` })
+                const coverSelect = element('button', { className: 'rail-select', 'aria-current': state.ui.selectedPageId === null ? 'page' : null },
+                    element('span', { className: 'rail-type', text: '⌂' }), element('span', { className: 'rail-name', text: 'Cover & book' })
+                )
+                coverSelect.addEventListener('click', () => {
+                    state.ui.selectedPageId = null
+                    state.ui.railOpen = false
+                    renderEditor()
+                })
+                coverRow.append(coverSelect)
+                list.append(coverRow)
+
+                state.document.pages.forEach((page, index) => {
+                    const selected = state.ui.selectedPageId === page.id
+                    const row = element('li', { className: `rail-row${selected ? ' selected' : ''}` })
+                    const select = element('button', { className: 'rail-select', 'aria-current': selected ? 'page' : null },
+                        element('span', { className: 'rail-type', text: railType(page), title: page.type }),
+                        element('span', { className: 'rail-name', text: page.title || 'Untitled page', dataset: { pageLabel: page.id } })
+                    )
+                    select.addEventListener('click', () => {
+                        state.ui.selectedPageId = page.id
+                        state.ui.railOpen = false
+                        renderEditor()
+                    })
+                    const moves = element('div', { className: 'rail-move' })
+                    const up = element('button', { text: '↑', title: `Move ${page.title} up`, 'aria-label': `Move ${page.title} up`, disabled: index === 0 })
+                    const down = element('button', { text: '↓', title: `Move ${page.title} down`, 'aria-label': `Move ${page.title} down`, disabled: index === state.document.pages.length - 1 })
+                    up.addEventListener('click', () => { if (movePage(page.id, -1)) { renderEditor(); announce(`${page.title} moved up.`, 'saved') } })
+                    down.addEventListener('click', () => { if (movePage(page.id, 1)) { renderEditor(); announce(`${page.title} moved down.`, 'saved') } })
+                    moves.append(up, down)
+                    row.append(select, moves)
+                    list.append(row)
+                })
+                rail.append(list)
+                const add = element('button', { className: 'add-page-button', text: '+ Add page' })
+                add.addEventListener('click', () => showAddPageDialog(add))
+                rail.append(add)
+                return rail
+            }
+
+            function labeledField(labelText, control, hint = '') {
+                if (!control.id) control.id = createId('field')
+                const field = element('div', { className: 'field' }, element('label', { htmlFor: control.id, text: labelText }), control)
+                if (hint) field.append(element('p', { className: 'field-hint', text: hint }))
+                return field
+            }
+
+            function panelHeader(title, page) {
+                const header = element('div', { className: 'editor-panel-header' })
+                header.append(element('h1', { text: title, 'data-main-heading': 'true' }))
+                if (page) {
+                    const actions = element('div', { className: 'page-actions' })
+                    const remove = element('button', { className: 'danger', text: 'Delete page' })
+                    remove.addEventListener('click', () => confirmAction({
+                        title: 'Delete this page?',
+                        message: `“${page.title || 'Untitled page'}” will be removed from this copy of the book.`,
+                        confirmLabel: 'Delete page', danger: true, opener: remove,
+                        onConfirm: () => {
+                            deletePage(page.id)
+                            renderEditor()
+                            announce('Page deleted.', 'dirty')
+                        }
+                    }))
+                    actions.append(remove)
+                    header.append(actions)
+                }
+                return header
+            }
+
+            function updateRailLabel(page) {
+                const label = document.querySelector(`[data-page-label="${CSS.escape(page.id)}"]`)
+                if (label) label.textContent = page.title || 'Untitled page'
+            }
+
+            function updatePreview(preview, page) {
+                const label = element('p', { className: 'preview-label', text: 'Reader preview' })
+                replaceContents(preview, label, renderPageContent(page, state.document, { preview: true }))
+            }
+
+            function applyWrappedSelection(textarea, before, after = before, placeholder = 'text') {
+                const start = textarea.selectionStart
+                const end = textarea.selectionEnd
+                const selected = textarea.value.slice(start, end) || placeholder
+                textarea.setRangeText(`${before}${selected}${after}`, start, end, 'select')
+                textarea.selectionStart = start + before.length
+                textarea.selectionEnd = start + before.length + selected.length
+                textarea.focus()
+                textarea.dispatchEvent(new Event('input', { bubbles: true }))
+            }
+
+            function applyLinePrefix(textarea, prefix) {
+                const start = textarea.selectionStart
+                const end = textarea.selectionEnd
+                const lineStart = textarea.value.lastIndexOf('\n', Math.max(0, start - 1)) + 1
+                const nextBreak = textarea.value.indexOf('\n', end)
+                const lineEnd = nextBreak < 0 ? textarea.value.length : nextBreak
+                const selected = textarea.value.slice(lineStart, lineEnd)
+                const lines = selected.split('\n').map((line, index) => `${typeof prefix === 'function' ? prefix(index) : prefix}${line}`)
+                const replacement = lines.join('\n')
+                textarea.setRangeText(replacement, lineStart, lineEnd, 'select')
+                textarea.selectionStart = lineStart
+                textarea.selectionEnd = lineStart + replacement.length
+                textarea.focus()
+                textarea.dispatchEvent(new Event('input', { bubbles: true }))
+            }
+
+            function markdownToolbar(textarea, page) {
+                const toolbar = element('div', { className: 'markdown-toolbar', role: 'toolbar', 'aria-label': 'Markdown formatting' })
+                const tools = [
+                    ['Bold', 'B', () => applyWrappedSelection(textarea, '**', '**', 'bold text')],
+                    ['Italic', 'I', () => applyWrappedSelection(textarea, '_', '_', 'italic text')],
+                    ['Strikethrough', 'S', () => applyWrappedSelection(textarea, '~~', '~~', 'struck text')],
+                    ['Inline code', '`', () => applyWrappedSelection(textarea, '`', '`', 'code')],
+                    ['Heading', 'H', () => applyLinePrefix(textarea, '## ')],
+                    ['Quote', '❯', () => applyLinePrefix(textarea, '> ')],
+                    ['Bulleted list', '•', () => applyLinePrefix(textarea, '- ')],
+                    ['Numbered list', '1.', () => applyLinePrefix(textarea, index => `${index + 1}. `)],
+                    ['Link', '↗', () => {
+                        const target = window.prompt('Link destination (https://, mailto:, or #page/…):', 'https://')
+                        if (target === null) return
+                        if (!isAllowedLink(target)) return announce('That link destination is not allowed.', 'error')
+                        applyWrappedSelection(textarea, '[', `](${target})`, 'link text')
+                    }],
+                    ['Image', '▧', async () => {
+                        const selectionStart = textarea.selectionStart
+                        const selectionEnd = textarea.selectionEnd
+                        const imported = await importRasterImage()
+                        if (!imported) return
+                        const alt = window.prompt('Describe the image for readers who cannot see it:', imported.asset.name.replace(/\.[^.]+$/, ''))
+                        if (alt === null) return
+                        state.document.assets[imported.id] = imported.asset
+                        textarea.setSelectionRange(selectionStart, selectionEnd)
+                        textarea.setRangeText(`![${alt}](asset:${imported.id})`, selectionStart, selectionEnd, 'end')
+                        textarea.dispatchEvent(new Event('input', { bubbles: true }))
+                        announce(`Embedded ${imported.asset.name}.`, 'dirty')
+                    }]
+                ]
+                for (const [title, text, handler] of tools) toolbar.append(element('button', { type: 'button', title, 'aria-label': title, text, onclick: handler }))
+                return toolbar
+            }
+
+            function renderTextEditor(page) {
+                const panel = element('section', { className: 'editor-panel' })
+                panel.append(panelHeader('Text page', page))
+                const title = element('input', { type: 'text', value: page.title, dataset: { editorTitle: page.id } })
+                const titleField = labeledField('Page title', title)
+                const tabs = element('div', { className: 'editor-tabs', role: 'tablist', 'aria-label': 'Text page view' })
+                const layout = element('div', { className: 'writing-layout', dataset: { tab: state.ui.editorTab } })
+                const writeTab = element('button', { text: 'Write', role: 'tab', 'aria-selected': state.ui.editorTab === 'write' ? 'true' : 'false' })
+                const previewTab = element('button', { text: 'Preview', role: 'tab', 'aria-selected': state.ui.editorTab === 'preview' ? 'true' : 'false' })
+                writeTab.addEventListener('click', () => { state.ui.editorTab = 'write'; layout.dataset.tab = 'write'; writeTab.setAttribute('aria-selected', 'true'); previewTab.setAttribute('aria-selected', 'false') })
+                previewTab.addEventListener('click', () => { state.ui.editorTab = 'preview'; layout.dataset.tab = 'preview'; writeTab.setAttribute('aria-selected', 'false'); previewTab.setAttribute('aria-selected', 'true') })
+                tabs.append(writeTab, previewTab)
+
+                const textarea = element('textarea', { className: 'markdown-editor', value: page.markdown, 'aria-label': `Markdown for ${page.title}`, spellcheck: true })
+                const writing = element('div', { className: 'writing-pane' })
+                writing.append(markdownToolbar(textarea, page), textarea)
+                const preview = element('div', { className: 'preview-pane', role: 'region', 'aria-label': 'Reader preview' })
+                updatePreview(preview, page)
+                layout.append(writing, preview)
+
+                title.addEventListener('input', () => {
+                    editPage(page.id, { title: title.value })
+                    updateRailLabel(page)
+                    updatePreview(preview, page)
+                })
+                textarea.addEventListener('input', () => {
+                    editPage(page.id, { markdown: textarea.value })
+                    updatePreview(preview, page)
+                })
+                panel.append(titleField, tabs, layout)
+                return panel
+            }
+
+            function renderSectionEditor(page) {
+                const panel = element('section', { className: 'editor-panel' })
+                panel.append(panelHeader('Section page', page))
+                const title = element('input', { type: 'text', value: page.title, dataset: { editorTitle: page.id } })
+                const subtitle = element('input', { type: 'text', value: page.subtitle })
+                const preview = element('div', { className: 'preview-pane', role: 'region', 'aria-label': 'Reader preview' })
+                updatePreview(preview, page)
+                title.addEventListener('input', () => { editPage(page.id, { title: title.value }); updateRailLabel(page); updatePreview(preview, page) })
+                subtitle.addEventListener('input', () => { editPage(page.id, { subtitle: subtitle.value }); updatePreview(preview, page) })
+                panel.append(
+                    element('div', { className: 'settings-card form-stack' },
+                        labeledField('Section title', title),
+                        labeledField('Subtitle (optional)', subtitle),
+                        element('p', { className: 'field-hint', text: 'Section pages divide the book’s flat sequence; they are not folders.' })
+                    ), preview
+                )
+                return panel
+            }
+
+            function assetDetails(asset) {
+                if (!asset) return element('p', { className: 'asset-meta', text: 'No image selected.' })
+                const comma = asset.data.indexOf(',')
+                const bytes = comma >= 0 ? Math.floor((asset.data.length - comma - 1) * 0.75) : asset.data.length
+                return element('p', { className: 'asset-meta', text: `${asset.name} · ${asset.mime} · approximately ${formatBytes(bytes)}` })
+            }
+
+            async function replacePictureAsset(page) {
+                const imported = await importRasterImage()
+                if (!imported) return
+                state.document.assets[imported.id] = imported.asset
+                editPage(page.id, { asset: imported.id })
+                renderEditor()
+                announce(`Embedded ${imported.asset.name}.`, 'dirty')
+            }
+
+            function renderPictureEditor(page) {
+                const panel = element('section', { className: 'editor-panel' })
+                panel.append(panelHeader('Picture page', page))
+                const title = element('input', { type: 'text', value: page.title, dataset: { editorTitle: page.id } })
+                const alt = element('input', { type: 'text', value: page.alt, disabled: page.decorative })
+                const decorative = element('input', { type: 'checkbox', checked: page.decorative })
+                const caption = element('textarea', { value: page.caption })
+                const fit = element('select', {}, element('option', { value: 'contain', text: 'Contain — show the whole image' }), element('option', { value: 'cover', text: 'Cover — crop to fill' }))
+                fit.value = page.fit
+                const preview = element('div', { className: 'preview-pane', role: 'region', 'aria-label': 'Reader preview' })
+                updatePreview(preview, page)
+                const currentAsset = assetFor(page.asset)
+                const replace = element('button', { text: currentAsset ? 'Replace image…' : 'Choose image…', onclick: () => replacePictureAsset(page) })
+                const assetCard = element('div', { className: 'asset-card' })
+                assetCard.append(currentAsset ? element('img', { src: currentAsset.data, alt: '' }) : renderMissingAsset('No image selected.'))
+                assetCard.append(element('div', { className: 'form-stack' }, assetDetails(currentAsset), replace))
+
+                title.addEventListener('input', () => { editPage(page.id, { title: title.value }); updateRailLabel(page); updatePreview(preview, page) })
+                alt.addEventListener('input', () => { editPage(page.id, { alt: alt.value }); updatePreview(preview, page) })
+                decorative.addEventListener('change', () => { editPage(page.id, { decorative: decorative.checked }); alt.disabled = decorative.checked; updatePreview(preview, page) })
+                caption.addEventListener('input', () => { editPage(page.id, { caption: caption.value }); updatePreview(preview, page) })
+                fit.addEventListener('change', () => { editPage(page.id, { fit: fit.value }); updatePreview(preview, page) })
+
+                const decorativeLabel = element('label', { className: 'inline-actions' }, decorative, element('span', { text: 'This image is decorative' }))
+                panel.append(
+                    element('div', { className: 'settings-card form-stack' },
+                        labeledField('Page title', title), assetCard,
+                        labeledField('Image description (alt text)', alt, 'Describe meaningful content for readers who cannot see the image.'),
+                        decorativeLabel,
+                        labeledField('Caption (optional)', caption), labeledField('Image fit', fit)
+                    ), preview
+                )
+                return panel
+            }
+
+            async function replaceCoverAsset() {
+                const imported = await importRasterImage()
+                if (!imported) return
+                state.document.assets[imported.id] = imported.asset
+                changeBook({ coverAsset: imported.id })
+                renderEditor()
+                announce(`Embedded ${imported.asset.name} as the cover.`, 'dirty')
+            }
+
+            function renderBookSettings() {
+                const book = state.document.book
+                const panel = element('section', { className: 'editor-panel' })
+                panel.append(panelHeader('Book settings'))
+                const title = element('input', { type: 'text', value: book.title })
+                const subtitle = element('input', { type: 'text', value: book.subtitle })
+                const author = element('input', { type: 'text', value: book.author })
+                const language = element('input', { type: 'text', value: book.language, pattern: '[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*' })
+                const description = element('textarea', { value: book.description })
+                const accent = element('input', { type: 'color', value: book.accent })
+                const coverAlt = element('input', { type: 'text', value: book.coverAlt, disabled: book.coverDecorative })
+                const coverDecorative = element('input', { type: 'checkbox', checked: book.coverDecorative })
+                const cover = assetFor(book.coverAsset)
+                const coverCard = element('div', { className: 'asset-card' })
+                coverCard.append(cover ? element('img', { src: cover.data, alt: '' }) : renderMissingAsset('No cover image selected.'))
+                const coverActions = element('div', { className: 'form-stack' }, assetDetails(cover))
+                const replace = element('button', { text: cover ? 'Replace cover…' : 'Choose cover…', onclick: replaceCoverAsset })
+                coverActions.append(replace)
+                if (cover) {
+                    const remove = element('button', { className: 'danger', text: 'Remove cover', onclick: () => { changeBook({ coverAsset: '' }); renderEditor(); announce('Cover removed.', 'dirty') } })
+                    coverActions.append(remove)
+                }
+                coverCard.append(coverActions)
+
+                title.addEventListener('input', () => {
+                    changeBook({ title: title.value })
+                    document.querySelector('.app-title').textContent = title.value || 'Untitled book'
+                    applyTheme()
+                })
+                subtitle.addEventListener('input', () => changeBook({ subtitle: subtitle.value }))
+                author.addEventListener('input', () => changeBook({ author: author.value }))
+                language.addEventListener('input', () => {
+                    if (isLanguageTag(language.value)) {
+                        language.setCustomValidity('')
+                        changeBook({ language: language.value })
+                        applyTheme()
+                    } else {
+                        language.setCustomValidity('Use a language tag such as en or en-CA.')
+                    }
+                })
+                description.addEventListener('input', () => changeBook({ description: description.value }))
+                accent.addEventListener('input', () => {
+                    if (!isHexColor(accent.value)) return
+                    changeBook({ accent: accent.value })
+                    applyTheme()
+                })
+                coverAlt.addEventListener('input', () => changeBook({ coverAlt: coverAlt.value }))
+                coverDecorative.addEventListener('change', () => {
+                    changeBook({ coverDecorative: coverDecorative.checked })
+                    coverAlt.disabled = coverDecorative.checked
+                })
+
+                const settings = element('div', { className: 'settings-card settings-grid' },
+                    labeledField('Title', title), labeledField('Subtitle', subtitle),
+                    labeledField('Author', author), labeledField('Language', language, 'Use a language tag such as en or en-CA.'),
+                    element('div', { className: 'wide' }, labeledField('Description', description)),
+                    labeledField('Accent color', accent),
+                    element('div', { className: 'field' }, element('span', { className: 'field-label', text: 'Theme' }), element('p', { className: 'field-hint', text: 'Paper — the first release includes one carefully tested theme.' })),
+                    element('div', { className: 'wide' }, element('span', { className: 'field-label', text: 'Cover image' }), coverCard),
+                    element('div', { className: 'wide' }, labeledField('Cover image description', coverAlt)),
+                    element('label', { className: 'inline-actions wide' }, coverDecorative, element('span', { text: 'The cover is decorative' }))
+                )
+                panel.append(settings)
+                return panel
+            }
+
+            function renderEditor() {
+                state.ui.mode = 'editor'
+                const shell = element('div', { className: 'editor-app' })
+                const body = element('div', { className: 'editor-body' })
+                body.append(renderPageRail())
+                const main = element('section', { className: 'editor-main', 'aria-label': 'Editor' })
+                const page = currentPage()
+                if (!page) main.append(renderBookSettings())
+                else if (page.type === 'section') main.append(renderSectionEditor(page))
+                else if (page.type === 'picture') main.append(renderPictureEditor(page))
+                else main.append(renderTextEditor(page))
+                body.append(main)
+                shell.append(editorHeader(), body)
+                replaceContents(app, shell)
+                requestAnimationFrame(() => refreshSaveStatus(false))
+            }
+
+            function enterEditMode() {
+                const route = parseRoute()
+                if (route.kind === 'page' && pageIndex(route.id) >= 0) state.ui.selectedPageId = route.id
+                else if (!state.ui.selectedPageId) state.ui.selectedPageId = state.document.pages[0]?.id || null
+                renderEditor()
+                focusMain()
+            }
+
+            function leaveEditMode() {
+                const selected = state.ui.selectedPageId
+                state.ui.mode = 'reader'
+                if (selected) navigate(`#page/${encodeURIComponent(selected)}`)
+                else navigate('#cover')
+                renderReader()
+                focusMain()
+            }
+
+            function readFileAsDataUrl(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader()
+                    reader.addEventListener('load', () => resolve(String(reader.result)))
+                    reader.addEventListener('error', () => reject(reader.error || new Error('The image could not be read.')))
+                    reader.readAsDataURL(file)
+                })
+            }
+
+            function decodeImage(data) {
+                return new Promise((resolve, reject) => {
+                    const image = new Image()
+                    image.addEventListener('load', () => resolve(image), { once: true })
+                    image.addEventListener('error', () => reject(new Error('The selected file is not a decodable image.')), { once: true })
+                    image.src = data
+                })
+            }
+
+            function chooseImageFile() {
+                return new Promise(resolve => {
+                    const input = element('input', {
+                        type: 'file', accept: 'image/png,image/jpeg,image/gif,image/webp,image/avif',
+                        className: 'visually-hidden', 'data-singlebook-transient': 'true'
+                    })
+                    let settled = false
+                    const finish = file => {
+                        if (settled) return
+                        settled = true
+                        input.remove()
+                        resolve(file || null)
+                    }
+                    input.addEventListener('change', () => finish(input.files?.[0]))
+                    input.addEventListener('cancel', () => finish(null))
+                    document.body.append(input)
+                    input.click()
+                })
+            }
+
+            async function importRasterImage() {
+                const file = await chooseImageFile()
+                if (!file) return null
+                if (!ALLOWED_IMAGE_TYPES.has(file.type)) {
+                    announce('Choose a PNG, JPEG, GIF, WebP, or AVIF image. SVG is not accepted.', 'error')
+                    return null
+                }
+                if (file.size > 10 * 1024 * 1024 && !window.confirm(`${file.name} is ${formatBytes(file.size)} and will make every copy of the book larger. Embed it anyway?`)) return null
+                try {
+                    const data = await readFileAsDataUrl(file)
+                    if (!data.toLowerCase().startsWith(`data:${file.type.toLowerCase()};base64,`)) throw new Error('The image data did not match its declared type.')
+                    await decodeImage(data)
+                    return { id: createId('asset'), asset: { name: file.name, mime: file.type, data } }
+                } catch (error) {
+                    announce(error.message || 'The image could not be embedded.', 'error')
+                    return null
+                }
+            }
+
+            function collectAssetReferences(doc) {
+                const references = new Set()
+                if (doc.book.coverAsset) references.add(doc.book.coverAsset)
+                for (const page of doc.pages) {
+                    if (page.type === 'picture' && page.asset) references.add(page.asset)
+                    if (page.type === 'text') {
+                        const withoutCode = page.markdown
+                            .replace(/```[\s\S]*?```/g, '')
+                            .replace(/`[^`\n]*`/g, '')
+                        const pattern = /!\[[^\]]*\]\(asset:([A-Za-z0-9._~-]+)\)/g
+                        let match
+                        while ((match = pattern.exec(withoutCode))) references.add(match[1])
+                    }
+                }
+
+                const assetIds = Object.keys(doc.assets)
+                const scanUnknownValue = value => {
+                    if (typeof value === 'string') {
+                        for (const id of assetIds) if (value.includes(`asset:${id}`)) references.add(id)
+                    } else if (Array.isArray(value)) {
+                        value.forEach(scanUnknownValue)
+                    } else if (isPlainObject(value)) {
+                        Object.values(value).forEach(scanUnknownValue)
+                    }
+                }
+                const rootKnown = new Set(['format', 'version', 'id', 'book', 'pages', 'assets'])
+                for (const [key, value] of Object.entries(doc)) if (!rootKnown.has(key)) scanUnknownValue(value)
+                const bookKnown = new Set(['title', 'subtitle', 'author', 'language', 'description', 'coverAsset', 'coverAlt', 'coverDecorative', 'theme', 'accent', 'createdAt', 'updatedAt'])
+                for (const [key, value] of Object.entries(doc.book)) if (!bookKnown.has(key)) scanUnknownValue(value)
+                for (const page of doc.pages) {
+                    const known = new Set(page.type === 'text'
+                        ? ['id', 'type', 'title', 'markdown']
+                        : page.type === 'section'
+                            ? ['id', 'type', 'title', 'subtitle']
+                            : ['id', 'type', 'title', 'asset', 'alt', 'caption', 'decorative', 'fit'])
+                    for (const [key, value] of Object.entries(page)) if (!known.has(key)) scanUnknownValue(value)
+                }
+                return references
+            }
+
+            function prepareDocumentForSave(doc) {
+                const copy = deepClone(doc)
+                const references = collectAssetReferences(copy)
+                for (const [id, asset] of Object.entries(copy.assets)) {
+                    if (isSafeAsset(asset) && !references.has(id)) delete copy.assets[id]
+                }
+                return copy
+            }
+
+            function countLiteral(source, needle) {
+                let count = 0
+                let offset = 0
+                while ((offset = source.indexOf(needle, offset)) >= 0) {
+                    count += 1
+                    offset += needle.length
+                }
+                return count
+            }
+
+            function serializeFile(doc) {
+                const prepared = prepareDocumentForSave(doc)
+                const clone = pristineDocument.cloneNode(true)
+                clone.querySelectorAll('[data-singlebook-transient]').forEach(node => node.remove())
+                const blocks = clone.querySelectorAll(`#${DATA_BLOCK_ID}`)
+                if (blocks.length !== 1) throw new Error(`Expected one #${DATA_BLOCK_ID} block; found ${blocks.length}.`)
+                const json = JSON.stringify(prepared, null, 2).replace(/</g, '\\u003c')
+                blocks[0].textContent = `\n${json}\n  `
+                clone.documentElement.lang = prepared.book.language
+                const title = clone.querySelector('title')
+                if (title) title.textContent = `${prepared.book.title || 'Untitled book'} — singlebook`
+                const generator = clone.querySelector('meta[name="generator"]')
+                if (generator) generator.setAttribute('content', `singlebook ${APP_VERSION}`)
+                const html = `<!doctype html>\n${clone.documentElement.outerHTML}`
+                const expectedScripts = clone.querySelectorAll('script').length
+                const actualClosers = countLiteral(html.toLowerCase(), SCRIPT_CLOSE)
+                if (actualClosers !== expectedScripts) throw new Error('Serialization safety check found an unexpected script closing tag.')
+
+                const verification = new DOMParser().parseFromString(html, 'text/html')
+                const verifyBlocks = verification.querySelectorAll(`#${DATA_BLOCK_ID}`)
+                if (verifyBlocks.length !== 1) throw new Error('The serialized file did not retain exactly one document block.')
+                const roundTrip = JSON.parse((verifyBlocks[0].textContent || '').trim())
+                if (JSON.stringify(roundTrip) !== JSON.stringify(prepared)) throw new Error('The serialized document failed its round-trip check.')
+                return { html, prepared }
+            }
+
+            async function pickSaveHandle(doc) {
+                try {
+                    return await window.showSaveFilePicker({
+                        id: 'singlebook-document',
+                        suggestedName: state.persistence.fileName || openedFileName() || suggestedFileName(doc),
+                        types: [{ description: 'singlebook HTML', accept: { 'text/html': ['.singlebook.html'] } }]
+                    })
+                } catch (error) {
+                    if (error && error.name === 'AbortError') return null
+                    throw error
+                }
+            }
+
+            async function writeHandle(handle, html) {
+                const writable = await handle.createWritable()
+                try {
+                    await writable.write(new Blob([html], { type: 'text/html' }))
+                    await writable.close()
+                } catch (error) {
+                    try { await writable.abort?.() } catch (_) {}
+                    throw error
+                }
+            }
+
+            function downloadHtml(html, name) {
+                const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }))
+                const anchor = element('a', { href: url, download: name, 'data-singlebook-transient': 'true' })
+                document.body.append(anchor)
+                anchor.click()
+                anchor.remove()
+                setTimeout(() => URL.revokeObjectURL(url), 5000)
+            }
+
+            function temporaryPersistenceMessage(message, tone = 'saved') {
+                state.persistence.message = message
+                state.persistence.messageTone = tone
+                refreshSaveStatus(true)
+                setTimeout(() => {
+                    if (!state || state.persistence.message !== message) return
+                    state.persistence.message = ''
+                    state.persistence.messageTone = ''
+                    refreshSaveStatus(false)
+                }, 5000)
+            }
+
+            function confirmAccessibleImagesBeforeSave() {
+                const missing = []
+                const book = state.document.book
+                if (book.coverAsset && !book.coverDecorative && !book.coverAlt.trim()) missing.push('the cover')
+                for (const page of state.document.pages) {
+                    if (page.type === 'picture' && page.asset && !page.decorative && !page.alt.trim()) {
+                        missing.push(`“${page.title || 'Untitled picture'}”`)
+                    }
+                    if (page.type === 'text' && /!\[\s*\]\(asset:[A-Za-z0-9._~-]+\)/.test(page.markdown)) {
+                        missing.push(`an inline image on “${page.title || 'Untitled page'}”`)
+                    }
+                }
+                if (!missing.length) return true
+                return window.confirm(`The following image${missing.length === 1 ? ' has' : 's have'} no description: ${missing.join(', ')}.\n\nSave anyway?`)
+            }
+
+            async function saveDocument() {
+                if (state.persistence.saving) return
+                if (!confirmAccessibleImagesBeforeSave()) {
+                    announce('Save cancelled. Add image descriptions or mark decorative images.', 'error', true)
+                    return
+                }
+                state.persistence.saving = true
+                state.persistence.error = ''
+                state.persistence.message = ''
+                state.persistence.messageTone = ''
+                refreshSaveStatus(true)
+                const revision = state.persistence.revision
+                let outcome = ''
+                let outcomeTone = 'saved'
+                try {
+                    const serialized = serializeFile(state.document)
+                    if (canWriteInPlace()) {
+                        let handle = state.persistence.fileHandle
+                        if (!handle) handle = await pickSaveHandle(serialized.prepared)
+                        if (!handle) {
+                            outcome = 'Save cancelled.'
+                            outcomeTone = 'neutral'
+                            return
+                        }
+                        await writeHandle(handle, serialized.html)
+                        state.persistence.fileHandle = handle
+                        state.persistence.fileName = handle.name
+                        state.persistence.persistedRevision = revision
+                        outcome = `Saved to ${handle.name}.`
+                    } else {
+                        const name = suggestedFileName(serialized.prepared)
+                        downloadHtml(serialized.html, name)
+                        state.persistence.persistedRevision = revision
+                        outcome = 'Updated copy downloaded; the open file was not changed.'
+                    }
+                } catch (error) {
+                    console.error(error)
+                    state.persistence.error = `Save failed: ${error.message || 'Unknown error'}`
+                } finally {
+                    state.persistence.saving = false
+                    if (outcome) temporaryPersistenceMessage(outcome, outcomeTone)
+                    else refreshSaveStatus(true)
+                }
+            }
+
+            // 10. Fatal recovery
+            function renderFatal(error) {
+                if (splash) splash.remove()
+                document.getElementById('singlebook-save-notice')?.remove()
+                const copy = element('button', {
+                    text: 'Copy raw document JSON', onclick: async () => {
+                        await copyText(rawEmbeddedText)
+                        announce('Raw document JSON copied.', 'saved')
+                    }
+                })
+                const reload = element('button', { text: 'Reload file', onclick: () => location.reload() })
+                const raw = element('textarea', { className: 'raw-json', value: rawEmbeddedText, readOnly: true, 'aria-label': 'Raw document JSON' })
+                replaceContents(app, element('section', { className: 'fatal-screen' },
+                    element('p', { className: 'cover-kicker', text: 'singlebook could not open' }),
+                    element('h1', { text: 'This book needs attention' }),
+                    element('p', { text: 'The editor did not change the file. You can copy its raw document data before trying a newer editor or repairing the JSON.' }),
+                    element('p', { className: 'fatal-details', text: error.message || String(error) }),
+                    element('div', { className: 'inline-actions' }, copy, reload), raw
+                ))
+                app.focus()
+            }
+
+            // 11. Boot and global events
+            function boot() {
+                try {
+                    const normalized = normalizeDocument(readEmbeddedDocument())
+                    state = {
+                        document: normalized.document,
+                        warnings: normalized.warnings,
+                        ui: {
+                            mode: 'reader',
+                            selectedPageId: normalized.document.pages[0]?.id || null,
+                            editorTab: 'write',
+                            railOpen: false
+                        },
+                        persistence: {
+                            revision: 0,
+                            persistedRevision: 0,
+                            saving: false,
+                            fileHandle: null,
+                            fileName: openedFileName(),
+                            error: '',
+                            message: '',
+                            messageTone: ''
+                        }
+                    }
+                    applyTheme()
+                    if (splash) splash.remove()
+                    renderReader()
+                    noticeIfCannotWriteInPlace()
+                    if (normalized.warnings.length) {
+                        console.warn('singlebook document warnings:', normalized.warnings)
+                        requestAnimationFrame(() => announce(`${normalized.warnings.length} document warning${normalized.warnings.length === 1 ? '' : 's'}; details are in the browser console.`, 'error'))
+                    }
+                } catch (error) {
+                    console.error(error)
+                    renderFatal(error)
+                }
+            }
+
+            window.addEventListener('hashchange', () => {
+                if (!state || state.ui.mode !== 'reader') return
+                renderReader()
+                focusMain()
+            })
+
+            window.addEventListener('keydown', event => {
+                if (!state) return
+                if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 's') {
+                    event.preventDefault()
+                    saveDocument()
+                    return
+                }
+                if (state.ui.mode !== 'reader' || event.metaKey || event.ctrlKey || event.altKey || isTextEntryTarget(event.target)) return
+                if (event.key === 'ArrowRight') navigateRelative(1)
+                if (event.key === 'ArrowLeft') navigateRelative(-1)
+            })
+
+            window.addEventListener('beforeunload', event => {
+                if (!state || !isDirty()) return
+                event.preventDefault()
+                event.returnValue = ''
+            })
+
+            boot()
+        })()
+    </script></body></html>

@@ -1,0 +1,2933 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="singlebook 0.1.1">
+    <meta name="color-scheme" content="light">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; media-src data: blob:; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+    <title>SingleBook — singlebook</title>
+    <!-- the below comment and its matching twin further down delineate the book data boundaries -->
+    <!-- these delimiters are used by the python script that generates example books and can be safely removed if you don't care about retaining that functionality -->
+    <!-- singlebook-data:start -->
+    <script id="singlebook-data" type="application/singlebook+json">
+        {
+          "format": "singlebook",
+          "version": 1,
+          "id": "book-the-crab-and-his-mother",
+          "book": {
+            "title": "The Crab and His Mother",
+            "subtitle": "A fable",
+            "author": "Aesop, translated by V. S. Vernon Jones",
+            "language": "en",
+            "description": "A brief fable about example and hypocrisy.",
+            "coverAsset": "",
+            "coverAlt": "",
+            "coverDecorative": false,
+            "theme": "paper",
+            "accent": "#9b3a32",
+            "createdAt": "2026-09-28T00:00:00.000Z",
+            "updatedAt": "2026-09-28T00:00:00.000Z"
+          },
+          "pages": [
+            {
+              "id": "page-the-crab-and-his-mother",
+              "type": "text",
+              "title": "The Crab and His Mother",
+              "markdown": "An Old Crab said to her son, “Why do you walk sideways like that, my son? You ought to walk straight.” The Young Crab replied, “Show me how, dear mother, and I’ll follow your example.” The Old Crab tried, but tried in vain, and then saw how foolish she had been to find fault with her child."
+            }
+          ],
+          "assets": {}
+        }
+    </script>
+    <!-- singlebook-data:end -->
+    <style>
+        :root {
+            color-scheme: light;
+            --paper: #f8f4ea;
+            --paper-raised: #fffdf7;
+            --paper-deep: #eee7d8;
+            --ink: #24221e;
+            --ink-soft: #666158;
+            --ink-faint: #8b857a;
+            --accent: #9b3a32;
+            --accent-ink: #ffffff;
+            --border: #d8d0c1;
+            --border-strong: #b8ad9c;
+            --danger: #9a2721;
+            --success: #346744;
+            --focus: #1769aa;
+            --shadow: 0 18px 60px rgba(42, 34, 22, 0.12);
+            --shadow-small: 0 5px 18px rgba(42, 34, 22, 0.1);
+            --radius: 0.75rem;
+            --radius-small: 0.45rem;
+            --measure: 68ch;
+            --serif: ui-serif, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+            --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        }
+    
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+    
+        html {
+            min-height: 100%;
+            background: var(--paper);
+            scroll-behavior: smooth;
+        }
+    
+        body {
+            min-height: 100vh;
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(255, 255, 255, 0.72), transparent 30rem),
+                var(--paper);
+            font-family: var(--sans);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+    
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+    
+        button,
+        .button {
+            min-height: 2.75rem;
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-small);
+            padding: 0.58rem 0.9rem;
+            color: var(--ink);
+            background: var(--paper-raised);
+            font-weight: 650;
+            line-height: 1.15;
+            cursor: pointer;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset;
+        }
+    
+        button:hover,
+        .button:hover {
+            border-color: var(--ink-soft);
+        }
+    
+        button:active,
+        .button:active {
+            transform: translateY(1px);
+        }
+    
+        button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            transform: none;
+        }
+    
+        button.primary {
+            color: var(--accent-ink);
+            border-color: var(--accent);
+            background: var(--accent);
+        }
+    
+        button.quiet {
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+        }
+    
+        button.danger {
+            color: var(--danger);
+        }
+    
+        button.danger.primary {
+            color: #fff;
+            background: var(--danger);
+            border-color: var(--danger);
+        }
+    
+        a {
+            color: var(--accent);
+            text-underline-offset: 0.14em;
+        }
+    
+        a:hover {
+            text-decoration-thickness: 2px;
+        }
+    
+        :focus-visible {
+            outline: 3px solid var(--focus);
+            outline-offset: 3px;
+        }
+
+        .reader-main h1[tabindex="-1"]:focus-visible {
+            outline: none;
+        }
+    
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+    
+        .skip-link {
+            position: fixed;
+            z-index: 1000;
+            top: 0.75rem;
+            left: 0.75rem;
+            padding: 0.7rem 1rem;
+            color: #fff;
+            background: var(--ink);
+            border-radius: var(--radius-small);
+            transform: translateY(-180%);
+        }
+    
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+    
+        #singlebook-splash {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 2rem;
+            color: var(--ink-soft);
+            font: 600 0.95rem/1.4 var(--sans);
+            letter-spacing: 0.04em;
+        }
+    
+        .app-header {
+            position: sticky;
+            z-index: 20;
+            top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            min-height: 4rem;
+            padding: 0.55rem clamp(0.75rem, 2.5vw, 2rem);
+            border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+            background: color-mix(in srgb, var(--paper) 92%, transparent);
+            backdrop-filter: blur(16px);
+        }
+    
+        .app-title {
+            min-width: 0;
+            margin-right: auto;
+            overflow: hidden;
+            color: var(--ink);
+            font-weight: 780;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+    
+        .save-button {
+            display: inline-flex;
+            align-items: center;
+            gap: .42rem;
+        }
+    
+        .save-icon {
+            width: 1.05rem;
+            height: 1.05rem;
+            flex: none;
+        }
+    
+        .save-status {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2rem;
+            max-width: 21rem;
+            padding: 0.3rem 0.6rem;
+            overflow: hidden;
+            color: var(--ink-soft);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        .save-status[data-tone="dirty"] {
+            color: #775312;
+            background: #f5e8bd;
+        }
+    
+        .save-status[data-tone="saved"] {
+            color: var(--success);
+            background: #e5f0e5;
+        }
+    
+        .save-status[data-tone="error"] {
+            color: var(--danger);
+            background: #f6dfdc;
+        }
+    
+        .save-capability-banner {
+            position: fixed;
+            z-index: 60;
+            top: calc(4.75rem + env(safe-area-inset-top, 0px));
+            left: 50%;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            width: max-content;
+            max-width: min(38rem, calc(100vw - 2rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+            padding: .7rem .8rem .7rem 1rem;
+            color: var(--paper-raised);
+            border-radius: var(--radius);
+            background: var(--ink);
+            box-shadow: 0 10px 32px rgba(20, 18, 15, .28);
+            font-size: .85rem;
+            line-height: 1.4;
+            transform: translateX(-50%);
+        }
+    
+        .save-capability-banner span {
+            min-width: 0;
+        }
+    
+        .save-capability-banner button {
+            flex: none;
+            min-height: 2.35rem;
+            padding: .42rem .72rem;
+        }
+    
+        .reader-main {
+            min-height: calc(100vh - 4rem);
+        }
+    
+        .reader-surface {
+            width: min(calc(100% - 2rem), 58rem);
+            margin: 0 auto;
+            padding: clamp(2.5rem, 8vw, 7rem) 0 6rem;
+        }
+    
+        .book-cover {
+            min-height: calc(100vh - 9rem);
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            align-content: center;
+            justify-items: start;
+            gap: 1.2rem;
+            width: min(calc(100% - 2rem), 70rem);
+            margin: 0 auto;
+            padding: 3rem 0 5rem;
+        }
+    
+        .book-cover.has-art {
+            grid-template-columns: minmax(16rem, .82fr) minmax(0, 1.18fr);
+            align-items: center;
+            column-gap: clamp(2rem, 7vw, 7rem);
+        }
+    
+        .cover-art {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: calc(var(--radius) * 1.2);
+            box-shadow: var(--shadow);
+            background: var(--paper-deep);
+        }
+    
+        .cover-copy {
+            max-width: 42rem;
+        }
+    
+        .cover-kicker {
+            margin: 0 0 0.8rem;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+    
+        .cover-title {
+            max-width: 14ch;
+            margin: 0;
+            font: 720 clamp(3.1rem, 9vw, 7.4rem)/0.94 var(--serif);
+            letter-spacing: -0.045em;
+            text-wrap: balance;
+        }
+    
+        .cover-subtitle {
+            max-width: 34ch;
+            margin: 1.15rem 0 0;
+            color: var(--ink-soft);
+            font: 400 clamp(1.2rem, 2.5vw, 1.7rem)/1.35 var(--serif);
+        }
+    
+        .cover-author {
+            margin: 1.5rem 0 0;
+            font-weight: 740;
+        }
+    
+        .cover-description {
+            max-width: 48ch;
+            margin: 1.4rem 0 0;
+            color: var(--ink-soft);
+        }
+    
+        .cover-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 2rem;
+        }
+    
+        .contents-heading,
+        .page-title {
+            margin: 0 0 2rem;
+            font: 720 clamp(2.25rem, 6vw, 4.7rem)/1.02 var(--serif);
+            letter-spacing: -0.035em;
+            text-wrap: balance;
+        }
+    
+        .contents-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: 1px solid var(--border);
+        }
+    
+        .contents-item {
+            border-bottom: 1px solid var(--border);
+        }
+    
+        .contents-link {
+            display: grid;
+            grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+            gap: 0.75rem;
+            align-items: baseline;
+            padding: 1.1rem 0.2rem;
+            color: var(--ink);
+            text-decoration: none;
+        }
+    
+        .contents-link:hover .contents-name {
+            color: var(--accent);
+        }
+    
+        .contents-number {
+            color: var(--ink-faint);
+            font-variant-numeric: tabular-nums;
+        }
+    
+        .contents-name {
+            font: 650 clamp(1.05rem, 2vw, 1.25rem)/1.3 var(--serif);
+        }
+    
+        .contents-kind {
+            color: var(--ink-faint);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+    
+        .contents-item.section {
+            border-bottom: 0;
+        }
+    
+        .contents-item.section .contents-link {
+            grid-template-columns: 1fr;
+            padding-top: 2.5rem;
+            padding-bottom: .65rem;
+        }
+    
+        .contents-item.section .contents-name {
+            color: var(--accent);
+            font: 800 0.83rem/1.3 var(--sans);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+    
+        .contents-item.section .contents-number,
+        .contents-item.section .contents-kind {
+            display: none;
+        }
+    
+        .book-page {
+            max-width: var(--measure);
+            margin: 0 auto;
+        }
+    
+        .book-page.prose {
+            font: 400 clamp(1.08rem, 1.7vw, 1.25rem)/1.72 var(--serif);
+        }
+    
+        .book-page.prose>*:first-child {
+            margin-top: 0;
+        }
+    
+        .book-page.prose h2,
+        .book-page.prose h3,
+        .book-page.prose h4,
+        .book-page.prose h5 {
+            margin: 2.2em 0 .6em;
+            line-height: 1.15;
+            text-wrap: balance;
+        }
+    
+        .book-page.prose h2 {
+            font-size: 1.9em;
+        }
+    
+        .book-page.prose h3 {
+            font-size: 1.5em;
+        }
+    
+        .book-page.prose h4 {
+            font-size: 1.25em;
+        }
+    
+        .book-page.prose p,
+        .book-page.prose ul,
+        .book-page.prose ol,
+        .book-page.prose blockquote,
+        .book-page.prose pre {
+            margin: 0 0 1.25em;
+        }
+    
+        .book-page.prose li+li {
+            margin-top: .35em;
+        }
+    
+        .book-page.prose blockquote {
+            margin-left: 0;
+            padding: .25rem 0 .25rem 1.25rem;
+            color: var(--ink-soft);
+            border-left: .22rem solid var(--accent);
+            font-style: italic;
+        }
+    
+        .book-page.prose code {
+            padding: .08em .28em;
+            border-radius: .25em;
+            background: var(--paper-deep);
+            font: .88em/1.4 var(--mono);
+            overflow-wrap: anywhere;
+        }
+    
+        .book-page.prose pre {
+            overflow: auto;
+            padding: 1rem 1.15rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-small);
+            background: #25231f;
+            color: #f7f2e8;
+        }
+    
+        .book-page.prose pre code {
+            padding: 0;
+            color: inherit;
+            background: transparent;
+        }
+    
+        .book-page.prose hr {
+            width: 7rem;
+            margin: 3rem auto;
+            border: 0;
+            border-top: .22rem solid var(--accent);
+        }
+    
+        .book-page.prose img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            border-radius: var(--radius-small);
+        }
+    
+        .book-page.prose a {
+            overflow-wrap: anywhere;
+        }
+    
+        .section-page {
+            min-height: 60vh;
+            display: grid;
+            align-content: center;
+            max-width: 64rem;
+            margin: 0 auto;
+            padding-left: clamp(1rem, 6vw, 5rem);
+            border-left: clamp(.35rem, 1vw, .75rem) solid var(--accent);
+        }
+    
+        .section-page h1 {
+            max-width: 14ch;
+            margin: 0;
+            font: 760 clamp(3rem, 10vw, 8rem)/.94 var(--serif);
+            letter-spacing: -.045em;
+            text-wrap: balance;
+        }
+    
+        .section-page p {
+            max-width: 35ch;
+            margin: 1.4rem 0 0;
+            color: var(--ink-soft);
+            font: 400 clamp(1.2rem, 2.7vw, 1.8rem)/1.35 var(--serif);
+        }
+    
+        .picture-page {
+            max-width: 76rem;
+            margin: 0 auto;
+        }
+    
+        .picture-page h1 {
+            max-width: 20ch;
+        }
+    
+        .picture-page figure {
+            margin: 0;
+        }
+    
+        .picture-page img {
+            display: block;
+            width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: var(--radius);
+            background: var(--paper-deep);
+            box-shadow: var(--shadow-small);
+        }
+    
+        .picture-page img[data-fit="cover"] {
+            aspect-ratio: 16/10;
+            object-fit: cover;
+        }
+    
+        .picture-page figcaption {
+            max-width: var(--measure);
+            margin: .85rem auto 0;
+            color: var(--ink-soft);
+            font: .95rem/1.5 var(--sans);
+        }
+    
+        .missing-asset {
+            display: grid;
+            min-height: 14rem;
+            place-items: center;
+            padding: 2rem;
+            color: var(--danger);
+            border: 2px dashed currentColor;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+    
+        .page-navigation {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+            width: min(calc(100% - 2rem), 58rem);
+            margin: 2rem auto 0;
+            padding: 2rem 0 5rem;
+            border-top: 1px solid var(--border);
+        }
+    
+        .page-navigation .previous {
+            justify-self: start;
+        }
+    
+        .page-navigation .contents {
+            justify-self: center;
+        }
+    
+        .page-navigation .next {
+            justify-self: end;
+            text-align: right;
+        }
+    
+        .page-navigation a {
+            display: inline-flex;
+            min-height: 2.75rem;
+            align-items: center;
+            color: var(--ink);
+            font-weight: 700;
+            text-decoration: none;
+        }
+    
+        .page-navigation a:hover {
+            color: var(--accent);
+        }
+    
+        .editor-app {
+            height: 100vh;
+            overflow: hidden;
+            background: #f3efe7;
+        }
+    
+        .editor-header {
+            position: relative;
+            background: var(--paper-raised);
+            backdrop-filter: none;
+        }
+    
+        .editor-body {
+            height: calc(100vh - 4rem);
+            display: grid;
+            grid-template-columns: minmax(15.5rem, 20rem) minmax(0, 1fr);
+        }
+    
+        .page-rail {
+            overflow: auto;
+            padding: .85rem;
+            border-right: 1px solid var(--border);
+            background: #ebe5da;
+        }
+    
+        .rail-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .5rem;
+            margin: 0 0 .7rem;
+            padding: 0 .3rem;
+        }
+    
+        .rail-heading h2 {
+            margin: 0;
+            font-size: .83rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+    
+        .rail-list {
+            display: grid;
+            gap: .35rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    
+        .rail-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: .25rem;
+            align-items: stretch;
+        }
+    
+        .rail-select {
+            min-width: 0;
+            display: grid;
+            grid-template-columns: 1.6rem minmax(0, 1fr);
+            align-items: center;
+            gap: .45rem;
+            text-align: left;
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+            font-weight: 600;
+        }
+    
+        .rail-row.selected .rail-select {
+            border-color: var(--border-strong);
+            background: var(--paper-raised);
+            box-shadow: var(--shadow-small);
+        }
+    
+        .rail-type {
+            color: var(--ink-faint);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+        }
+    
+        .rail-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        .rail-move {
+            display: flex;
+            gap: .1rem;
+        }
+    
+        .rail-move button {
+            width: 2rem;
+            min-height: 2.5rem;
+            padding: 0;
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+        }
+    
+        .add-page-button {
+            width: 100%;
+            margin-top: .7rem;
+            border-style: dashed;
+            background: rgba(255, 255, 255, .35);
+        }
+    
+        .editor-main {
+            min-width: 0;
+            overflow: auto;
+            padding: clamp(1rem, 3vw, 2.5rem);
+        }
+    
+        .editor-panel {
+            width: min(100%, 78rem);
+            margin: 0 auto;
+        }
+    
+        .editor-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+    
+        .editor-panel-header h1 {
+            margin: 0;
+            font: 730 clamp(1.8rem, 4vw, 3rem)/1.1 var(--serif);
+        }
+    
+        .page-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+    
+        .form-stack {
+            display: grid;
+            gap: 1.1rem;
+        }
+    
+        .field {
+            display: grid;
+            gap: .35rem;
+        }
+    
+        .field>label,
+        .field-label {
+            color: var(--ink-soft);
+            font-size: .82rem;
+            font-weight: 760;
+            letter-spacing: .03em;
+        }
+    
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-small);
+            padding: .7rem .78rem;
+            color: var(--ink);
+            background: var(--paper-raised);
+            box-shadow: 0 1px 2px rgba(42, 34, 22, .04) inset;
+        }
+    
+        .field textarea {
+            min-height: 7rem;
+            resize: vertical;
+        }
+    
+        .field input[type="color"] {
+            width: 5rem;
+            min-height: 3rem;
+            padding: .25rem;
+        }
+    
+        .field-hint {
+            margin: 0;
+            color: var(--ink-faint);
+            font-size: .82rem;
+        }
+    
+        .field-error {
+            margin: 0;
+            color: var(--danger);
+            font-size: .82rem;
+            font-weight: 650;
+        }
+    
+        .writing-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(19rem, .85fr);
+            gap: 1rem;
+            align-items: stretch;
+        }
+    
+        .writing-pane,
+        .preview-pane,
+        .settings-card {
+            min-width: 0;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--paper-raised);
+            box-shadow: var(--shadow-small);
+        }
+    
+        .writing-pane {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+    
+        .markdown-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .15rem;
+            padding: .45rem;
+            border-bottom: 1px solid var(--border);
+            background: #f5f0e7;
+        }
+    
+        .markdown-toolbar button {
+            min-width: 2.5rem;
+            min-height: 2.35rem;
+            padding: .35rem .5rem;
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+        }
+    
+        .markdown-toolbar button:hover {
+            background: var(--paper-raised);
+            border-color: var(--border);
+        }
+    
+        .markdown-editor {
+            flex: 1;
+            width: 100%;
+            min-height: 58vh;
+            resize: vertical;
+            border: 0;
+            padding: 1.25rem;
+            color: var(--ink);
+            background: transparent;
+            font: 1rem/1.65 var(--mono);
+            tab-size: 2;
+        }
+    
+        .markdown-editor:focus {
+            outline: 0;
+            box-shadow: inset 0 0 0 3px var(--focus);
+        }
+    
+        .preview-pane {
+            overflow: auto;
+            padding: clamp(1.2rem, 3vw, 2.2rem);
+        }
+    
+        .preview-label {
+            margin: 0 0 1rem;
+            color: var(--ink-faint);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+    
+        .preview-pane .book-page {
+            font-size: .95rem;
+        }
+    
+        .editor-tabs {
+            display: none;
+        }
+    
+        .settings-card {
+            padding: clamp(1rem, 3vw, 2rem);
+        }
+    
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+    
+        .settings-grid .wide {
+            grid-column: 1 / -1;
+        }
+    
+        .asset-card {
+            display: grid;
+            grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr);
+            gap: 1rem;
+            align-items: start;
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: #f7f3eb;
+        }
+    
+        .asset-card img {
+            display: block;
+            width: 100%;
+            max-height: 18rem;
+            object-fit: contain;
+            border-radius: var(--radius-small);
+            background: var(--paper-deep);
+        }
+    
+        .asset-meta {
+            color: var(--ink-soft);
+            font-size: .85rem;
+            overflow-wrap: anywhere;
+        }
+    
+        .inline-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            align-items: center;
+        }
+    
+        dialog {
+            width: min(calc(100% - 2rem), 34rem);
+            padding: 0;
+            color: var(--ink);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius);
+            background: var(--paper-raised);
+            box-shadow: var(--shadow);
+        }
+    
+        dialog::backdrop {
+            background: rgba(28, 25, 21, .56);
+            backdrop-filter: blur(2px);
+        }
+    
+        .dialog-body {
+            padding: 1.35rem;
+        }
+    
+        .dialog-body h2 {
+            margin: 0 0 .65rem;
+            font: 720 1.65rem/1.15 var(--serif);
+        }
+    
+        .dialog-body p {
+            color: var(--ink-soft);
+        }
+    
+        .dialog-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: .55rem;
+            padding: 1rem 1.35rem;
+            border-top: 1px solid var(--border);
+            background: #f4efe7;
+        }
+    
+        .page-type-choices {
+            display: grid;
+            gap: .55rem;
+            margin-top: 1rem;
+        }
+    
+        .page-type-choice {
+            display: grid;
+            gap: .18rem;
+            width: 100%;
+            padding: .85rem 1rem;
+            text-align: left;
+        }
+    
+        .page-type-choice small {
+            color: var(--ink-soft);
+            font-weight: 400;
+        }
+    
+        .fatal-screen {
+            width: min(calc(100% - 2rem), 58rem);
+            margin: 0 auto;
+            padding: 5rem 0;
+        }
+    
+        .fatal-screen h1 {
+            font: 720 clamp(2rem, 5vw, 4rem)/1 var(--serif);
+        }
+    
+        .fatal-details {
+            padding: 1rem;
+            color: var(--danger);
+            border: 1px solid currentColor;
+            border-radius: var(--radius-small);
+            background: #fff7f5;
+            font-family: var(--mono);
+            overflow-wrap: anywhere;
+        }
+    
+        .raw-json {
+            width: 100%;
+            min-height: 18rem;
+            margin-top: 1rem;
+            font: .82rem/1.45 var(--mono);
+        }
+    
+        .mobile-only {
+            display: none;
+        }
+    
+        @media (max-width: 820px) {
+            .app-header {
+                flex-wrap: wrap;
+            }
+    
+            .save-status {
+                order: 3;
+                width: 100%;
+                max-width: none;
+            }
+    
+            .save-capability-banner {
+                top: calc(6.95rem + env(safe-area-inset-top, 0px));
+            }
+    
+            .book-cover.has-art {
+                grid-template-columns: 1fr;
+                padding-top: 2rem;
+            }
+    
+            .cover-art {
+                width: min(80vw, 24rem);
+            }
+    
+            .cover-title {
+                font-size: clamp(3rem, 15vw, 5.5rem);
+            }
+    
+            .editor-body {
+                grid-template-columns: 1fr;
+                height: calc(100vh - 6.2rem);
+            }
+    
+            .page-rail {
+                display: none;
+                position: fixed;
+                z-index: 30;
+                inset: 6rem 0 0;
+                border-right: 0;
+            }
+    
+            .page-rail.open {
+                display: block;
+            }
+    
+            .mobile-only {
+                display: inline-flex;
+            }
+    
+            .writing-layout {
+                grid-template-columns: 1fr;
+            }
+    
+            .editor-tabs {
+                display: flex;
+                gap: .25rem;
+                margin-bottom: .6rem;
+            }
+    
+            .writing-layout[data-tab="write"] .preview-pane {
+                display: none;
+            }
+    
+            .writing-layout[data-tab="preview"] .writing-pane {
+                display: none;
+            }
+    
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+    
+            .settings-grid .wide {
+                grid-column: auto;
+            }
+    
+            .asset-card {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        @media (max-width: 540px) {
+            .header-actions {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: .1rem;
+            }
+    
+            .app-title {
+                width: 100%;
+                flex-basis: 100%;
+            }
+    
+            .save-capability-banner {
+                top: calc(9.25rem + env(safe-area-inset-top, 0px));
+                width: calc(100vw - 1rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+                max-width: none;
+                align-items: flex-start;
+            }
+    
+            .reader-surface {
+                width: min(calc(100% - 1.35rem), 58rem);
+                padding-top: 2.5rem;
+            }
+    
+            .book-cover {
+                width: min(calc(100% - 1.35rem), 70rem);
+            }
+    
+            .page-navigation {
+                grid-template-columns: 1fr 1fr;
+                width: min(calc(100% - 1.35rem), 58rem);
+            }
+    
+            .page-navigation .contents {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                justify-self: center;
+            }
+    
+            .editor-main {
+                padding: .75rem;
+            }
+    
+            .editor-panel-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    
+        @media (prefers-reduced-motion: reduce) {
+    
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .001ms !important;
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    
+        @media (forced-colors: active) {
+    
+            button,
+            input,
+            textarea,
+            select,
+            dialog,
+            .writing-pane,
+            .preview-pane,
+            .settings-card,
+            .save-capability-banner {
+                border: 1px solid CanvasText;
+            }
+    
+            :focus-visible {
+                outline-color: Highlight;
+            }
+        }
+    
+        @media print {
+    
+            .app-header,
+            .page-navigation,
+            .skip-link,
+            .save-capability-banner,
+            #singlebook-live-status {
+                display: none !important;
+            }
+    
+            html,
+            body {
+                background: #fff;
+            }
+    
+            .reader-surface {
+                width: auto;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .book-page {
+                max-width: none;
+            }
+    
+            a {
+                color: inherit;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#singlebook-app">Skip to book</a>
+    <div id="singlebook-splash" role="status">Opening book...</div>
+    <main id="singlebook-app" tabindex="-1"></main>
+    <div id="singlebook-live-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+    <noscript>
+        &lt;p&gt;This book contains its own reader and requires JavaScript enabled to open.&lt;/p&gt;
+    </noscript>
+    <script>
+        (() => {
+            'use strict'
+            // the live DOM is disposable ui
+            // the clone is the application shell that gets written back to disk
+            const pristineDocument = document.cloneNode(true)
+
+            const FORMAT = 'singlebook'
+            const FORMAT_VERSION = 1
+            const APP_VERSION = '0.1.1'
+            const DATA_BLOCK_ID = 'singlebook-data'
+            const SAVE_NOTICE_KEY = 'singlebook-save-notice'
+            const ALLOWED_IMAGE_TYPES = new Set([
+                'image/png', 'image/jpeg', 'image/gif', 'image/webp', 'image/avif'
+            ])
+
+            // html gets parsed/rendered first so if we use a literal script tag it will fuck everything up
+            const SCRIPT_CLOSE = '</scr' + 'ipt>'
+
+            const app = document.getElementById('singlebook-app')
+            const splash = document.getElementById('singlebook-splash')
+            const liveStatus = document.getElementById('singlebook-live-status')
+            let rawEmbeddedText = ''
+            let state = null
+            let saveNoticeAcknowledged = false
+
+            function isPlainObject(value) {
+              if (!value || Object.prototype.toString.call(value) !== '[object Object]'){
+                return false
+              }
+              const proto = Object.getPrototypeOf(value)
+              return proto === Object.prototype || proto === null
+            }
+
+            function deepClone(value) {
+              if (typeof structuredClone === 'function'){
+                return structuredClone(value)
+              }
+              return JSON.parse(JSON.stringify(value))
+            }
+
+            function createId(prefix) {
+              if (crypto.randomUUID){
+                return `${prefix}-${crypto.randomUUID()}`
+              }
+              const bytes = new Uint8Array(16)
+              crypto.getRandomValues(bytes)
+              return `${prefix}-${Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('')}`
+            }
+
+            function nowISO() { return new Date().toISOString() }
+
+            function canWriteInPlace() {
+                return typeof window.showSaveFilePicker === 'function'
+            }
+
+            function isMacOS() {
+                const platform = String(navigator.userAgentData?.platform || navigator.platform || '')
+                const userAgent = String(navigator.userAgent || '')
+                if (/iPhone|iPad|iPod/i.test(userAgent)) return false
+                if (!/^Mac/i.test(platform)) return false
+                return !(platform === 'MacIntel' && Number(navigator.maxTouchPoints) > 1)
+            }
+
+            function saveShortcutLabel() {
+                return isMacOS() ? '⌘S' : 'Ctrl+S'
+            }
+
+            function hasAcknowledgedSaveNotice() {
+                if (saveNoticeAcknowledged) return true
+                try {
+                    return localStorage.getItem(SAVE_NOTICE_KEY) === 'seen'
+                } catch (_) {
+                    return false
+                }
+            }
+
+            function acknowledgeSaveNotice() {
+                saveNoticeAcknowledged = true
+                try { localStorage.setItem(SAVE_NOTICE_KEY, 'seen') } catch (_) {}
+            }
+
+            function saveTooltip() {
+                const shortcut = saveShortcutLabel()
+                if (!canWriteInPlace()) {
+                    return `Save.  This browser can't edit files in place so ${shortcut} will download an updated copy.`
+                }
+                if (state?.persistence.fileHandle) return `Save (${shortcut})`
+                return `Save (${shortcut}) — choose a file.`
+            }
+
+            function isHexColor(value) {
+                return typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value)
+            }
+
+            function isLanguageTag(value) {
+                return typeof value === 'string' && /^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(value)
+            }
+
+            function isSafeAsset(asset) {
+                return isPlainObject(asset) &&
+                    typeof asset.name === 'string' &&
+                    ALLOWED_IMAGE_TYPES.has(asset.mime) &&
+                    typeof asset.data === 'string' &&
+                    asset.data.toLowerCase().startsWith(`data:${asset.mime.toLowerCase()};base64,`)
+            }
+
+            function safeFileBase(title) {
+                const base = String(title || '')
+                    .normalize('NFKC')
+                    .replace(/[\\/:*?"<>|\u0000-\u001f]+/g, ' ')
+                    .replace(/\s+/g, '_')
+                    .replace(/^[_ .-]+|[_ .-]+$/g, '')
+                    .slice(0, 100)
+                return base || 'Untitled'
+            }
+
+            function suggestedFileName(doc) {
+                return `${safeFileBase(doc.book.title)}.singlebook.html`
+            }
+
+            function openedFileName() {
+                try {
+                    const last = decodeURIComponent(new URL(location.href).pathname.split('/').pop() || '')
+                    return /\.singlebook\.html$/i.test(last) ? last : null
+                } catch (_) {
+                    return null
+                }
+            }
+
+            function formatBytes(bytes) {
+                if (!Number.isFinite(bytes) || bytes < 0) return 'unknown size'
+                if (bytes < 1024) return `${bytes} B`
+                if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
+                return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
+            }
+
+            function isTextEntryTarget(target) {
+                return target instanceof Element && !!target.closest('input, textarea, select, button, a, dialog, [contenteditable="true"]')
+            }
+
+            function isAllowedLink(value) {
+                if (typeof value !== 'string' || value.length > 2048) return null
+                if (/^#page\/[A-Za-z0-9._~%-]+$/.test(value)) return { href: value, external: false }
+                if (/^mailto:[^\s<>]+$/i.test(value)) return { href: value, external: true }
+                try {
+                    const url = new URL(value)
+                    if (url.protocol === 'http:' || url.protocol === 'https:') {
+                        return { href: url.href, external: true }
+                    }
+                } catch (_) {}
+                return null
+            }
+
+            function appendChildren(parent, children) {
+                for (const child of children.flat(Infinity)) {
+                    if (child === null || child === undefined || child === false) continue
+                    parent.append(child instanceof Node ? child : document.createTextNode(String(child)))
+                }
+                return parent
+            }
+
+            function element(tag, attributes = {}, ...children) {
+                const node = document.createElement(tag)
+                for (const [name, value] of Object.entries(attributes || {})) {
+                    if (value === null || value === undefined || value === false) continue
+                    if (name === 'className') node.className = value
+                    else if (name === 'text') node.textContent = value
+                    else if (name === 'htmlFor') node.htmlFor = value
+                    else if (name === 'dataset') Object.assign(node.dataset, value)
+                    else if (name === 'style' && isPlainObject(value)) Object.assign(node.style, value)
+                    else if (name.startsWith('on') && typeof value === 'function') node.addEventListener(name.slice(2).toLowerCase(), value)
+                    else if (name in node && !name.startsWith('aria-') && !name.startsWith('data-')) node[name] = value
+                    else node.setAttribute(name, value === true ? '' : String(value))
+                }
+                return appendChildren(node, children)
+            }
+
+            function saveIcon() {
+                const namespace = 'http://www.w3.org/2000/svg'
+                const svg = document.createElementNS(namespace, 'svg')
+                svg.setAttribute('class', 'save-icon')
+                svg.setAttribute('viewBox', '0 0 24 24')
+                svg.setAttribute('fill', 'none')
+                svg.setAttribute('stroke', 'currentColor')
+                svg.setAttribute('stroke-width', '1.8')
+                svg.setAttribute('stroke-linecap', 'round')
+                svg.setAttribute('stroke-linejoin', 'round')
+                svg.setAttribute('focusable', 'false')
+                svg.setAttribute('aria-hidden', 'true')
+                for (const data of ['M4 3h11l5 5v13H4z', 'M7 3v6h9V4', 'M8 14h8v7H8z']) {
+                    const path = document.createElementNS(namespace, 'path')
+                    path.setAttribute('d', data)
+                    svg.append(path)
+                }
+                return svg
+            }
+
+            function replaceContents(node, ...children) {
+                node.replaceChildren()
+                appendChildren(node, children)
+                return node
+            }
+
+            function focusMain() {
+                requestAnimationFrame(() => {
+                    const target = app.querySelector('h1, [data-main-heading]') || app
+                    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1')
+                    target.focus({ preventScroll: true })
+                })
+            }
+
+            function announce(message, tone = 'neutral', speak = true) {
+                if (speak && liveStatus) {
+                    liveStatus.textContent = ''
+                    requestAnimationFrame(() => { liveStatus.textContent = message })
+                }
+                const status = document.getElementById('save-status')
+                if (status) {
+                    status.textContent = message
+                    status.dataset.tone = tone
+                    status.title = message
+                }
+            }
+
+            function copyText(text) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text).catch(() => fallbackCopy(text))
+                }
+                return Promise.resolve(fallbackCopy(text))
+            }
+
+            function fallbackCopy(text) {
+                const area = element('textarea', { value: text, className: 'visually-hidden', 'data-singlebook-transient': 'true' })
+                document.body.append(area)
+                area.select()
+                try { document.execCommand('copy') } finally { area.remove() }
+            }
+
+            function readEmbeddedDocument() {
+                const block = document.getElementById(DATA_BLOCK_ID)
+                if (!block) throw new Error('The document data block is missing.')
+                rawEmbeddedText = (block.textContent || '').trim()
+                if (!rawEmbeddedText) throw new Error('The document data block is empty.')
+                try {
+                    return JSON.parse(rawEmbeddedText)
+                } catch (error) {
+                    throw new Error(`The document JSON could not be read: ${error.message}`)
+                }
+            }
+
+            function stringOr(value, fallback = '') {
+                return typeof value === 'string' ? value : fallback
+            }
+
+            function normalizeDocument(input) {
+                if (!isPlainObject(input)) throw new Error('The document root must be a JSON object.')
+                if (input.format !== FORMAT) throw new Error(`This file is not a ${FORMAT} document.`)
+                if (!Number.isInteger(input.version)) throw new Error('The document version is missing or invalid.')
+                if (input.version > FORMAT_VERSION) {
+                    throw new Error(`This book uses format version ${input.version}, but this editor supports version ${FORMAT_VERSION}. Open it with a newer singlebook editor.`)
+                }
+
+                const doc = deepClone(input)
+                const warnings = []
+                doc.id = stringOr(doc.id) || createId('book')
+                doc.book = isPlainObject(doc.book) ? doc.book : {}
+                const book = doc.book
+                book.title = stringOr(book.title, 'Untitled book')
+                book.subtitle = stringOr(book.subtitle)
+                book.author = stringOr(book.author)
+                book.language = isLanguageTag(book.language) ? book.language : 'en'
+                book.description = stringOr(book.description)
+                book.coverAsset = stringOr(book.coverAsset)
+                book.coverAlt = stringOr(book.coverAlt)
+                book.coverDecorative = book.coverDecorative === true
+                book.theme = book.theme === 'paper' ? 'paper' : 'paper'
+                book.accent = isHexColor(book.accent) ? book.accent : '#9b3a32'
+                book.createdAt = stringOr(book.createdAt) || nowISO()
+                book.updatedAt = stringOr(book.updatedAt) || book.createdAt
+
+                if (!Array.isArray(doc.pages)) throw new Error('The document pages must be an array.')
+                const ids = new Set()
+                doc.pages = doc.pages.map((source, index) => {
+                    if (!isPlainObject(source)) throw new Error(`Page ${index + 1} must be an object.`)
+                    const page = deepClone(source)
+                    if (typeof page.id !== 'string' || !page.id) throw new Error(`Page ${index + 1} has no stable ID.`)
+                    if (ids.has(page.id)) throw new Error(`Two pages use the ID “${page.id}”.`)
+                    ids.add(page.id)
+                    if (!['text', 'section', 'picture'].includes(page.type)) {
+                        throw new Error(`Page “${page.id}” has unsupported type “${String(page.type)}”.`)
+                    }
+                    page.title = stringOr(page.title, 'Untitled page')
+                    if (page.type === 'text') page.markdown = stringOr(page.markdown)
+                    if (page.type === 'section') page.subtitle = stringOr(page.subtitle)
+                    if (page.type === 'picture') {
+                        page.asset = stringOr(page.asset)
+                        page.alt = stringOr(page.alt)
+                        page.caption = stringOr(page.caption)
+                        page.decorative = page.decorative === true
+                        page.fit = page.fit === 'cover' ? 'cover' : 'contain'
+                    }
+                    return page
+                })
+
+                if (doc.pages.length === 0) {
+                    doc.pages.push({ id: createId('page'), type: 'text', title: 'Untitled page', markdown: '' })
+                    warnings.push('The book contained no pages, so a blank text page was added in memory.')
+                }
+
+                doc.assets = isPlainObject(doc.assets) ? doc.assets : {}
+                for (const [id, asset] of Object.entries(doc.assets)) {
+                    if (!isSafeAsset(asset)) warnings.push(`Asset “${id}” is invalid and will not be displayed.`)
+                }
+                if (book.coverAsset && !isSafeAsset(doc.assets[book.coverAsset])) {
+                    warnings.push('The cover references a missing or invalid image.')
+                }
+                return { document: doc, warnings }
+            }
+
+            function currentPage() {
+                return state.document.pages.find(page => page.id === state.ui.selectedPageId) || null
+            }
+
+            function pageIndex(pageId) {
+                return state.document.pages.findIndex(page => page.id === pageId)
+            }
+
+            function markChanged() {
+                state.document.book.updatedAt = nowISO()
+                state.persistence.revision += 1
+                state.persistence.error = ''
+                state.persistence.message = ''
+                state.persistence.messageTone = ''
+                refreshSaveStatus(false)
+            }
+
+            function changeBook(patch) {
+                Object.assign(state.document.book, patch)
+                markChanged()
+            }
+
+            function editPage(pageId, patch) {
+                const page = state.document.pages.find(candidate => candidate.id === pageId)
+                if (!page) return false
+                Object.assign(page, patch)
+                markChanged()
+                return true
+            }
+
+            function addPage(type, afterPageId) {
+                let page
+                if (type === 'section') page = { id: createId('page'), type, title: 'New section', subtitle: '' }
+                else if (type === 'picture') page = { id: createId('page'), type, title: 'New picture', asset: '', alt: '', caption: '', decorative: false, fit: 'contain' }
+                else page = { id: createId('page'), type: 'text', title: 'Untitled page', markdown: '' }
+                const after = pageIndex(afterPageId)
+                const insertAt = after >= 0 ? after + 1 : state.document.pages.length
+                state.document.pages.splice(insertAt, 0, page)
+                state.ui.selectedPageId = page.id
+                markChanged()
+                return page
+            }
+
+            function movePage(pageId, direction) {
+                const from = pageIndex(pageId)
+                const to = from + direction
+                if (from < 0 || to < 0 || to >= state.document.pages.length) return false
+                const [page] = state.document.pages.splice(from, 1)
+                state.document.pages.splice(to, 0, page)
+                markChanged()
+                return true
+            }
+
+            function deletePage(pageId) {
+                const index = pageIndex(pageId)
+                if (index < 0) return false
+                if (state.document.pages.length === 1) {
+                    const only = state.document.pages[0]
+                    state.document.pages[0] = { id: only.id, type: 'text', title: 'Untitled page', markdown: '' }
+                    state.ui.selectedPageId = only.id
+                } else {
+                    state.document.pages.splice(index, 1)
+                    state.ui.selectedPageId = state.document.pages[Math.min(index, state.document.pages.length - 1)].id
+                }
+                markChanged()
+                return true
+            }
+
+            function applyTheme() {
+                const accent = isHexColor(state.document.book.accent) ? state.document.book.accent : '#9b3a32'
+                document.documentElement.style.setProperty('--accent', accent)
+                document.documentElement.lang = state.document.book.language
+                document.title = `${state.document.book.title || 'Untitled'} — singlebook`
+            }
+
+            function isDirty() {
+                const persistence = state.persistence
+                // Persisted means written to an approved file or emitted as an updated download.
+                return persistence.revision !== persistence.persistedRevision
+            }
+
+            function refreshSaveControls() {
+                if (!state) return
+                for (const button of document.querySelectorAll('[data-save-action]')) {
+                    button.title = saveTooltip()
+                    button.disabled = state.persistence.saving
+                    if (state.persistence.saving) button.setAttribute('aria-busy', 'true')
+                    else button.removeAttribute('aria-busy')
+                }
+            }
+
+            function refreshSaveStatus(speak = false) {
+                if (!state) return
+                const persistence = state.persistence
+                refreshSaveControls()
+                if (persistence.saving) return announce('Saving…', 'dirty', speak)
+                if (persistence.error) return announce(persistence.error, 'error', speak)
+                if (persistence.message) return announce(persistence.message, persistence.messageTone || 'neutral', speak)
+                if (isDirty()) return announce('Unsaved changes', 'dirty', speak)
+                announce('No unsaved changes', 'neutral', speak)
+            }
+
+            // 04. Markdown tokenizer and renderer
+            function isBlockStart(line) {
+                return /^```/.test(line) || /^#{1,4}\s+/.test(line) || /^\s{0,3}(?:[-*_]\s*){3,}$/.test(line) || /^>\s?/.test(line) || /^\s{0,4}(?:[-+*]|\d+[.)])\s+/.test(line)
+            }
+
+            function appendInline(parent, source, doc) {
+                let index = 0
+                let buffer = ''
+                const flush = () => {
+                    if (buffer) parent.append(document.createTextNode(buffer))
+                    buffer = ''
+                }
+                const addFormatted = (tag, content) => {
+                    flush()
+                    const child = element(tag)
+                    appendInline(child, content, doc)
+                    parent.append(child)
+                }
+
+                while (index < source.length) {
+                    const char = source[index]
+                    if (char === '\\' && index + 1 < source.length) {
+                        buffer += source[index + 1]
+                        index += 2
+                        continue
+                    }
+
+                    if (char === '`') {
+                        const close = source.indexOf('`', index + 1)
+                        if (close > index + 1) {
+                            flush()
+                            parent.append(element('code', { text: source.slice(index + 1, close) }))
+                            index = close + 1
+                            continue
+                        }
+                    }
+
+                    if (source.startsWith('![', index)) {
+                        const altEnd = source.indexOf('](', index + 2)
+                        const end = altEnd >= 0 ? source.indexOf(')', altEnd + 2) : -1
+                        if (altEnd >= 0 && end >= 0) {
+                            const alt = source.slice(index + 2, altEnd)
+                            const target = source.slice(altEnd + 2, end)
+                            const match = /^asset:([A-Za-z0-9._~-]+)$/.exec(target)
+                            if (match) {
+                                flush()
+                                const asset = doc.assets[match[1]]
+                                if (isSafeAsset(asset)) {
+                                    parent.append(element('img', { src: asset.data, alt, loading: 'lazy' }))
+                                } else {
+                                    parent.append(element('span', { className: 'missing-asset', text: `Missing image: ${alt || match[1]}` }))
+                                }
+                                index = end + 1
+                                continue
+                            }
+                        }
+                    }
+
+                    if (char === '[') {
+                        const labelEnd = source.indexOf('](', index + 1)
+                        const end = labelEnd >= 0 ? source.indexOf(')', labelEnd + 2) : -1
+                        if (labelEnd >= 0 && end >= 0) {
+                            const label = source.slice(index + 1, labelEnd)
+                            const target = source.slice(labelEnd + 2, end)
+                            const allowed = isAllowedLink(target)
+                            if (allowed) {
+                                flush()
+                                const link = element('a', { href: allowed.href })
+                                if (allowed.external) {
+                                    link.target = '_blank'
+                                    link.rel = 'noopener noreferrer'
+                                }
+                                appendInline(link, label, doc)
+                                parent.append(link)
+                                index = end + 1
+                                continue
+                            }
+                        }
+                    }
+
+                    const strong = source.startsWith('**', index) ? '**' : source.startsWith('__', index) ? '__' : null
+                    if (strong) {
+                        const close = source.indexOf(strong, index + 2)
+                        if (close > index + 2) {
+                            addFormatted('strong', source.slice(index + 2, close))
+                            index = close + 2
+                            continue
+                        }
+                    }
+
+                    if (source.startsWith('~~', index)) {
+                        const close = source.indexOf('~~', index + 2)
+                        if (close > index + 2) {
+                            addFormatted('s', source.slice(index + 2, close))
+                            index = close + 2
+                            continue
+                        }
+                    }
+
+                    if (char === '*' || char === '_') {
+                        const close = source.indexOf(char, index + 1)
+                        if (close > index + 1) {
+                            addFormatted('em', source.slice(index + 1, close))
+                            index = close + 1
+                            continue
+                        }
+                    }
+
+                    if (char === '\n') {
+                        const hardBreak = index >= 2 && source.slice(index - 2, index) === '  '
+                        if (hardBreak) {
+                            buffer = buffer.replace(/ {2}$/, '')
+                            flush()
+                            parent.append(element('br'))
+                        } else {
+                            buffer += ' '
+                        }
+                        index += 1
+                        continue
+                    }
+
+                    buffer += char
+                    index += 1
+                }
+                flush()
+                return parent
+            }
+
+            function renderMarkdown(markdown, doc) {
+                const fragment = document.createDocumentFragment()
+                const lines = String(markdown || '').replace(/\r\n?/g, '\n').split('\n')
+                let index = 0
+
+                while (index < lines.length) {
+                    const line = lines[index]
+                    if (!line.trim()) {
+                        index += 1
+                        continue
+                    }
+
+                    const fence = /^```([A-Za-z0-9_-]{0,30})\s*$/.exec(line)
+                    if (fence) {
+                        index += 1
+                        const code = []
+                        while (index < lines.length && !/^```\s*$/.test(lines[index])) {
+                            code.push(lines[index])
+                            index += 1
+                        }
+                        if (index < lines.length) index += 1
+                        const codeNode = element('code', { text: code.join('\n') })
+                        if (fence[1]) codeNode.className = `language-${fence[1]}`
+                        fragment.append(element('pre', {}, codeNode))
+                        continue
+                    }
+
+                    const heading = /^(#{1,4})\s+(.+)$/.exec(line)
+                    if (heading) {
+                        const node = element(`h${Math.min(heading[1].length + 1, 5)}`)
+                        appendInline(node, heading[2], doc)
+                        fragment.append(node)
+                        index += 1
+                        continue
+                    }
+
+                    if (/^\s{0,3}(?:[-*_]\s*){3,}$/.test(line)) {
+                        fragment.append(element('hr'))
+                        index += 1
+                        continue
+                    }
+
+                    if (/^>\s?/.test(line)) {
+                        const quoteLines = []
+                        while (index < lines.length && /^>\s?/.test(lines[index])) {
+                            quoteLines.push(lines[index].replace(/^>\s?/, ''))
+                            index += 1
+                        }
+                        const quote = element('blockquote')
+                        quote.append(renderMarkdown(quoteLines.join('\n'), doc))
+                        fragment.append(quote)
+                        continue
+                    }
+
+                    const firstList = /^(\s{0,4})([-+*]|\d+[.)])\s+(.+)$/.exec(line)
+                    if (firstList) {
+                        const ordered = /^\d/.test(firstList[2])
+                        const list = element(ordered ? 'ol' : 'ul')
+                        let lastItem = null
+                        while (index < lines.length) {
+                            const itemMatch = /^(\s{0,4})([-+*]|\d+[.)])\s+(.+)$/.exec(lines[index])
+                            if (!itemMatch) break
+                            const itemOrdered = /^\d/.test(itemMatch[2])
+                            const nested = itemMatch[1].length >= 2
+                            if (!nested && itemOrdered !== ordered) break
+                            const item = element('li')
+                            appendInline(item, itemMatch[3], doc)
+                            if (nested && lastItem) {
+                                let nestedList = lastItem.lastElementChild
+                                const nestedTag = itemOrdered ? 'OL' : 'UL'
+                                if (!nestedList || nestedList.tagName !== nestedTag) {
+                                    nestedList = element(itemOrdered ? 'ol' : 'ul')
+                                    lastItem.append(nestedList)
+                                }
+                                nestedList.append(item)
+                            } else {
+                                list.append(item)
+                                lastItem = item
+                            }
+                            index += 1
+                        }
+                        fragment.append(list)
+                        continue
+                    }
+
+                    const paragraphLines = [line]
+                    index += 1
+                    while (index < lines.length && lines[index].trim() && !isBlockStart(lines[index])) {
+                        paragraphLines.push(lines[index])
+                        index += 1
+                    }
+                    const paragraph = element('p')
+                    appendInline(paragraph, paragraphLines.join('\n'), doc)
+                    fragment.append(paragraph)
+                }
+                return fragment
+            }
+
+            function assetFor(id, doc = state.document) {
+                const asset = id ? doc.assets[id] : null
+                return isSafeAsset(asset) ? asset : null
+            }
+
+            function renderMissingAsset(label) {
+                return element('div', { className: 'missing-asset', text: label || 'This image is missing.' })
+            }
+
+            function renderCover(doc) {
+                const book = doc.book
+                const asset = assetFor(book.coverAsset, doc)
+                const cover = element('section', { className: `book-cover${asset ? ' has-art' : ''}`, 'aria-labelledby': 'cover-title' })
+                if (asset) cover.append(element('img', {
+                    className: 'cover-art', src: asset.data,
+                    alt: book.coverDecorative ? '' : book.coverAlt,
+                    'aria-hidden': book.coverDecorative ? 'true' : null
+                }))
+                const copy = element('div', { className: 'cover-copy' })
+                copy.append(element('h1', { className: 'cover-title', id: 'cover-title', text: book.title || 'Untitled book' }))
+                if (book.subtitle) copy.append(element('p', { className: 'cover-subtitle', text: book.subtitle }))
+                if (book.author) copy.append(element('p', { className: 'cover-author', text: `By ${book.author}` }))
+                if (book.description) copy.append(element('p', { className: 'cover-description', text: book.description }))
+                const first = doc.pages[0]
+                const actions = element('div', { className: 'cover-actions' })
+                if (first) actions.append(element('button', { className: 'primary', text: 'Start reading', onclick: () => navigate(`#page/${encodeURIComponent(first.id)}`) }))
+                actions.append(element('button', { text: 'Contents', onclick: () => navigate('#contents') }))
+                copy.append(actions)
+                cover.append(copy)
+                return cover
+            }
+
+            function renderContents(doc) {
+                const section = element('section', { className: 'reader-surface', 'aria-labelledby': 'contents-title' })
+                section.append(element('h1', { id: 'contents-title', className: 'contents-heading', text: 'Contents' }))
+                const list = element('ol', { className: 'contents-list' })
+                let number = 0
+                for (const page of doc.pages) {
+                    if (page.type !== 'section') number += 1
+                    const item = element('li', { className: `contents-item ${page.type}` })
+                    const link = element('a', { className: 'contents-link', href: `#page/${encodeURIComponent(page.id)}` })
+                    link.append(
+                        element('span', { className: 'contents-number', text: page.type === 'section' ? '' : String(number).padStart(2, '0') }),
+                        element('span', { className: 'contents-name', text: page.title || 'Untitled page' }),
+                        element('span', { className: 'contents-kind', text: page.type })
+                    )
+                    item.append(link)
+                    list.append(item)
+                }
+                section.append(list)
+                return section
+            }
+
+            function renderPageContent(page, doc, options = {}) {
+                if (page.type === 'section') {
+                    const section = element('article', { className: 'section-page', dataset: { pageId: page.id } })
+                    section.append(element(options.preview ? 'h2' : 'h1', { text: page.title || 'Untitled section' }))
+                    if (page.subtitle) section.append(element('p', { text: page.subtitle }))
+                    return section
+                }
+
+                if (page.type === 'picture') {
+                    const article = element('article', { className: 'picture-page', dataset: { pageId: page.id } })
+                    article.append(element(options.preview ? 'h2' : 'h1', { className: 'page-title', text: page.title || 'Untitled picture' }))
+                    const asset = assetFor(page.asset, doc)
+                    if (!asset) {
+                        article.append(renderMissingAsset(page.asset ? `Missing image: ${page.asset}` : 'Choose an image in Edit mode.'))
+                    } else {
+                        const figure = element('figure')
+                        figure.append(element('img', {
+                            src: asset.data,
+                            alt: page.decorative ? '' : page.alt,
+                            'aria-hidden': page.decorative ? 'true' : null,
+                            dataset: { fit: page.fit || 'contain' }
+                        }))
+                        if (page.caption) figure.append(element('figcaption', { text: page.caption }))
+                        article.append(figure)
+                    }
+                    return article
+                }
+
+                const article = element('article', { className: 'book-page prose', dataset: { pageId: page.id } })
+                article.append(element(options.preview ? 'h2' : 'h1', { className: 'page-title', text: page.title || 'Untitled page' }))
+                article.append(renderMarkdown(page.markdown, doc))
+                return article
+            }
+
+            function readerHeader() {
+                const title = element('div', { className: 'app-title', text: state.document.book.title || 'Untitled book' })
+                const actions = element('div', { className: 'header-actions' })
+                actions.append(
+                    element('button', { className: 'quiet', text: 'Cover', onclick: () => navigate('#cover') }),
+                    element('button', { className: 'quiet', text: 'Contents', onclick: () => navigate('#contents') }),
+                    saveButton(),
+                    element('button', { className: 'primary', text: 'Edit', onclick: enterEditMode, 'aria-label': 'Edit this copy of the book' })
+                )
+                return element('header', { className: 'app-header' }, title, saveStatusElement(), actions)
+            }
+
+            function pageNavigation(page) {
+                const index = pageIndex(page.id)
+                const previous = index > 0 ? state.document.pages[index - 1] : null
+                const next = index < state.document.pages.length - 1 ? state.document.pages[index + 1] : null
+                const nav = element('nav', { className: 'page-navigation', 'aria-label': 'Page navigation' })
+                nav.append(
+                    previous ? element('a', { className: 'previous', href: `#page/${encodeURIComponent(previous.id)}`, text: `← ${previous.title}` }) : element('span'),
+                    element('a', { className: 'contents', href: '#contents', text: 'Contents' }),
+                    next ? element('a', { className: 'next', href: `#page/${encodeURIComponent(next.id)}`, text: `${next.title} →` }) : element('a', { className: 'next', href: '#cover', text: 'Return to cover ↑' })
+                )
+                return nav
+            }
+
+            function parseRoute() {
+                const hash = location.hash || '#cover'
+                if (hash === '#cover') return { kind: 'cover' }
+                if (hash === '#contents') return { kind: 'contents' }
+                if (hash.startsWith('#page/')) {
+                    try { return { kind: 'page', id: decodeURIComponent(hash.slice(6)) } }
+                    catch (_) { return { kind: 'contents', invalid: true } }
+                }
+                return { kind: 'contents', invalid: true }
+            }
+
+            function navigate(hash) {
+                if (location.hash === hash) {
+                    if (state.ui.mode === 'reader') renderReader()
+                } else {
+                    location.hash = hash
+                }
+            }
+
+            function renderReader() {
+                state.ui.mode = 'reader'
+                const route = parseRoute()
+                const main = element('div', { className: 'reader-main' })
+                if (route.kind === 'cover') {
+                    main.append(renderCover(state.document))
+                } else if (route.kind === 'contents') {
+                    main.append(renderContents(state.document))
+                    if (route.invalid) requestAnimationFrame(() => announce('That page was not found. Showing Contents.', 'error'))
+                } else {
+                    const page = state.document.pages.find(candidate => candidate.id === route.id)
+                    if (!page) {
+                        main.append(renderContents(state.document))
+                        requestAnimationFrame(() => announce('That page was not found. Showing Contents.', 'error'))
+                    } else {
+                        const surface = element('div', { className: 'reader-surface' })
+                        surface.append(renderPageContent(page, state.document))
+                        main.append(surface, pageNavigation(page))
+                        state.ui.selectedPageId = page.id
+                    }
+                }
+                replaceContents(app, readerHeader(), main)
+                requestAnimationFrame(() => refreshSaveStatus(false))
+            }
+
+            function navigateRelative(direction) {
+                const route = parseRoute()
+                if (route.kind !== 'page') {
+                    if (direction > 0 && state.document.pages[0]) navigate(`#page/${encodeURIComponent(state.document.pages[0].id)}`)
+                    return
+                }
+                const index = pageIndex(route.id)
+                const target = state.document.pages[index + direction]
+                if (target) {
+                    navigate(`#page/${encodeURIComponent(target.id)}`)
+                    return
+                }
+                if (direction < 0 && index === 0) navigate('#cover')
+            }
+
+            function closeAndRemoveDialog(dialog, returnFocus) {
+                if (dialog.open) dialog.close()
+                dialog.remove()
+                if (returnFocus && returnFocus.isConnected) returnFocus.focus()
+            }
+
+            function confirmAction({ title, message, confirmLabel = 'Confirm', danger = false, opener, onConfirm }) {
+                const dialog = element('dialog', { 'data-singlebook-transient': 'true', 'aria-labelledby': createId('dialog-title') })
+                const headingId = dialog.getAttribute('aria-labelledby')
+                const body = element('div', { className: 'dialog-body' },
+                    element('h2', { id: headingId, text: title }),
+                    element('p', { text: message })
+                )
+                const cancel = element('button', { text: 'Cancel' })
+                const confirm = element('button', { className: danger ? 'danger primary' : 'primary', text: confirmLabel })
+                const actions = element('div', { className: 'dialog-actions' }, cancel, confirm)
+                dialog.append(body, actions)
+                document.body.append(dialog)
+                cancel.addEventListener('click', () => closeAndRemoveDialog(dialog, opener))
+                confirm.addEventListener('click', () => {
+                    closeAndRemoveDialog(dialog, null)
+                    onConfirm()
+                })
+                dialog.addEventListener('cancel', event => {
+                    event.preventDefault()
+                    closeAndRemoveDialog(dialog, opener)
+                })
+                dialog.showModal()
+                cancel.focus()
+            }
+
+            function showAddPageDialog(opener) {
+                const dialog = element('dialog', { 'data-singlebook-transient': 'true' })
+                const headingId = createId('dialog-title')
+                dialog.setAttribute('aria-labelledby', headingId)
+                const choices = element('div', { className: 'page-type-choices' })
+                const definitions = [
+                    ['text', 'Text page', 'Long-form writing in the supported Markdown subset.'],
+                    ['section', 'Section page', 'A visual divider for a part, chapter, or short statement.'],
+                    ['picture', 'Picture page', 'One large embedded image with alt text and an optional caption.']
+                ]
+                for (const [type, label, description] of definitions) {
+                    const choice = element('button', { className: 'page-type-choice' },
+                        element('span', { text: label }), element('small', { text: description })
+                    )
+                    choice.addEventListener('click', () => {
+                        const page = addPage(type, state.ui.selectedPageId)
+                        closeAndRemoveDialog(dialog, null)
+                        renderEditor()
+                        requestAnimationFrame(() => document.querySelector(`[data-editor-title="${CSS.escape(page.id)}"]`)?.focus())
+                        announce(`${label} added.`, 'saved')
+                    })
+                    choices.append(choice)
+                }
+                const cancel = element('button', { text: 'Cancel' })
+                cancel.addEventListener('click', () => closeAndRemoveDialog(dialog, opener))
+                dialog.append(
+                    element('div', { className: 'dialog-body' }, element('h2', { id: headingId, text: 'Add a page' }), choices),
+                    element('div', { className: 'dialog-actions' }, cancel)
+                )
+                dialog.addEventListener('cancel', event => {
+                    event.preventDefault()
+                    closeAndRemoveDialog(dialog, opener)
+                })
+                document.body.append(dialog)
+                dialog.showModal()
+                choices.querySelector('button')?.focus()
+            }
+
+            function saveStatusElement() {
+                return element('span', { id: 'save-status', className: 'save-status', text: 'No unsaved changes', 'aria-live': 'off' })
+            }
+
+            function saveButton(options = {}) {
+                const button = element('button', {
+                    type: 'button',
+                    className: `save-button${options.primary ? ' primary' : ''}`,
+                    title: saveTooltip(),
+                    'data-save-action': 'true',
+                    onclick: saveDocument
+                })
+                button.append(saveIcon(), element('span', { text: 'Save' }))
+                return button
+            }
+
+            function noticeIfCannotWriteInPlace() {
+                if (canWriteInPlace() || hasAcknowledgedSaveNotice()) return
+                if (document.getElementById('singlebook-save-notice')) return
+                const banner = element('div', {
+                    id: 'singlebook-save-notice',
+                    className: 'save-capability-banner',
+                    role: 'status',
+                    'aria-live': 'polite',
+                    'aria-atomic': 'true',
+                    'data-singlebook-transient': 'true'
+                })
+                const message = element('span', {
+                    text: `This browser can’t rewrite files in place. ${saveShortcutLabel()} will download an updated copy instead — the file you have open will not be changed.`
+                })
+                const dismiss = element('button', {
+                    type: 'button',
+                    className: 'primary',
+                    text: 'Got it',
+                    onclick: () => {
+                        acknowledgeSaveNotice()
+                        banner.remove()
+                    }
+                })
+                banner.append(message, dismiss)
+                document.body.append(banner)
+            }
+
+            function editorHeader() {
+                const menu = element('button', {
+                    className: 'quiet mobile-only', text: 'Pages',
+                    'aria-expanded': state.ui.railOpen ? 'true' : 'false',
+                    onclick: () => {
+                        state.ui.railOpen = !state.ui.railOpen
+                        document.querySelector('.page-rail')?.classList.toggle('open', state.ui.railOpen)
+                        menu.setAttribute('aria-expanded', state.ui.railOpen ? 'true' : 'false')
+                    }
+                })
+                const title = element('div', { className: 'app-title', text: state.document.book.title || 'Untitled book' })
+                const settings = element('button', {
+                    text: 'Book settings', onclick: () => {
+                        state.ui.selectedPageId = null
+                        state.ui.railOpen = false
+                        renderEditor()
+                    }
+                })
+                const reader = element('button', { text: 'Reader', onclick: leaveEditMode })
+                const actions = element('div', { className: 'header-actions' }, reader, settings, saveButton({ primary: true }))
+                return element('header', { className: 'app-header editor-header' }, menu, title, saveStatusElement(), actions)
+            }
+
+            function railType(page) {
+                return page.type === 'section' ? '§' : page.type === 'picture' ? '▧' : '¶'
+            }
+
+            function renderPageRail() {
+                const rail = element('aside', { className: `page-rail${state.ui.railOpen ? ' open' : ''}`, 'aria-label': 'Book pages' })
+                const heading = element('div', { className: 'rail-heading' }, element('h2', { text: 'Pages' }))
+                rail.append(heading)
+                const list = element('ol', { className: 'rail-list' })
+
+                const coverRow = element('li', { className: `rail-row${state.ui.selectedPageId === null ? ' selected' : ''}` })
+                const coverSelect = element('button', { className: 'rail-select', 'aria-current': state.ui.selectedPageId === null ? 'page' : null },
+                    element('span', { className: 'rail-type', text: '⌂' }), element('span', { className: 'rail-name', text: 'Cover & book' })
+                )
+                coverSelect.addEventListener('click', () => {
+                    state.ui.selectedPageId = null
+                    state.ui.railOpen = false
+                    renderEditor()
+                })
+                coverRow.append(coverSelect)
+                list.append(coverRow)
+
+                state.document.pages.forEach((page, index) => {
+                    const selected = state.ui.selectedPageId === page.id
+                    const row = element('li', { className: `rail-row${selected ? ' selected' : ''}` })
+                    const select = element('button', { className: 'rail-select', 'aria-current': selected ? 'page' : null },
+                        element('span', { className: 'rail-type', text: railType(page), title: page.type }),
+                        element('span', { className: 'rail-name', text: page.title || 'Untitled page', dataset: { pageLabel: page.id } })
+                    )
+                    select.addEventListener('click', () => {
+                        state.ui.selectedPageId = page.id
+                        state.ui.railOpen = false
+                        renderEditor()
+                    })
+                    const moves = element('div', { className: 'rail-move' })
+                    const up = element('button', { text: '↑', title: `Move ${page.title} up`, 'aria-label': `Move ${page.title} up`, disabled: index === 0 })
+                    const down = element('button', { text: '↓', title: `Move ${page.title} down`, 'aria-label': `Move ${page.title} down`, disabled: index === state.document.pages.length - 1 })
+                    up.addEventListener('click', () => { if (movePage(page.id, -1)) { renderEditor(); announce(`${page.title} moved up.`, 'saved') } })
+                    down.addEventListener('click', () => { if (movePage(page.id, 1)) { renderEditor(); announce(`${page.title} moved down.`, 'saved') } })
+                    moves.append(up, down)
+                    row.append(select, moves)
+                    list.append(row)
+                })
+                rail.append(list)
+                const add = element('button', { className: 'add-page-button', text: '+ Add page' })
+                add.addEventListener('click', () => showAddPageDialog(add))
+                rail.append(add)
+                return rail
+            }
+
+            function labeledField(labelText, control, hint = '') {
+                if (!control.id) control.id = createId('field')
+                const field = element('div', { className: 'field' }, element('label', { htmlFor: control.id, text: labelText }), control)
+                if (hint) field.append(element('p', { className: 'field-hint', text: hint }))
+                return field
+            }
+
+            function panelHeader(title, page) {
+                const header = element('div', { className: 'editor-panel-header' })
+                header.append(element('h1', { text: title, 'data-main-heading': 'true' }))
+                if (page) {
+                    const actions = element('div', { className: 'page-actions' })
+                    const remove = element('button', { className: 'danger', text: 'Delete page' })
+                    remove.addEventListener('click', () => confirmAction({
+                        title: 'Delete this page?',
+                        message: `“${page.title || 'Untitled page'}” will be removed from this copy of the book.`,
+                        confirmLabel: 'Delete page', danger: true, opener: remove,
+                        onConfirm: () => {
+                            deletePage(page.id)
+                            renderEditor()
+                            announce('Page deleted.', 'dirty')
+                        }
+                    }))
+                    actions.append(remove)
+                    header.append(actions)
+                }
+                return header
+            }
+
+            function updateRailLabel(page) {
+                const label = document.querySelector(`[data-page-label="${CSS.escape(page.id)}"]`)
+                if (label) label.textContent = page.title || 'Untitled page'
+            }
+
+            function updatePreview(preview, page) {
+                const label = element('p', { className: 'preview-label', text: 'Reader preview' })
+                replaceContents(preview, label, renderPageContent(page, state.document, { preview: true }))
+            }
+
+            function applyWrappedSelection(textarea, before, after = before, placeholder = 'text') {
+                const start = textarea.selectionStart
+                const end = textarea.selectionEnd
+                const selected = textarea.value.slice(start, end) || placeholder
+                textarea.setRangeText(`${before}${selected}${after}`, start, end, 'select')
+                textarea.selectionStart = start + before.length
+                textarea.selectionEnd = start + before.length + selected.length
+                textarea.focus()
+                textarea.dispatchEvent(new Event('input', { bubbles: true }))
+            }
+
+            function applyLinePrefix(textarea, prefix) {
+                const start = textarea.selectionStart
+                const end = textarea.selectionEnd
+                const lineStart = textarea.value.lastIndexOf('\n', Math.max(0, start - 1)) + 1
+                const nextBreak = textarea.value.indexOf('\n', end)
+                const lineEnd = nextBreak < 0 ? textarea.value.length : nextBreak
+                const selected = textarea.value.slice(lineStart, lineEnd)
+                const lines = selected.split('\n').map((line, index) => `${typeof prefix === 'function' ? prefix(index) : prefix}${line}`)
+                const replacement = lines.join('\n')
+                textarea.setRangeText(replacement, lineStart, lineEnd, 'select')
+                textarea.selectionStart = lineStart
+                textarea.selectionEnd = lineStart + replacement.length
+                textarea.focus()
+                textarea.dispatchEvent(new Event('input', { bubbles: true }))
+            }
+
+            function markdownToolbar(textarea, page) {
+                const toolbar = element('div', { className: 'markdown-toolbar', role: 'toolbar', 'aria-label': 'Markdown formatting' })
+                const tools = [
+                    ['Bold', 'B', () => applyWrappedSelection(textarea, '**', '**', 'bold text')],
+                    ['Italic', 'I', () => applyWrappedSelection(textarea, '_', '_', 'italic text')],
+                    ['Strikethrough', 'S', () => applyWrappedSelection(textarea, '~~', '~~', 'struck text')],
+                    ['Inline code', '`', () => applyWrappedSelection(textarea, '`', '`', 'code')],
+                    ['Heading', 'H', () => applyLinePrefix(textarea, '## ')],
+                    ['Quote', '❯', () => applyLinePrefix(textarea, '> ')],
+                    ['Bulleted list', '•', () => applyLinePrefix(textarea, '- ')],
+                    ['Numbered list', '1.', () => applyLinePrefix(textarea, index => `${index + 1}. `)],
+                    ['Link', '↗', () => {
+                        const target = window.prompt('Link destination (https://, mailto:, or #page/…):', 'https://')
+                        if (target === null) return
+                        if (!isAllowedLink(target)) return announce('That link destination is not allowed.', 'error')
+                        applyWrappedSelection(textarea, '[', `](${target})`, 'link text')
+                    }],
+                    ['Image', '▧', async () => {
+                        const selectionStart = textarea.selectionStart
+                        const selectionEnd = textarea.selectionEnd
+                        const imported = await importRasterImage()
+                        if (!imported) return
+                        const alt = window.prompt('Describe the image for readers who cannot see it:', imported.asset.name.replace(/\.[^.]+$/, ''))
+                        if (alt === null) return
+                        state.document.assets[imported.id] = imported.asset
+                        textarea.setSelectionRange(selectionStart, selectionEnd)
+                        textarea.setRangeText(`![${alt}](asset:${imported.id})`, selectionStart, selectionEnd, 'end')
+                        textarea.dispatchEvent(new Event('input', { bubbles: true }))
+                        announce(`Embedded ${imported.asset.name}.`, 'dirty')
+                    }]
+                ]
+                for (const [title, text, handler] of tools) toolbar.append(element('button', { type: 'button', title, 'aria-label': title, text, onclick: handler }))
+                return toolbar
+            }
+
+            function renderTextEditor(page) {
+                const panel = element('section', { className: 'editor-panel' })
+                panel.append(panelHeader('Text page', page))
+                const title = element('input', { type: 'text', value: page.title, dataset: { editorTitle: page.id } })
+                const titleField = labeledField('Page title', title)
+                const tabs = element('div', { className: 'editor-tabs', role: 'tablist', 'aria-label': 'Text page view' })
+                const layout = element('div', { className: 'writing-layout', dataset: { tab: state.ui.editorTab } })
+                const writeTab = element('button', { text: 'Write', role: 'tab', 'aria-selected': state.ui.editorTab === 'write' ? 'true' : 'false' })
+                const previewTab = element('button', { text: 'Preview', role: 'tab', 'aria-selected': state.ui.editorTab === 'preview' ? 'true' : 'false' })
+                writeTab.addEventListener('click', () => { state.ui.editorTab = 'write'; layout.dataset.tab = 'write'; writeTab.setAttribute('aria-selected', 'true'); previewTab.setAttribute('aria-selected', 'false') })
+                previewTab.addEventListener('click', () => { state.ui.editorTab = 'preview'; layout.dataset.tab = 'preview'; writeTab.setAttribute('aria-selected', 'false'); previewTab.setAttribute('aria-selected', 'true') })
+                tabs.append(writeTab, previewTab)
+
+                const textarea = element('textarea', { className: 'markdown-editor', value: page.markdown, 'aria-label': `Markdown for ${page.title}`, spellcheck: true })
+                const writing = element('div', { className: 'writing-pane' })
+                writing.append(markdownToolbar(textarea, page), textarea)
+                const preview = element('div', { className: 'preview-pane', role: 'region', 'aria-label': 'Reader preview' })
+                updatePreview(preview, page)
+                layout.append(writing, preview)
+
+                title.addEventListener('input', () => {
+                    editPage(page.id, { title: title.value })
+                    updateRailLabel(page)
+                    updatePreview(preview, page)
+                })
+                textarea.addEventListener('input', () => {
+                    editPage(page.id, { markdown: textarea.value })
+                    updatePreview(preview, page)
+                })
+                panel.append(titleField, tabs, layout)
+                return panel
+            }
+
+            function renderSectionEditor(page) {
+                const panel = element('section', { className: 'editor-panel' })
+                panel.append(panelHeader('Section page', page))
+                const title = element('input', { type: 'text', value: page.title, dataset: { editorTitle: page.id } })
+                const subtitle = element('input', { type: 'text', value: page.subtitle })
+                const preview = element('div', { className: 'preview-pane', role: 'region', 'aria-label': 'Reader preview' })
+                updatePreview(preview, page)
+                title.addEventListener('input', () => { editPage(page.id, { title: title.value }); updateRailLabel(page); updatePreview(preview, page) })
+                subtitle.addEventListener('input', () => { editPage(page.id, { subtitle: subtitle.value }); updatePreview(preview, page) })
+                panel.append(
+                    element('div', { className: 'settings-card form-stack' },
+                        labeledField('Section title', title),
+                        labeledField('Subtitle (optional)', subtitle),
+                        element('p', { className: 'field-hint', text: 'Section pages divide the book’s flat sequence; they are not folders.' })
+                    ), preview
+                )
+                return panel
+            }
+
+            function assetDetails(asset) {
+                if (!asset) return element('p', { className: 'asset-meta', text: 'No image selected.' })
+                const comma = asset.data.indexOf(',')
+                const bytes = comma >= 0 ? Math.floor((asset.data.length - comma - 1) * 0.75) : asset.data.length
+                return element('p', { className: 'asset-meta', text: `${asset.name} · ${asset.mime} · approximately ${formatBytes(bytes)}` })
+            }
+
+            async function replacePictureAsset(page) {
+                const imported = await importRasterImage()
+                if (!imported) return
+                state.document.assets[imported.id] = imported.asset
+                editPage(page.id, { asset: imported.id })
+                renderEditor()
+                announce(`Embedded ${imported.asset.name}.`, 'dirty')
+            }
+
+            function renderPictureEditor(page) {
+                const panel = element('section', { className: 'editor-panel' })
+                panel.append(panelHeader('Picture page', page))
+                const title = element('input', { type: 'text', value: page.title, dataset: { editorTitle: page.id } })
+                const alt = element('input', { type: 'text', value: page.alt, disabled: page.decorative })
+                const decorative = element('input', { type: 'checkbox', checked: page.decorative })
+                const caption = element('textarea', { value: page.caption })
+                const fit = element('select', {}, element('option', { value: 'contain', text: 'Contain — show the whole image' }), element('option', { value: 'cover', text: 'Cover — crop to fill' }))
+                fit.value = page.fit
+                const preview = element('div', { className: 'preview-pane', role: 'region', 'aria-label': 'Reader preview' })
+                updatePreview(preview, page)
+                const currentAsset = assetFor(page.asset)
+                const replace = element('button', { text: currentAsset ? 'Replace image…' : 'Choose image…', onclick: () => replacePictureAsset(page) })
+                const assetCard = element('div', { className: 'asset-card' })
+                assetCard.append(currentAsset ? element('img', { src: currentAsset.data, alt: '' }) : renderMissingAsset('No image selected.'))
+                assetCard.append(element('div', { className: 'form-stack' }, assetDetails(currentAsset), replace))
+
+                title.addEventListener('input', () => { editPage(page.id, { title: title.value }); updateRailLabel(page); updatePreview(preview, page) })
+                alt.addEventListener('input', () => { editPage(page.id, { alt: alt.value }); updatePreview(preview, page) })
+                decorative.addEventListener('change', () => { editPage(page.id, { decorative: decorative.checked }); alt.disabled = decorative.checked; updatePreview(preview, page) })
+                caption.addEventListener('input', () => { editPage(page.id, { caption: caption.value }); updatePreview(preview, page) })
+                fit.addEventListener('change', () => { editPage(page.id, { fit: fit.value }); updatePreview(preview, page) })
+
+                const decorativeLabel = element('label', { className: 'inline-actions' }, decorative, element('span', { text: 'This image is decorative' }))
+                panel.append(
+                    element('div', { className: 'settings-card form-stack' },
+                        labeledField('Page title', title), assetCard,
+                        labeledField('Image description (alt text)', alt, 'Describe meaningful content for readers who cannot see the image.'),
+                        decorativeLabel,
+                        labeledField('Caption (optional)', caption), labeledField('Image fit', fit)
+                    ), preview
+                )
+                return panel
+            }
+
+            async function replaceCoverAsset() {
+                const imported = await importRasterImage()
+                if (!imported) return
+                state.document.assets[imported.id] = imported.asset
+                changeBook({ coverAsset: imported.id })
+                renderEditor()
+                announce(`Embedded ${imported.asset.name} as the cover.`, 'dirty')
+            }
+
+            function renderBookSettings() {
+                const book = state.document.book
+                const panel = element('section', { className: 'editor-panel' })
+                panel.append(panelHeader('Book settings'))
+                const title = element('input', { type: 'text', value: book.title })
+                const subtitle = element('input', { type: 'text', value: book.subtitle })
+                const author = element('input', { type: 'text', value: book.author })
+                const language = element('input', { type: 'text', value: book.language, pattern: '[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*' })
+                const description = element('textarea', { value: book.description })
+                const accent = element('input', { type: 'color', value: book.accent })
+                const coverAlt = element('input', { type: 'text', value: book.coverAlt, disabled: book.coverDecorative })
+                const coverDecorative = element('input', { type: 'checkbox', checked: book.coverDecorative })
+                const cover = assetFor(book.coverAsset)
+                const coverCard = element('div', { className: 'asset-card' })
+                coverCard.append(cover ? element('img', { src: cover.data, alt: '' }) : renderMissingAsset('No cover image selected.'))
+                const coverActions = element('div', { className: 'form-stack' }, assetDetails(cover))
+                const replace = element('button', { text: cover ? 'Replace cover…' : 'Choose cover…', onclick: replaceCoverAsset })
+                coverActions.append(replace)
+                if (cover) {
+                    const remove = element('button', { className: 'danger', text: 'Remove cover', onclick: () => { changeBook({ coverAsset: '' }); renderEditor(); announce('Cover removed.', 'dirty') } })
+                    coverActions.append(remove)
+                }
+                coverCard.append(coverActions)
+
+                title.addEventListener('input', () => {
+                    changeBook({ title: title.value })
+                    document.querySelector('.app-title').textContent = title.value || 'Untitled book'
+                    applyTheme()
+                })
+                subtitle.addEventListener('input', () => changeBook({ subtitle: subtitle.value }))
+                author.addEventListener('input', () => changeBook({ author: author.value }))
+                language.addEventListener('input', () => {
+                    if (isLanguageTag(language.value)) {
+                        language.setCustomValidity('')
+                        changeBook({ language: language.value })
+                        applyTheme()
+                    } else {
+                        language.setCustomValidity('Use a language tag such as en or en-CA.')
+                    }
+                })
+                description.addEventListener('input', () => changeBook({ description: description.value }))
+                accent.addEventListener('input', () => {
+                    if (!isHexColor(accent.value)) return
+                    changeBook({ accent: accent.value })
+                    applyTheme()
+                })
+                coverAlt.addEventListener('input', () => changeBook({ coverAlt: coverAlt.value }))
+                coverDecorative.addEventListener('change', () => {
+                    changeBook({ coverDecorative: coverDecorative.checked })
+                    coverAlt.disabled = coverDecorative.checked
+                })
+
+                const settings = element('div', { className: 'settings-card settings-grid' },
+                    labeledField('Title', title), labeledField('Subtitle', subtitle),
+                    labeledField('Author', author), labeledField('Language', language, 'Use a language tag such as en or en-CA.'),
+                    element('div', { className: 'wide' }, labeledField('Description', description)),
+                    labeledField('Accent color', accent),
+                    element('div', { className: 'field' }, element('span', { className: 'field-label', text: 'Theme' }), element('p', { className: 'field-hint', text: 'Paper — the first release includes one carefully tested theme.' })),
+                    element('div', { className: 'wide' }, element('span', { className: 'field-label', text: 'Cover image' }), coverCard),
+                    element('div', { className: 'wide' }, labeledField('Cover image description', coverAlt)),
+                    element('label', { className: 'inline-actions wide' }, coverDecorative, element('span', { text: 'The cover is decorative' }))
+                )
+                panel.append(settings)
+                return panel
+            }
+
+            function renderEditor() {
+                state.ui.mode = 'editor'
+                const shell = element('div', { className: 'editor-app' })
+                const body = element('div', { className: 'editor-body' })
+                body.append(renderPageRail())
+                const main = element('section', { className: 'editor-main', 'aria-label': 'Editor' })
+                const page = currentPage()
+                if (!page) main.append(renderBookSettings())
+                else if (page.type === 'section') main.append(renderSectionEditor(page))
+                else if (page.type === 'picture') main.append(renderPictureEditor(page))
+                else main.append(renderTextEditor(page))
+                body.append(main)
+                shell.append(editorHeader(), body)
+                replaceContents(app, shell)
+                requestAnimationFrame(() => refreshSaveStatus(false))
+            }
+
+            function enterEditMode() {
+                const route = parseRoute()
+                if (route.kind === 'page' && pageIndex(route.id) >= 0) state.ui.selectedPageId = route.id
+                else if (!state.ui.selectedPageId) state.ui.selectedPageId = state.document.pages[0]?.id || null
+                renderEditor()
+                focusMain()
+            }
+
+            function leaveEditMode() {
+                const selected = state.ui.selectedPageId
+                state.ui.mode = 'reader'
+                if (selected) navigate(`#page/${encodeURIComponent(selected)}`)
+                else navigate('#cover')
+                renderReader()
+                focusMain()
+            }
+
+            function readFileAsDataUrl(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader()
+                    reader.addEventListener('load', () => resolve(String(reader.result)))
+                    reader.addEventListener('error', () => reject(reader.error || new Error('The image could not be read.')))
+                    reader.readAsDataURL(file)
+                })
+            }
+
+            function decodeImage(data) {
+                return new Promise((resolve, reject) => {
+                    const image = new Image()
+                    image.addEventListener('load', () => resolve(image), { once: true })
+                    image.addEventListener('error', () => reject(new Error('The selected file is not a decodable image.')), { once: true })
+                    image.src = data
+                })
+            }
+
+            function chooseImageFile() {
+                return new Promise(resolve => {
+                    const input = element('input', {
+                        type: 'file', accept: 'image/png,image/jpeg,image/gif,image/webp,image/avif',
+                        className: 'visually-hidden', 'data-singlebook-transient': 'true'
+                    })
+                    let settled = false
+                    const finish = file => {
+                        if (settled) return
+                        settled = true
+                        input.remove()
+                        resolve(file || null)
+                    }
+                    input.addEventListener('change', () => finish(input.files?.[0]))
+                    input.addEventListener('cancel', () => finish(null))
+                    document.body.append(input)
+                    input.click()
+                })
+            }
+
+            async function importRasterImage() {
+                const file = await chooseImageFile()
+                if (!file) return null
+                if (!ALLOWED_IMAGE_TYPES.has(file.type)) {
+                    announce('Choose a PNG, JPEG, GIF, WebP, or AVIF image. SVG is not accepted.', 'error')
+                    return null
+                }
+                if (file.size > 10 * 1024 * 1024 && !window.confirm(`${file.name} is ${formatBytes(file.size)} and will make every copy of the book larger. Embed it anyway?`)) return null
+                try {
+                    const data = await readFileAsDataUrl(file)
+                    if (!data.toLowerCase().startsWith(`data:${file.type.toLowerCase()};base64,`)) throw new Error('The image data did not match its declared type.')
+                    await decodeImage(data)
+                    return { id: createId('asset'), asset: { name: file.name, mime: file.type, data } }
+                } catch (error) {
+                    announce(error.message || 'The image could not be embedded.', 'error')
+                    return null
+                }
+            }
+
+            function collectAssetReferences(doc) {
+                const references = new Set()
+                if (doc.book.coverAsset) references.add(doc.book.coverAsset)
+                for (const page of doc.pages) {
+                    if (page.type === 'picture' && page.asset) references.add(page.asset)
+                    if (page.type === 'text') {
+                        const withoutCode = page.markdown
+                            .replace(/```[\s\S]*?```/g, '')
+                            .replace(/`[^`\n]*`/g, '')
+                        const pattern = /!\[[^\]]*\]\(asset:([A-Za-z0-9._~-]+)\)/g
+                        let match
+                        while ((match = pattern.exec(withoutCode))) references.add(match[1])
+                    }
+                }
+
+                const assetIds = Object.keys(doc.assets)
+                const scanUnknownValue = value => {
+                    if (typeof value === 'string') {
+                        for (const id of assetIds) if (value.includes(`asset:${id}`)) references.add(id)
+                    } else if (Array.isArray(value)) {
+                        value.forEach(scanUnknownValue)
+                    } else if (isPlainObject(value)) {
+                        Object.values(value).forEach(scanUnknownValue)
+                    }
+                }
+                const rootKnown = new Set(['format', 'version', 'id', 'book', 'pages', 'assets'])
+                for (const [key, value] of Object.entries(doc)) if (!rootKnown.has(key)) scanUnknownValue(value)
+                const bookKnown = new Set(['title', 'subtitle', 'author', 'language', 'description', 'coverAsset', 'coverAlt', 'coverDecorative', 'theme', 'accent', 'createdAt', 'updatedAt'])
+                for (const [key, value] of Object.entries(doc.book)) if (!bookKnown.has(key)) scanUnknownValue(value)
+                for (const page of doc.pages) {
+                    const known = new Set(page.type === 'text'
+                        ? ['id', 'type', 'title', 'markdown']
+                        : page.type === 'section'
+                            ? ['id', 'type', 'title', 'subtitle']
+                            : ['id', 'type', 'title', 'asset', 'alt', 'caption', 'decorative', 'fit'])
+                    for (const [key, value] of Object.entries(page)) if (!known.has(key)) scanUnknownValue(value)
+                }
+                return references
+            }
+
+            function prepareDocumentForSave(doc) {
+                const copy = deepClone(doc)
+                const references = collectAssetReferences(copy)
+                for (const [id, asset] of Object.entries(copy.assets)) {
+                    if (isSafeAsset(asset) && !references.has(id)) delete copy.assets[id]
+                }
+                return copy
+            }
+
+            function countLiteral(source, needle) {
+                let count = 0
+                let offset = 0
+                while ((offset = source.indexOf(needle, offset)) >= 0) {
+                    count += 1
+                    offset += needle.length
+                }
+                return count
+            }
+
+            function serializeFile(doc) {
+                const prepared = prepareDocumentForSave(doc)
+                const clone = pristineDocument.cloneNode(true)
+                clone.querySelectorAll('[data-singlebook-transient]').forEach(node => node.remove())
+                const blocks = clone.querySelectorAll(`#${DATA_BLOCK_ID}`)
+                if (blocks.length !== 1) throw new Error(`Expected one #${DATA_BLOCK_ID} block; found ${blocks.length}.`)
+                const json = JSON.stringify(prepared, null, 2).replace(/</g, '\\u003c')
+                blocks[0].textContent = `\n${json}\n  `
+                clone.documentElement.lang = prepared.book.language
+                const title = clone.querySelector('title')
+                if (title) title.textContent = `${prepared.book.title || 'Untitled book'} — singlebook`
+                const generator = clone.querySelector('meta[name="generator"]')
+                if (generator) generator.setAttribute('content', `singlebook ${APP_VERSION}`)
+                const html = `<!doctype html>\n${clone.documentElement.outerHTML}`
+                const expectedScripts = clone.querySelectorAll('script').length
+                const actualClosers = countLiteral(html.toLowerCase(), SCRIPT_CLOSE)
+                if (actualClosers !== expectedScripts) throw new Error('Serialization safety check found an unexpected script closing tag.')
+
+                const verification = new DOMParser().parseFromString(html, 'text/html')
+                const verifyBlocks = verification.querySelectorAll(`#${DATA_BLOCK_ID}`)
+                if (verifyBlocks.length !== 1) throw new Error('The serialized file did not retain exactly one document block.')
+                const roundTrip = JSON.parse((verifyBlocks[0].textContent || '').trim())
+                if (JSON.stringify(roundTrip) !== JSON.stringify(prepared)) throw new Error('The serialized document failed its round-trip check.')
+                return { html, prepared }
+            }
+
+            async function pickSaveHandle(doc) {
+                try {
+                    return await window.showSaveFilePicker({
+                        id: 'singlebook-document',
+                        suggestedName: state.persistence.fileName || openedFileName() || suggestedFileName(doc),
+                        types: [{ description: 'singlebook HTML', accept: { 'text/html': ['.singlebook.html'] } }]
+                    })
+                } catch (error) {
+                    if (error && error.name === 'AbortError') return null
+                    throw error
+                }
+            }
+
+            async function writeHandle(handle, html) {
+                const writable = await handle.createWritable()
+                try {
+                    await writable.write(new Blob([html], { type: 'text/html' }))
+                    await writable.close()
+                } catch (error) {
+                    try { await writable.abort?.() } catch (_) {}
+                    throw error
+                }
+            }
+
+            function downloadHtml(html, name) {
+                const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }))
+                const anchor = element('a', { href: url, download: name, 'data-singlebook-transient': 'true' })
+                document.body.append(anchor)
+                anchor.click()
+                anchor.remove()
+                setTimeout(() => URL.revokeObjectURL(url), 5000)
+            }
+
+            function temporaryPersistenceMessage(message, tone = 'saved') {
+                state.persistence.message = message
+                state.persistence.messageTone = tone
+                refreshSaveStatus(true)
+                setTimeout(() => {
+                    if (!state || state.persistence.message !== message) return
+                    state.persistence.message = ''
+                    state.persistence.messageTone = ''
+                    refreshSaveStatus(false)
+                }, 5000)
+            }
+
+            function confirmAccessibleImagesBeforeSave() {
+                const missing = []
+                const book = state.document.book
+                if (book.coverAsset && !book.coverDecorative && !book.coverAlt.trim()) missing.push('the cover')
+                for (const page of state.document.pages) {
+                    if (page.type === 'picture' && page.asset && !page.decorative && !page.alt.trim()) {
+                        missing.push(`“${page.title || 'Untitled picture'}”`)
+                    }
+                    if (page.type === 'text' && /!\[\s*\]\(asset:[A-Za-z0-9._~-]+\)/.test(page.markdown)) {
+                        missing.push(`an inline image on “${page.title || 'Untitled page'}”`)
+                    }
+                }
+                if (!missing.length) return true
+                return window.confirm(`The following image${missing.length === 1 ? ' has' : 's have'} no description: ${missing.join(', ')}.\n\nSave anyway?`)
+            }
+
+            async function saveDocument() {
+                if (state.persistence.saving) return
+                if (!confirmAccessibleImagesBeforeSave()) {
+                    announce('Save cancelled. Add image descriptions or mark decorative images.', 'error', true)
+                    return
+                }
+                state.persistence.saving = true
+                state.persistence.error = ''
+                state.persistence.message = ''
+                state.persistence.messageTone = ''
+                refreshSaveStatus(true)
+                const revision = state.persistence.revision
+                let outcome = ''
+                let outcomeTone = 'saved'
+                try {
+                    const serialized = serializeFile(state.document)
+                    if (canWriteInPlace()) {
+                        let handle = state.persistence.fileHandle
+                        if (!handle) handle = await pickSaveHandle(serialized.prepared)
+                        if (!handle) {
+                            outcome = 'Save cancelled.'
+                            outcomeTone = 'neutral'
+                            return
+                        }
+                        await writeHandle(handle, serialized.html)
+                        state.persistence.fileHandle = handle
+                        state.persistence.fileName = handle.name
+                        state.persistence.persistedRevision = revision
+                        outcome = `Saved to ${handle.name}.`
+                    } else {
+                        const name = suggestedFileName(serialized.prepared)
+                        downloadHtml(serialized.html, name)
+                        state.persistence.persistedRevision = revision
+                        outcome = 'Updated copy downloaded; the open file was not changed.'
+                    }
+                } catch (error) {
+                    console.error(error)
+                    state.persistence.error = `Save failed: ${error.message || 'Unknown error'}`
+                } finally {
+                    state.persistence.saving = false
+                    if (outcome) temporaryPersistenceMessage(outcome, outcomeTone)
+                    else refreshSaveStatus(true)
+                }
+            }
+
+            // 10. Fatal recovery
+            function renderFatal(error) {
+                if (splash) splash.remove()
+                document.getElementById('singlebook-save-notice')?.remove()
+                const copy = element('button', {
+                    text: 'Copy raw document JSON', onclick: async () => {
+                        await copyText(rawEmbeddedText)
+                        announce('Raw document JSON copied.', 'saved')
+                    }
+                })
+                const reload = element('button', { text: 'Reload file', onclick: () => location.reload() })
+                const raw = element('textarea', { className: 'raw-json', value: rawEmbeddedText, readOnly: true, 'aria-label': 'Raw document JSON' })
+                replaceContents(app, element('section', { className: 'fatal-screen' },
+                    element('p', { className: 'cover-kicker', text: 'singlebook could not open' }),
+                    element('h1', { text: 'This book needs attention' }),
+                    element('p', { text: 'The editor did not change the file. You can copy its raw document data before trying a newer editor or repairing the JSON.' }),
+                    element('p', { className: 'fatal-details', text: error.message || String(error) }),
+                    element('div', { className: 'inline-actions' }, copy, reload), raw
+                ))
+                app.focus()
+            }
+
+            // 11. Boot and global events
+            function boot() {
+                try {
+                    const normalized = normalizeDocument(readEmbeddedDocument())
+                    state = {
+                        document: normalized.document,
+                        warnings: normalized.warnings,
+                        ui: {
+                            mode: 'reader',
+                            selectedPageId: normalized.document.pages[0]?.id || null,
+                            editorTab: 'write',
+                            railOpen: false
+                        },
+                        persistence: {
+                            revision: 0,
+                            persistedRevision: 0,
+                            saving: false,
+                            fileHandle: null,
+                            fileName: openedFileName(),
+                            error: '',
+                            message: '',
+                            messageTone: ''
+                        }
+                    }
+                    applyTheme()
+                    if (splash) splash.remove()
+                    renderReader()
+                    noticeIfCannotWriteInPlace()
+                    if (normalized.warnings.length) {
+                        console.warn('singlebook document warnings:', normalized.warnings)
+                        requestAnimationFrame(() => announce(`${normalized.warnings.length} document warning${normalized.warnings.length === 1 ? '' : 's'}; details are in the browser console.`, 'error'))
+                    }
+                } catch (error) {
+                    console.error(error)
+                    renderFatal(error)
+                }
+            }
+
+            window.addEventListener('hashchange', () => {
+                if (!state || state.ui.mode !== 'reader') return
+                renderReader()
+                focusMain()
+            })
+
+            window.addEventListener('keydown', event => {
+                if (!state) return
+                if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 's') {
+                    event.preventDefault()
+                    saveDocument()
+                    return
+                }
+                if (state.ui.mode !== 'reader' || event.metaKey || event.ctrlKey || event.altKey || isTextEntryTarget(event.target)) return
+                if (event.key === 'ArrowRight') navigateRelative(1)
+                if (event.key === 'ArrowLeft') navigateRelative(-1)
+            })
+
+            window.addEventListener('beforeunload', event => {
+                if (!state || !isDirty()) return
+                event.preventDefault()
+                event.returnValue = ''
+            })
+
+            boot()
+        })()
+    </script></body></html>

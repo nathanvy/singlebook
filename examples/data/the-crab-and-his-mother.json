@@ -1,0 +1,28 @@
+{
+  "format": "singlebook",
+  "version": 1,
+  "id": "book-the-crab-and-his-mother",
+  "book": {
+    "title": "The Crab and His Mother",
+    "subtitle": "A fable",
+    "author": "Aesop, translated by V. S. Vernon Jones",
+    "language": "en",
+    "description": "A brief fable about example and hypocrisy.",
+    "coverAsset": "",
+    "coverAlt": "",
+    "coverDecorative": false,
+    "theme": "paper",
+    "accent": "#9b3a32",
+    "createdAt": "2026-09-28T00:00:00.000Z",
+    "updatedAt": "2026-09-28T00:00:00.000Z"
+  },
+  "pages": [
+    {
+      "id": "page-the-crab-and-his-mother",
+      "type": "text",
+      "title": "The Crab and His Mother",
+      "markdown": "An Old Crab said to her son, “Why do you walk sideways like that, my son? You ought to walk straight.” The Young Crab replied, “Show me how, dear mother, and I’ll follow your example.” The Old Crab tried, but tried in vain, and then saw how foolish she had been to find fault with her child."
+    }
+  ],
+  "assets": {}
+}
